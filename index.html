@@ -3,12 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lumi · MenteSana</title>
-<meta name="description" content="Lumi es el acompañante con IA de MenteSana: escucha a los universitarios a cualquier hora y los acompaña hasta el psicólogo de su universidad. Misión, visión, ODS e impacto.">
+<title>Lumi · Acompañante de salud mental para universitarios | MenteSana</title>
+<meta name="description" content="Lumi es el acompañante con IA de MenteSana: escucha a los universitarios a cualquier hora y los acompaña hasta el servicio de psicología de su universidad. En desarrollo: pide tu prueba.">
 <meta name="theme-color" content="#C8B6EE">
-<meta property="og:title" content="Lumi · MenteSana">
-<meta property="og:description" content="Alguien que te escucha, a cualquier hora.">
-<meta property="og:image" content="assets/lumi_ninguno.webp">
+<link rel="canonical" href="https://juanpradomts-dev.github.io/mentesana/">
+<link rel="preload" href="https://fonts.gstatic.com/s/fredoka/v17/X7n64b87HvSqjb_WIi2yDCRwoQ_k7367_DWu89U.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofINeaB.woff2" as="font" type="font/woff2" crossorigin>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MenteSana">
+<meta property="og:locale" content="es_PE">
+<meta property="og:url" content="https://juanpradomts-dev.github.io/mentesana/">
+<meta property="og:title" content="Lumi · Alguien que te escucha, a cualquier hora">
+<meta property="og:description" content="El acompañante con IA de MenteSana que te lleva al psicólogo de tu universidad. En desarrollo: pide tu prueba.">
+<meta property="og:image" content="https://juanpradomts-dev.github.io/mentesana/assets/compartir.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lumi, la mascota de MenteSana, junto al texto: Alguien que te escucha, a cualquier hora">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lumi · Alguien que te escucha, a cualquier hora">
+<meta name="twitter:description" content="El acompañante con IA de MenteSana que te lleva al psicólogo de tu universidad.">
+<meta name="twitter:image" content="https://juanpradomts-dev.github.io/mentesana/assets/compartir.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://juanpradomts-dev.github.io/mentesana/#org","name":"MenteSana","url":"https://juanpradomts-dev.github.io/mentesana/","logo":"https://juanpradomts-dev.github.io/mentesana/assets/logo_icono.svg","email":"mentesanalumi@gmail.com","description":"Startup peruana de salud mental universitaria. Su producto, Lumi, es un acompañante con IA para universitarios.","areaServed":"PE"},{"@type":"WebSite","@id":"https://juanpradomts-dev.github.io/mentesana/#web","url":"https://juanpradomts-dev.github.io/mentesana/","name":"Lumi · MenteSana","inLanguage":"es-PE","publisher":{"@id":"https://juanpradomts-dev.github.io/mentesana/#org"}}]}</script>
 <link rel="icon" href="assets/logo_icono.svg" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
@@ -281,6 +296,14 @@ html{scroll-padding-top:90px}
 .cierre-o{margin-top:26px;font-weight:700}
 .contacto .correo{margin-top:10px}
 
+
+/* Correcciones de marketing (17-nov) */
+.insignia{display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid var(--tinta);border-radius:999px;padding:6px 14px;font:700 .9rem var(--display);margin-bottom:18px}
+.insignia i{width:10px;height:10px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 0 rgba(255,122,92,.6);animation:latido calc(1.8s*var(--vel)) infinite}
+@keyframes latido{70%{box-shadow:0 0 0 8px rgba(255,122,92,0)}100%{box-shadow:0 0 0 0 rgba(255,122,92,0)}}
+.repite{text-align:center;margin-top:48px}
+.cab a.urg{color:var(--tinta)!important}
+.problema .etq{color:var(--tinta)}
 </style>
 <script>document.documentElement.lang='es'</script>
 
@@ -289,7 +312,7 @@ html{scroll-padding-top:90px}
   <a class="logo" href="#inicio"><img src="assets/logo_icono.svg" alt="">Lumi</a>
   <a class="l" href="#que">Qué es</a><a class="l" href="#como">Cómo funciona</a><a class="l" href="#mision">Misión</a><a class="l" href="#impacto">Impacto</a>
   <a class="l cta" href="#contacto">Contacto</a>
-  <a class="l urg" href="#ayuda" title="Ayuda urgente: Línea 113, opción 5">113</a>
+  <a class="l urg" href="#ayuda" title="Ayuda urgente: Línea 113, opción 5">Ayuda 113</a>
 </nav></header>
 
 <main>
@@ -302,9 +325,10 @@ html{scroll-padding-top:90px}
   <span class="forma chispa titila" style="left:8%;bottom:16%;animation-delay:-1s;background:#fff" aria-hidden="true"></span>
   <div class="env">
     <div>
-      <h1><span class="pal c1" style="animation-delay:.05s">Alguien</span> <span class="pal c1" style="animation-delay:.15s">que</span> <span class="pal c1 subrayado" style="animation-delay:.25s">te escucha<svg viewBox="0 0 200 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 20 C 50 6, 120 6, 196 16"/></svg></span><span class="pal c1" style="animation-delay:.35s">,</span> <span class="pal c1" style="animation-delay:.45s">a</span> <span class="pal c1" style="animation-delay:.55s">cualquier</span> <span class="pal c1" style="animation-delay:.65s">hora</span></h1>
+      <span class="insignia c1"><i></i>En desarrollo · pide tu prueba</span>
+      <h1 aria-label="Alguien que te escucha, a cualquier hora"><span class="pal c1" style="animation-delay:.05s">Alguien</span> <span class="pal c1" style="animation-delay:.15s">que</span> <span class="pal c1 subrayado" style="animation-delay:.25s">te escucha<svg viewBox="0 0 200 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 20 C 50 6, 120 6, 196 16"/></svg></span><span class="pal c1" style="animation-delay:.35s">,</span> <span class="pal c1" style="animation-delay:.45s">a</span> <span class="pal c1" style="animation-delay:.55s">cualquier</span> <span class="pal c1" style="animation-delay:.65s">hora</span></h1>
       <p class="c1" style="animation-delay:.8s">Lumi es el acompañante con IA de MenteSana. Escucha a los universitarios sin juicios y los acompaña hasta el psicólogo de su propia universidad.</p>
-      <div class="botones c1" style="animation-delay:.95s"><a class="btn amarillo" href="#que">Conoce a Lumi</a><a class="btn blanco" href="#impacto">Nuestro impacto</a></div>
+      <div class="botones c1" style="animation-delay:.95s"><a class="btn amarillo" href="#contacto">Quiero probar a Lumi</a><a class="btn blanco" href="#como">Cómo funciona</a></div>
     </div>
     <div class="escena" aria-hidden="true">
       <div class="fondo blob morfo"></div>
@@ -388,6 +412,7 @@ html{scroll-padding-top:90px}
       <article class="paso" data-a="sube" style="--d:2"><span class="num">2</span><div class="ventana"><img src="assets/pantalla_chat.webp" alt="Conversación con Lumi" loading="lazy"></div><h3>Conversa</h3><p>Lumi escucha y propone algo pequeño.</p></article>
       <article class="paso" data-a="sube" style="--d:4"><span class="num">3</span><div class="ventana"><img src="assets/pantalla_apoyo.webp" alt="Pantalla de apoyo profesional" loading="lazy"></div><h3>Llega</h3><p>Al psicólogo de tu universidad, cuando tú decidas.</p></article>
     </div>
+    <div class="repite" data-a="pop"><a class="btn amarillo" href="#contacto">Quiero probar a Lumi</a></div>
   </div>
 </section>
 
@@ -396,7 +421,7 @@ html{scroll-padding-top:90px}
   <span class="forma anillo gira" style="width:160px;height:160px;color:#fff;left:-40px;top:40px;opacity:.7" aria-hidden="true"></span>
   <div class="env">
     <span class="etq" data-a="pop">Lo que hace Lumi</span>
-    <h2 class="h2" data-a="sube">Cuatro cosas, todos los días</h2>
+    <h2 class="h2" data-a="sube">Lumi escucha, orienta y te acompaña</h2>
     <div class="cuatro">
       <div data-a="tumbo" style="--d:0"><img class="sticker flota" src="assets/lumi_audifonos.webp" alt="" loading="lazy" style="animation-delay:-1s"><h3>Escuchar</h3><p>Sin juicios y a cualquier hora.</p></div>
       <div data-a="tumbo" style="--d:2"><img class="sticker flota" src="assets/lumi_lentes.webp" alt="" loading="lazy" style="animation-delay:-2.5s"><h3>Orientar</h3><p>Pasos pequeños y concretos.</p></div>
