@@ -53,6 +53,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .cabecera nav{margin-left:auto;display:flex;gap:6px}
 .cabecera nav a{text-decoration:none;font-weight:700;font-size:.95rem;padding:8px 14px;border-radius:999px;transition:background .2s}
 .cabecera nav a:hover{background:var(--menta-clara)}
+.cabecera nav a{white-space:nowrap}
+@media (max-width:1100px){.cabecera nav a:not(.urgente-nav):not(.boton-nav):not([href="#contacto"]){display:none}}
 @media (max-width:760px){.cabecera nav a:not(.urgente-nav){display:none}}
 .boton-nav{background:var(--verde-oscuro);color:#fff}
 .cabecera nav .urgente-nav{display:inline-flex;align-items:center;gap:6px;color:var(--coral-oscuro);background:#FFF0EB}
@@ -265,10 +267,11 @@ html:not(.js) .telefono img:not(:first-child){display:none}
 @media (max-width:760px){.contacto .envoltura{grid-template-columns:1fr;justify-items:center;text-align:center}.canales{justify-content:center}}
 .contacto img{width:min(100%,240px);height:auto}
 .contacto .seccion-bajada{color:#E6DEFA}
-.canales{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:12px}
-.canales a{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--morado);font-weight:800;text-decoration:none;padding:14px 22px;border-radius:999px;transition:background .2s}
-.canales a:hover{background:var(--lila-clara)}
-.canales span{font-weight:600;color:var(--tinta-2)}
+.correo{margin-top:28px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;background:#fff;color:var(--morado);border-radius:20px;padding:12px 12px 12px 20px;max-width:100%}
+.correo span{font-weight:800;font-size:clamp(1rem,.9rem + .6vw,1.25rem);user-select:all;overflow-wrap:anywhere;color:var(--tinta)}
+.correo button{font:800 .95rem/1 Nunito,system-ui,sans-serif;background:var(--morado);color:#fff;border:0;border-radius:999px;padding:12px 18px;cursor:pointer;transition:background .2s}
+.correo button:hover{background:#4A3685}
+.estado-copia{min-height:1.4em;margin-top:8px;font-weight:700;color:var(--luz)}
 .nota-contacto{margin-top:18px;font-size:.88rem;color:#D4C8F2}
 
 /* Pie */
@@ -298,6 +301,7 @@ html:not(.js) .telefono img:not(:first-child){display:none}
       <a href="#camino">Cómo funciona</a>
       <a href="#promesas">Privacidad</a>
       <a href="#preguntas">Preguntas</a>
+      <a href="#contacto">Contacto</a>
       <a class="urgente-nav" href="#ayuda-urgente"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg>Ayuda urgente</a>
       <a class="boton-nav" href="#tu-lumi">Crea tu Lumi</a>
     </nav>
@@ -569,13 +573,18 @@ html:not(.js) .telefono img:not(:first-child){display:none}
 </section>
 
 <!-- CONTACTO -->
-<section class="contacto" id="contacto" aria-labelledby="titulo-contacto" data-contacto hidden>
+<section class="contacto" id="contacto" aria-labelledby="titulo-contacto">
   <div class="envoltura">
     <img src="assets/lumi_audifonos.webp" alt="" width="560" height="560" loading="lazy">
     <div>
       <h2 class="seccion-titulo" id="titulo-contacto">Conversemos</h2>
       <p class="seccion-bajada">¿Tienes preguntas sobre Lumi, eres de una universidad o trabajas en salud mental? Escríbenos.</p>
-      <ul class="canales" id="canales"></ul>
+      <div class="correo">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+        <span id="correoTexto">mentesanalumi@gmail.com</span>
+        <button type="button" id="copiarCorreo">Copiar</button>
+      </div>
+      <p class="estado-copia" id="estadoCopia" role="status" aria-live="polite"></p>
       <p class="nota-contacto">Este canal no atiende emergencias. Si estás en peligro, llama a la Línea 113, opción 5.</p>
     </div>
   </div>
@@ -612,6 +621,7 @@ html:not(.js) .telefono img:not(:first-child){display:none}
     <p class="aviso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg>
       <span>Si sientes que estás en peligro o que podrías hacerte daño, llama gratis a la <a href="tel:113">Línea 113, opción 5</a>. Para emergencias médicas, SAMU <a href="tel:106">106</a>.</span></p>
     <p>Lumi orienta, no reemplaza a un psicólogo. MenteSana está en desarrollo y todavía no está disponible.</p>
+    <p>Contacto: <span class="correo-pie">mentesanalumi@gmail.com</span></p>
     <small>MenteSana · El puente entre lo que sientes y la ayuda que necesitas</small>
   </div>
 </footer>
@@ -717,21 +727,20 @@ html:not(.js) .telefono img:not(:first-child){display:none}
     else { cambiar(); vit.classList.remove('pop'); void vit.offsetWidth; vit.classList.add('pop'); }
   });
 
-  // Contacto: agrega aquí los canales; la sección aparece cuando hay al menos uno.
-  // Ejemplo: { nombre: 'Instagram', texto: '@mentesana', url: 'https://instagram.com/mentesana' }
-  const CONTACTOS = [];
-  if (CONTACTOS.length) {
-    const ul = document.getElementById('canales');
-    CONTACTOS.forEach(c => {
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = c.url; a.target = '_blank'; a.rel = 'noopener';
-      a.textContent = c.nombre + ' ';
-      const sp = document.createElement('span'); sp.textContent = c.texto; a.appendChild(sp);
-      li.appendChild(a); ul.appendChild(li);
-    });
-    document.querySelectorAll('[data-contacto]').forEach(el => { el.hidden = false; });
-  }
+  // Contacto: copiar el correo (si el portapapeles falla, se selecciona el texto)
+  const correo = document.getElementById('correoTexto'), estado = document.getElementById('estadoCopia');
+  document.getElementById('copiarCorreo').addEventListener('click', () => {
+    const seleccionar = () => {
+      const r = document.createRange(); r.selectNodeContents(correo);
+      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      estado.textContent = 'Seleccionado: cópialo con Ctrl+C o mantén presionado.';
+    };
+    try {
+      navigator.clipboard.writeText(correo.textContent.trim())
+        .then(() => { estado.textContent = 'Correo copiado.'; })
+        .catch(seleccionar);
+    } catch (e) { seleccionar(); }
+  });
 
   // Anuncio: se reproduce solo si el sistema no pide menos movimiento
   const video = document.getElementById('video');
