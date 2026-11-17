@@ -1,11 +1,12 @@
-# Lumi · MenteSana
+# MenteSana
 
-Página de presentación de Lumi, el acompañante de MenteSana: escucha a los universitarios a cualquier hora y, cuando lo necesitan, los lleva al psicólogo de su universidad.
+Web de MenteSana, startup peruana de salud mental universitaria. Nuestro producto, **Lumi**, es un acompañante con IA que escucha a los estudiantes a cualquier hora y los lleva al servicio de psicología de su propia universidad.
 
 *El puente entre lo que sientes y la ayuda que necesitas.*
 
-- Página: `index.html` (HTML, CSS y JS sin dependencias; letra Nunito de Google Fonts).
-- Imágenes, pantallas del prototipo y anuncio en `assets/`.
-- Prototipo del Científica Sprint 2026 (Universidad Científica del Sur). Lumi orienta, no reemplaza a un psicólogo.
+- Web: https://juanpradomts-dev.github.io/mentesana/
+- Página: `index.html` (HTML, CSS y JS sin dependencias; letras de Google Fonts).
+- Imágenes y pantallas del prototipo en `assets/`.
+- Contacto: mentesanalumi@gmail.com
 
-Equipo: Juan, Williams, Nick y Yasuri.
+Lumi orienta, no reemplaza a un psicólogo. MenteSana está en desarrollo.
