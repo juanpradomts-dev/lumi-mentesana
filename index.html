@@ -83,8 +83,8 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
 .cab .logo img{width:28px;border-radius:8px}
 .cab a.l{text-decoration:none;font-weight:800;font-size:.92rem;padding:8px 12px;border-radius:999px;white-space:nowrap}
 .cab a.l:hover{background:var(--lila-2)}
-.cab a.urg{background:var(--coral);color:#fff}
-@media (max-width:760px){.cab a.l:not(.urg){display:none}}
+.cab a.cta{background:var(--amarillo);border:2px solid var(--tinta);margin-left:6px}.cab a.cta:hover{background:#FFE48F}.cab a.urg{display:inline-flex;align-items:center;gap:6px;background:var(--coral);color:#fff;margin-left:4px}.cab a.urg::before{content:"";width:14px;height:14px;background:currentColor;clip-path:polygon(50% 0,100% 100%,0 100%)}
+@media (max-width:760px){.cab a.l:not(.urg):not(.cta){display:none}}
 
 /* 1 · Portada */
 .portada{background:var(--lila);min-height:max(700px,100svh);display:grid;align-items:center;padding:120px 0 90px}
@@ -150,16 +150,8 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
 .cuatro h3{font-size:1.8rem;margin-top:10px}
 .cuatro p{margin-top:4px;font-weight:700}
 
-/* 6 · ODS */
-.ods{background:var(--crema)}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
-@media (max-width:860px){.tiles{grid-template-columns:1fr}}
-.tile{background:var(--ods);color:#fff;border-radius:30px;padding:32px;border:3px solid var(--tinta);box-shadow:8px 8px 0 var(--tinta)}
-.tile b{display:block;font:700 6rem/.9 var(--display)}
-.tile h3{font-size:1.6rem;margin-top:10px}
-.tile p{margin-top:8px;font-weight:700;opacity:.95}
+.ods-extra{margin-top:56px;padding-top:28px;border-top:2px dashed rgba(255,255,255,.25)}.ods-extra p{font-weight:700;color:#CDE8DE}.ods-extra ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:12px}.ods-extra li{display:flex;align-items:center;gap:10px;background:#fff;color:var(--tinta);border-radius:999px;padding:6px 16px 6px 6px;font-weight:800}.ods-extra li b{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--ods);color:#fff;font:700 1.1rem var(--display)}
 .o3{--ods:#4C9F38}.o4{--ods:#C5192D}.o10{--ods:#DD1367}
-
 /* 7 · Impacto */
 .impacto{background:var(--tinta);color:#fff}
 .impacto .etq{background:var(--coral)}
@@ -198,8 +190,9 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
 
 <header class="cab"><nav aria-label="Secciones">
   <a class="logo" href="#inicio"><img src="assets/logo_icono.svg" alt="">Lumi</a>
-  <a class="l" href="#que">Qué es</a><a class="l" href="#mision">Misión</a><a class="l" href="#ods">ODS</a><a class="l" href="#impacto">Impacto</a><a class="l" href="#contacto">Contacto</a>
-  <a class="l urg" href="#contacto">Ayuda urgente</a>
+  <a class="l" href="#que">Qué es</a><a class="l" href="#como">Cómo funciona</a><a class="l" href="#mision">Misión</a><a class="l" href="#impacto">Impacto</a>
+  <a class="l cta" href="#contacto">Contacto</a>
+  <a class="l urg" href="#ayuda" title="Ayuda urgente: Línea 113, opción 5">113</a>
 </nav></header>
 
 <main>
@@ -274,6 +267,14 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
       <article><svg class="ico" data-a="tumbo" viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="40" fill="#C8B6EE"/><path d="M42 18l7 16 17 2-13 11 4 17-15-9-15 9 4-17-13-11 17-2z" fill="#FFD86B"/></svg>
         <div><h3 data-a="barre">Visión</h3><p data-a="barre" style="--d:1">Ser, al 2030, el primer paso hacia la ayuda psicológica en las universidades del Perú y de Latinoamérica.</p></div></article>
     </div>
+    <div class="ods-extra" data-a="sube" style="--d:2">
+      <p>Además, Lumi contribuye a tres Objetivos de Desarrollo Sostenible:</p>
+      <ul>
+        <li class="o3"><b>3</b><span>Salud y bienestar</span></li>
+        <li class="o4"><b>4</b><span>Educación de calidad</span></li>
+        <li class="o10"><b>10</b><span>Reducción de las desigualdades</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -288,20 +289,6 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
       <div data-a="tumbo" style="--d:2"><img class="sticker flota" src="assets/lumi_lentes.webp" alt="" loading="lazy" style="animation-delay:-2.5s"><h3>Orientar</h3><p>Pasos pequeños y concretos.</p></div>
       <div data-a="tumbo" style="--d:4"><img class="sticker flota" src="assets/lumi_gorro.webp" alt="" loading="lazy" style="animation-delay:-4s"><h3>Acompañar</h3><p>Hasta el psicólogo de tu universidad.</p></div>
       <div data-a="tumbo" style="--d:6"><img class="sticker flota" src="assets/lumi_flor.webp" alt="" loading="lazy" style="animation-delay:-5.5s"><h3>Normalizar</h3><p>Que pedir ayuda no sea tabú.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 6 · ODS -->
-<section class="slide ods" id="ods">
-  <span class="forma chispa titila" style="right:12%;top:14%;background:var(--coral)" aria-hidden="true"></span>
-  <div class="env">
-    <span class="etq" data-a="pop">Objetivos de Desarrollo Sostenible</span>
-    <h2 class="h2" data-a="sube">Los ODS que atacamos</h2>
-    <div class="tiles">
-      <article class="tile o3" data-a="voltea" style="--d:0"><b>3</b><h3>Salud y bienestar</h3><p>Meta 3.4: promover la salud mental y el bienestar.</p></article>
-      <article class="tile o4" data-a="voltea" style="--d:2"><b>4</b><h3>Educación de calidad</h3><p>Que la salud mental no sea la razón para dejar los estudios.</p></article>
-      <article class="tile o10" data-a="voltea" style="--d:4"><b>10</b><h3>Reducción de las desigualdades</h3><p>Apoyo psicológico al alcance de todos los estudiantes.</p></article>
     </div>
   </div>
 </section>
@@ -332,13 +319,6 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
       <div data-a="pop" style="--d:3"><b><span data-cuenta="6978">6 978</span></b><p>estudiantes respondieron el estudio.</p></div>
     </div>
     <p class="fuente">Consorcio de Universidades (2025), II Estudio de Salud Mental en Universitarios, tres universidades privadas de Lima.</p>
-    <p class="sub" data-a="sube">Lo que ya comprobamos</p>
-    <div class="nums">
-      <div data-a="pop" style="--d:0"><b><span data-cuenta="13">13</span> de 15</b><p>estudiantes entrevistados confirmaron el problema.</p></div>
-      <div data-a="pop" style="--d:1"><b>Ninguno</b><p>de los entrevistados logró usar el servicio de su universidad.</p></div>
-      <div data-a="pop" style="--d:2"><b><span data-cuenta="17">17</span> mil</b><p>estudiantes solo en la Científica, nuestra primera universidad.</p></div>
-      <div data-a="pop" style="--d:3"><b><span data-cuenta="2">2</span> versiones</b><p>del prototipo, probado con estudiantes.</p></div>
-    </div>
     <p class="sub" data-a="sube">Lo que Lumi va a cambiar</p>
     <div class="metas">
       <span data-a="pop" style="--d:0">Más estudiantes llegan al psicólogo</span>
@@ -365,7 +345,7 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
 </section>
 </main>
 
-<footer class="pie"><p><b>¿Necesitas ayuda ahora?</b> Llama gratis a la Línea 113, opción 5, a toda hora. Emergencias: SAMU 106.</p><p style="margin-top:8px">Lumi es un producto de MenteSana. Orienta, no reemplaza a un psicólogo.</p></footer>
+<footer class="pie" id="ayuda"><p><b>¿Necesitas ayuda ahora?</b> Llama gratis a la Línea 113, opción 5, a toda hora. Emergencias: SAMU 106.</p><p style="margin-top:8px">Lumi es un producto de MenteSana. Orienta, no reemplaza a un psicólogo.</p></footer>
 <button class="pausa" id="pausa" type="button" aria-pressed="false">Pausar animaciones</button>
 
 <script>
