@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="s&#195;&#173;mbolo" clip-path="url(#clip0_0_4)">
+<path id="Vector" d="M23 0H11C4.92487 0 0 4.92487 0 11V23C0 29.0751 4.92487 34 11 34H23C29.0751 34 34 29.0751 34 23V11C34 4.92487 29.0751 0 23 0Z" fill="#1F7F66"/>
+<path id="Vector_2" d="M9 21.5C9 16.5 12.6 12.5 17 12.5C21.4 12.5 25 16.5 25 21.5" stroke="#FFFBF6" stroke-width="2.6" stroke-linecap="round"/>
+<path id="Vector_3" d="M17 12.5C17 9.5 18.2 7.5 20.6 6.1C21.6 8.7 20.8 11.1 17 12.5Z" fill="#8FDCC2"/>
+<path id="Vector_4" d="M17 12.5C16.4 10.1 14.8 8.7 12.4 8.5C12.6 10.9 14.2 12.3 17 12.5Z" fill="#C8B6EE"/>
+<path id="Vector_5" d="M13.5 22.4C14.2732 22.4 14.9 21.7732 14.9 21C14.9 20.2268 14.2732 19.6 13.5 19.6C12.7268 19.6 12.1 20.2268 12.1 21C12.1 21.7732 12.7268 22.4 13.5 22.4Z" fill="#FFFBF6"/>
+<path id="Vector_6" d="M20.5 22.4C21.2732 22.4 21.9 21.7732 21.9 21C21.9 20.2268 21.2732 19.6 20.5 19.6C19.7268 19.6 19.1 20.2268 19.1 21C19.1 21.7732 19.7268 22.4 20.5 22.4Z" fill="#FFFBF6"/>
+</g>
+<defs>
+<clipPath id="clip0_0_4">
+<rect width="34" height="34" fill="white"/>
+</clipPath>
+</defs>
+</svg>
