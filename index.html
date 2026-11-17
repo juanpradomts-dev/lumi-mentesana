@@ -184,6 +184,70 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
 .pie{background:var(--tinta);color:#CFCBE3;padding:40px 0;text-align:center;font-size:.95rem}
 .pie b{color:#fff}
 .pausa{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:30;font:700 .85rem var(--texto);background:#fff;border:2px solid var(--tinta);border-radius:999px;padding:8px 14px;cursor:pointer;box-shadow:3px 3px 0 var(--tinta)}
+
+/* ===== Ronda «estructura de páginas top» (v12) ===== */
+
+/* Lumi vivo: el vector original animado por partes */
+.lumi-vivo{position:absolute;left:15%;top:3%;z-index:2;width:70%;height:auto;overflow:visible;cursor:pointer;filter:drop-shadow(0 0 0 #fff) drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff) drop-shadow(0 16px 20px rgba(30,27,46,.18))}
+.lumi-vivo .cuerpo{transform-box:view-box;transform-origin:80px 140px;animation:rebota calc(3.2s*var(--vel)) ease-in-out infinite}
+.lumi-vivo .hojas{transform-box:view-box;transform-origin:81px 36px;animation:mece calc(2.8s*var(--vel)) ease-in-out infinite}
+.lumi-vivo .ojos{transform-box:view-box;transform-origin:80px 88px;animation:parpadea calc(4.2s*var(--vel)) infinite}
+.lumi-vivo .mirada{transition:transform .25s ease-out}
+.lumi-vivo .cola{transform-box:view-box;transform-origin:104px 124px;animation:mece-cola calc(2.4s*var(--vel)) ease-in-out infinite}
+.lumi-vivo .sombra{transform-box:view-box;transform-origin:80px 148px;animation:sombra calc(3.2s*var(--vel)) ease-in-out infinite}
+.lumi-vivo.salta .cuerpo{animation:salto .6s cubic-bezier(.3,1.6,.5,1)}
+@keyframes rebota{0%,100%{transform:translateY(0) scale(1,1)}45%{transform:translateY(-7px) scale(.98,1.02)}55%{transform:translateY(-7px) scale(.98,1.02)}90%{transform:translateY(0) scale(1.03,.97)}}
+@keyframes sombra{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.85)}}
+@keyframes mece{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(8deg)}}
+@keyframes mece-cola{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@keyframes parpadea{0%,46%,52%,100%{transform:scaleY(1)}49%{transform:scaleY(.08)}}
+@keyframes salto{0%{transform:translateY(0)}40%{transform:translateY(-34px) scale(.95,1.06)}75%{transform:translateY(0) scale(1.06,.94)}100%{transform:none}}
+.corazon{position:absolute;z-index:5;pointer-events:none;font-size:1.6rem;color:var(--coral)}
+.toca{position:absolute;z-index:4;left:50%;bottom:-2%;translate:-50% 0;font:700 .85rem var(--display);background:#fff;border:2px solid var(--tinta);border-radius:999px;padding:4px 12px;white-space:nowrap}
+
+/* 2 · El problema */
+.problema{background:var(--tinta);color:#fff}
+.problema .etq{background:var(--coral)}
+
+/* 4 · Cómo funciona: camino que se dibuja entre los pasos */
+.como .pasos{position:relative}
+.camino-pasos{position:absolute;left:8%;right:8%;top:28px;height:40px;z-index:0;overflow:visible}
+.camino-pasos path{fill:none;stroke:var(--tinta);stroke-width:4;stroke-linecap:round;stroke-dasharray:2 14}
+.como .paso{position:relative;z-index:1}
+@media (max-width:860px){.camino-pasos{display:none}}
+
+/* 6 · Seguro y privado */
+.seguro{background:var(--lila-2)}
+.escudos{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:50px}
+@media (max-width:980px){.escudos{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.escudos{grid-template-columns:1fr}}
+.escudo{background:#fff;border:3px solid var(--tinta);border-radius:28px;padding:26px 24px;box-shadow:7px 7px 0 var(--tinta)}
+.escudo .ico{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;border:3px solid var(--tinta)}
+.escudo .ico svg{width:32px;height:32px}
+.escudo h3{font-size:1.45rem;margin-top:16px}
+.escudo p{margin-top:8px;font-weight:600}
+.seguro .fuente{color:#5D5675}
+
+/* 8 · Impacto que buscamos */
+.impacto2{background:var(--crema)}
+.metas2{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:50px}
+@media (max-width:1000px){.metas2{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.metas2{grid-template-columns:1fr}}
+.meta{border:3px solid var(--tinta);border-radius:26px;padding:22px;box-shadow:6px 6px 0 var(--tinta);background:#fff}
+.meta .em{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;border:3px solid var(--tinta);font:700 1.4rem var(--display)}
+.meta h3{font-size:1.25rem;margin-top:14px}
+.meta p{margin-top:6px;font-weight:600;font-size:.98rem}
+
+/* 9 · Preguntas */
+.faq{background:var(--menta-2)}
+.acordeon{margin-top:44px;display:grid;gap:14px;max-width:860px}
+.acordeon details{background:#fff;border:3px solid var(--tinta);border-radius:22px;box-shadow:5px 5px 0 var(--tinta)}
+.acordeon summary{cursor:pointer;list-style:none;padding:18px 60px 18px 22px;font:600 1.2rem var(--display);position:relative}
+.acordeon summary::-webkit-details-marker{display:none}
+.acordeon summary::after{content:"+";position:absolute;right:18px;top:50%;translate:0 -50%;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:var(--amarillo);border:2px solid var(--tinta);font:700 1.3rem var(--display);transition:rotate .25s}
+.acordeon details[open] summary::after{rotate:45deg}
+.acordeon details p{padding:0 22px 20px;font-weight:600;max-width:64ch}
+
 </style>
 <script>document.documentElement.lang='es'</script>
 
@@ -211,7 +275,23 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
     </div>
     <div class="escena" aria-hidden="true">
       <div class="fondo blob morfo"></div>
-      <img class="lumi sticker c-pop respira" src="assets/lumi_ninguno.webp" alt="" style="animation:pop .9s .3s cubic-bezier(.3,1.5,.5,1) both,respira calc(3.6s*var(--vel)) 1.3s ease-in-out infinite">
+      <svg class="lumi-vivo" id="lumiVivo" viewBox="18 2 124 156" role="img" aria-label="Lumi, la mascota de MenteSana, saludando. Tócalo.">
+        <ellipse class="sombra" cx="80" cy="149" rx="42" ry="5" fill="#1F2A2E" fill-opacity=".1"/>
+        <g class="cuerpo">
+          <path d="M60 144.5C67.18 144.5 73 141.59 73 138C73 134.41 67.18 131.5 60 131.5C52.82 131.5 47 134.41 47 138C47 141.59 52.82 144.5 60 144.5Z" fill="#6FCFAE"/>
+          <path d="M100 144.5C107.18 144.5 113 141.59 113 138C113 134.41 107.18 131.5 100 131.5C92.82 131.5 87 134.41 87 138C87 141.59 92.82 144.5 100 144.5Z" fill="#6FCFAE"/>
+          <path d="M80 36C111 36 134 59 134 91C134 122 111 137 80 137C49 137 26 122 26 91C26 59 49 36 80 36Z" fill="#A5E6CF"/>
+          <path d="M80 130C96.57 130 110 121.94 110 112C110 102.06 96.57 94 80 94C63.43 94 50 102.06 50 112C50 121.94 63.43 130 80 130Z" fill="#D3F1E6"/>
+          <g class="hojas"><path d="M80 38C80 30 81 25 83 19" stroke="#1F7F66" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M83 21C89 11 102 8 111 13C107 23 95 27 83 21Z" fill="#3DBE99"/><path d="M81 25C75 16 64 15 57 19C61 28 71 30 81 25Z" fill="#8FDCC2"/></g>
+          <ellipse cx="51" cy="102" rx="8" ry="5" fill="#FF7A5C" opacity=".35"/><ellipse cx="109" cy="102" rx="8" ry="5" fill="#FF7A5C" opacity=".35"/>
+          <g class="mirada" id="mirada"><g class="ojos"><ellipse cx="64" cy="88" rx="6" ry="7.5" fill="#1F2A2E"/><ellipse cx="96" cy="88" rx="6" ry="7.5" fill="#1F2A2E"/><circle cx="66" cy="85" r="2.2" fill="#fff"/><circle cx="98" cy="85" r="2.2" fill="#fff"/></g></g>
+          <path d="M72 101C76 106 84 106 88 101" stroke="#1F2A2E" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <path d="M36 116C64 127 96 127 124 116V127C96 138 64 138 36 127V116Z" fill="#FF7A5C"/>
+          <g class="cola"><path d="M98 125L103 147L114 144L110 123Z" fill="#E3634A"/></g>
+          <path d="M50 120V130M64 123V133M78 124V134" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <span class="toca c-pop" style="animation-delay:1.6s">Tócalo</span>
       <img class="mini sticker flota" src="assets/lumi_audifonos.webp" alt="" style="left:-4%;bottom:10%;animation-delay:-2s">
       <img class="mini sticker flota" src="assets/lumi_lentes.webp" alt="" style="right:-2%;bottom:2%;animation-delay:-4s">
       <span class="globo c-pop" style="animation-delay:1.1s">¡Hola! ¿Cómo estás?</span>
@@ -219,7 +299,37 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
   </div>
 </section>
 
-<!-- 2 · QUÉ ES -->
+<!-- 2 · PROBLEMA -->
+<section class="slide problema" id="problema">
+  <span class="forma blob morfo" style="width:240px;height:220px;background:#2C2745;left:-80px;top:60px" aria-hidden="true"></span>
+  <span class="forma chispa titila" style="right:10%;top:16%;background:var(--coral)" aria-hidden="true"></span>
+  <div class="env">
+    <span class="etq" data-a="pop">El problema</span>
+    <h2 class="h2" data-a="sube">La U pesa, y casi nunca avisa</h2>
+    <div class="gente" role="img" aria-label="De cada 10 universitarios, solo 1 llega al servicio de psicología de su universidad">
+      <svg class="si" data-a="cae" style="--d:0" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
+      <svg data-a="cae" style="--d:1" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
+      <svg data-a="cae" style="--d:2" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
+      <svg data-a="cae" style="--d:3" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
+      <svg data-a="cae" style="--d:4" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
+      <svg data-a="cae" style="--d:5" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
+      <svg data-a="cae" style="--d:6" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
+      <svg data-a="cae" style="--d:7" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
+      <svg data-a="cae" style="--d:8" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
+      <svg data-a="cae" style="--d:9" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
+    </div>
+    <p class="frase" data-a="sube">Solo <b>1 de cada 10</b> universitarios llega al servicio de psicología de su universidad. Lumi existe para cambiar ese número.</p>
+    <div class="nums">
+      <div data-a="pop" style="--d:0"><b><span data-cuenta="7">7</span> de cada 10</b><p>no recibió atención psicológica en el último semestre.</p></div>
+      <div data-a="pop" style="--d:1"><b>Casi <span data-cuenta="4">4</span> de cada 10</b><p>tiene ansiedad severa o extremadamente severa.</p></div>
+      <div data-a="pop" style="--d:2"><b><span data-cuenta="1">1</span> de cada 6</b><p>pensó seriamente en el suicidio o lo planificó.</p></div>
+      <div data-a="pop" style="--d:3"><b><span data-cuenta="6978">6 978</span></b><p>estudiantes respondieron el estudio.</p></div>
+    </div>
+    <p class="fuente">Consorcio de Universidades (2025), II Estudio de Salud Mental en Universitarios, tres universidades privadas de Lima.</p>
+  </div>
+</section>
+
+<!-- 3 · QUÉ ES -->
 <section class="slide que" id="que">
   <span class="forma blob morfo" style="width:200px;height:200px;background:var(--lila);right:-60px;top:40px" aria-hidden="true"></span>
   <span class="forma chispa titila" style="left:6%;top:20%;background:var(--coral)" aria-hidden="true"></span>
@@ -239,7 +349,7 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
   </div>
 </section>
 
-<!-- 3 · CÓMO FUNCIONA -->
+<!-- 4 · CÓMO FUNCIONA -->
 <section class="slide como" id="como">
   <span class="forma circulo flota" style="width:160px;height:160px;background:var(--amarillo);left:-50px;bottom:40px" aria-hidden="true"></span>
   <span class="forma anillo gira" style="width:140px;height:140px;color:var(--lila);right:4%;top:60px" aria-hidden="true"></span>
@@ -247,6 +357,7 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
     <span class="etq" data-a="pop">Cómo funciona</span>
     <h2 class="h2" data-a="sube">Tres pasos, a tu ritmo</h2>
     <div class="pasos">
+      <svg class="camino-pasos" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 C 200 -10, 300 50, 500 20 S 800 -10, 1000 20" data-a="barre"/></svg>
       <article class="paso" data-a="sube" style="--d:0"><span class="num">1</span><div class="ventana"><img src="assets/pantalla_bienvenida.webp" alt="Pantalla de bienvenida de Lumi" loading="lazy"></div><h3>Entra</h3><p>Con el correo de tu universidad.</p></article>
       <article class="paso" data-a="sube" style="--d:2"><span class="num">2</span><div class="ventana"><img src="assets/pantalla_chat.webp" alt="Conversación con Lumi" loading="lazy"></div><h3>Conversa</h3><p>Lumi escucha y propone algo pequeño.</p></article>
       <article class="paso" data-a="sube" style="--d:4"><span class="num">3</span><div class="ventana"><img src="assets/pantalla_apoyo.webp" alt="Pantalla de apoyo profesional" loading="lazy"></div><h3>Llega</h3><p>Al psicólogo de tu universidad, cuando tú decidas.</p></article>
@@ -254,7 +365,39 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
   </div>
 </section>
 
-<!-- 4 · MISIÓN Y VISIÓN -->
+<!-- 5 · LO QUE HACE -->
+<section class="slide busca" id="busca">
+  <span class="forma anillo gira" style="width:160px;height:160px;color:#fff;left:-40px;top:40px;opacity:.7" aria-hidden="true"></span>
+  <div class="env">
+    <span class="etq" data-a="pop">Lo que hace Lumi</span>
+    <h2 class="h2" data-a="sube">Cuatro cosas, todos los días</h2>
+    <div class="cuatro">
+      <div data-a="tumbo" style="--d:0"><img class="sticker flota" src="assets/lumi_audifonos.webp" alt="" loading="lazy" style="animation-delay:-1s"><h3>Escuchar</h3><p>Sin juicios y a cualquier hora.</p></div>
+      <div data-a="tumbo" style="--d:2"><img class="sticker flota" src="assets/lumi_lentes.webp" alt="" loading="lazy" style="animation-delay:-2.5s"><h3>Orientar</h3><p>Pasos pequeños y concretos.</p></div>
+      <div data-a="tumbo" style="--d:4"><img class="sticker flota" src="assets/lumi_gorro.webp" alt="" loading="lazy" style="animation-delay:-4s"><h3>Acompañar</h3><p>Hasta el psicólogo de tu universidad.</p></div>
+      <div data-a="tumbo" style="--d:6"><img class="sticker flota" src="assets/lumi_flor.webp" alt="" loading="lazy" style="animation-delay:-5.5s"><h3>Normalizar</h3><p>Que pedir ayuda no sea tabú.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · SEGURO -->
+<section class="slide seguro" id="seguro">
+  <span class="forma anillo gira" style="width:150px;height:150px;color:var(--lila);right:-30px;top:50px" aria-hidden="true"></span>
+  <span class="forma chispa titila" style="left:8%;top:14%;background:var(--coral)" aria-hidden="true"></span>
+  <div class="env">
+    <span class="etq" data-a="pop">Seguro y privado</span>
+    <h2 class="h2" data-a="sube">Un lugar seguro, con reglas claras</h2>
+    <div class="escudos">
+      <article class="escudo" data-a="pop" style="--d:0"><span class="ico" style="background:#FFE3DA"><svg viewBox="0 0 24 24" fill="none" stroke="#D9553A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-9-9.3C1.7 8.3 4 5 7.3 5c2 0 3.4 1.1 4.7 2.7C13.3 6.1 14.7 5 16.7 5 20 5 22.3 8.3 21 11.7 19 16.6 12 21 12 21z"/></svg></span><h3>No diagnostica</h3><p>Lumi orienta y acompaña. Nunca se presenta como psicólogo ni da tratamiento.</p></article>
+      <article class="escudo" data-a="pop" style="--d:1"><span class="ico" style="background:#FFF1C9"><svg viewBox="0 0 24 24" fill="none" stroke="#8A6400" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg></span><h3>Si hay riesgo, primero tu vida</h3><p>Lumi muestra de inmediato la Línea 113, opción 5, y el SAMU 106.</p></article>
+      <article class="escudo" data-a="pop" style="--d:2"><span class="ico" style="background:var(--menta-2)"><svg viewBox="0 0 24 24" fill="none" stroke="#0F4A3B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><h3>Tus chats son tuyos</h3><p>Tu universidad no ve tus conversaciones ni quién eres: solo cifras de grupos de 20 o más.</p></article>
+      <article class="escudo" data-a="pop" style="--d:3"><span class="ico" style="background:var(--lila)"><svg viewBox="0 0 24 24" fill="none" stroke="#5E46A0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><h3>Tú decides siempre</h3><p>Nada se activa sin tu permiso. Lumi nunca llama ni agenda por ti.</p></article>
+    </div>
+    <p class="fuente" style="margin-top:24px">Diseñado según el aviso de la Asociación Americana de Psicología sobre IA y salud mental (2025) y la Ley 29733 de protección de datos personales.</p>
+  </div>
+</section>
+
+<!-- 7 · MISIÓN Y VISIÓN -->
 <section class="slide mision" id="mision">
   <span class="forma chispa titila" style="right:10%;top:18%" aria-hidden="true"></span>
   <span class="forma chispa titila" style="left:46%;bottom:12%;animation-delay:-1.2s;background:var(--menta)" aria-hidden="true"></span>
@@ -278,59 +421,40 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
   </div>
 </section>
 
-<!-- 5 · LO QUE BUSCA -->
-<section class="slide busca" id="busca">
-  <span class="forma anillo gira" style="width:160px;height:160px;color:#fff;left:-40px;top:40px;opacity:.7" aria-hidden="true"></span>
-  <div class="env">
-    <span class="etq" data-a="pop">Lo que busca Lumi</span>
-    <h2 class="h2" data-a="sube">Cuatro cosas, todos los días</h2>
-    <div class="cuatro">
-      <div data-a="tumbo" style="--d:0"><img class="sticker flota" src="assets/lumi_audifonos.webp" alt="" loading="lazy" style="animation-delay:-1s"><h3>Escuchar</h3><p>Sin juicios y a cualquier hora.</p></div>
-      <div data-a="tumbo" style="--d:2"><img class="sticker flota" src="assets/lumi_lentes.webp" alt="" loading="lazy" style="animation-delay:-2.5s"><h3>Orientar</h3><p>Pasos pequeños y concretos.</p></div>
-      <div data-a="tumbo" style="--d:4"><img class="sticker flota" src="assets/lumi_gorro.webp" alt="" loading="lazy" style="animation-delay:-4s"><h3>Acompañar</h3><p>Hasta el psicólogo de tu universidad.</p></div>
-      <div data-a="tumbo" style="--d:6"><img class="sticker flota" src="assets/lumi_flor.webp" alt="" loading="lazy" style="animation-delay:-5.5s"><h3>Normalizar</h3><p>Que pedir ayuda no sea tabú.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 7 · IMPACTO -->
-<section class="slide impacto" id="impacto">
-  <span class="forma blob morfo" style="width:240px;height:220px;background:#2C2745;left:-80px;top:60px" aria-hidden="true"></span>
+<!-- 8 · IMPACTO -->
+<section class="slide impacto2" id="impacto">
+  <span class="forma blob morfo" style="width:220px;height:200px;background:var(--menta);right:-70px;top:40px" aria-hidden="true"></span>
+  <span class="forma chispa titila" style="left:46%;top:12%" aria-hidden="true"></span>
   <div class="env">
     <span class="etq" data-a="pop">El impacto que buscamos</span>
-    <h2 class="h2" data-a="sube">Hoy la ayuda existe, pero casi nadie llega</h2>
-    <div class="gente" role="img" aria-label="De cada 10 universitarios, solo 1 llega al servicio de psicología de su universidad">
-      <svg class="si" data-a="cae" style="--d:0" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
-      <svg data-a="cae" style="--d:1" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
-      <svg data-a="cae" style="--d:2" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
-      <svg data-a="cae" style="--d:3" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
-      <svg data-a="cae" style="--d:4" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
-      <svg data-a="cae" style="--d:5" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
-      <svg data-a="cae" style="--d:6" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
-      <svg data-a="cae" style="--d:7" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
-      <svg data-a="cae" style="--d:8" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
-      <svg data-a="cae" style="--d:9" viewBox="0 0 40 64"><circle cx="20" cy="11" r="10"/><path d="M2 64c0-20 8-34 18-34s18 14 18 34z"/></svg>
-    </div>
-    <p class="frase" data-a="sube">Solo <b>1 de cada 10</b> universitarios llega al servicio de psicología de su universidad. Lumi existe para cambiar ese número.</p>
-    <div class="nums">
-      <div data-a="pop" style="--d:0"><b><span data-cuenta="7">7</span> de cada 10</b><p>no recibió atención psicológica en el último semestre.</p></div>
-      <div data-a="pop" style="--d:1"><b>Casi <span data-cuenta="4">4</span> de cada 10</b><p>tiene ansiedad severa o extremadamente severa.</p></div>
-      <div data-a="pop" style="--d:2"><b><span data-cuenta="1">1</span> de cada 6</b><p>pensó seriamente en el suicidio o lo planificó.</p></div>
-      <div data-a="pop" style="--d:3"><b><span data-cuenta="6978">6 978</span></b><p>estudiantes respondieron el estudio.</p></div>
-    </div>
-    <p class="fuente">Consorcio de Universidades (2025), II Estudio de Salud Mental en Universitarios, tres universidades privadas de Lima.</p>
-    <p class="sub" data-a="sube">Lo que Lumi va a cambiar</p>
-    <div class="metas">
-      <span data-a="pop" style="--d:0">Más estudiantes llegan al psicólogo</span>
-      <span data-a="pop" style="--d:1">Menos días hasta la primera cita</span>
-      <span data-a="pop" style="--d:2">Malestar detectado a tiempo</span>
-      <span data-a="pop" style="--d:3">Más estudiantes continúan sus estudios</span>
-      <span data-a="pop" style="--d:4">Datos anónimos para la universidad</span>
+    <h2 class="h2" data-a="sube">Que llegar a la ayuda sea más fácil</h2>
+    <div class="metas2">
+      <article class="meta" data-a="sube" style="--d:0"><span class="em" style="background:var(--menta)">↑</span><h3>Más estudiantes llegan</h3><p>al servicio de psicología de su universidad.</p></article>
+      <article class="meta" data-a="sube" style="--d:1"><span class="em" style="background:var(--amarillo)">↓</span><h3>Menos días de espera</h3><p>entre pedir ayuda y la primera cita.</p></article>
+      <article class="meta" data-a="sube" style="--d:2"><span class="em" style="background:var(--lila)">◎</span><h3>Malestar detectado a tiempo</h3><p>antes del punto de quiebre.</p></article>
+      <article class="meta" data-a="sube" style="--d:3"><span class="em" style="background:#FFC9BA">★</span><h3>Más estudiantes continúan</h3><p>sus estudios universitarios.</p></article>
+      <article class="meta" data-a="sube" style="--d:4"><span class="em" style="background:var(--menta-2)">▦</span><h3>Mejores decisiones</h3><p>con datos anónimos para la universidad.</p></article>
     </div>
   </div>
 </section>
 
-<!-- 8 · CONTACTO -->
+<!-- 9 · PREGUNTAS -->
+<section class="slide faq" id="preguntas">
+  <span class="forma circulo flota" style="width:130px;height:130px;background:var(--amarillo);right:-30px;bottom:40px" aria-hidden="true"></span>
+  <div class="env">
+    <span class="etq" data-a="pop">Preguntas frecuentes</span>
+    <h2 class="h2" data-a="sube">Lo que más nos preguntan</h2>
+    <div class="acordeon">
+      <details name="faq" open><summary>¿Qué es MenteSana y qué es Lumi?</summary><p>MenteSana es el proyecto: una startup peruana de salud mental universitaria. Lumi es su producto: el acompañante con IA que usan los estudiantes, junto con un panel anónimo para la universidad.</p></details>
+      <details name="faq"><summary>¿Lumi reemplaza al psicólogo?</summary><p>No. Lumi orienta y acompaña, pero no diagnostica ni da tratamiento. Su trabajo es que llegues al servicio de psicología de tu universidad cuando lo necesites.</p></details>
+      <details name="faq"><summary>¿Cuánto cuesta?</summary><p>Para el estudiante será gratis: la idea es que cada universidad lo ofrezca, como ofrece la biblioteca o el correo.</p></details>
+      <details name="faq"><summary>¿Quién puede leer lo que le cuento?</summary><p>Tu universidad no ve tus conversaciones ni sabe quién eres. Solo recibe cifras generales y anónimas, nunca de grupos de menos de 20 estudiantes.</p></details>
+      <details name="faq"><summary>¿Ya puedo usarlo?</summary><p>Todavía no. MenteSana está en desarrollo: hoy es un prototipo probado con estudiantes, y la inteligencia artificial aún no está conectada.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · CONTACTO -->
 <section class="slide contacto" id="contacto">
   <span class="forma chispa titila" style="left:12%;top:18%" aria-hidden="true"></span>
   <span class="forma chispa titila" style="right:14%;top:30%;animation-delay:-1s;background:#fff" aria-hidden="true"></span>
@@ -377,6 +501,28 @@ body.quieto *,body.quieto *::before,body.quieto *::after{animation-play-state:pa
     const sel = () => { const g = document.createRange(); g.selectNodeContents(correo); const s = getSelection(); s.removeAllRanges(); s.addRange(g); estado.textContent = 'Seleccionado: cópialo con Ctrl+C.'; };
     try { navigator.clipboard.writeText(correo.textContent.trim()).then(() => { estado.textContent = '¡Correo copiado!'; }).catch(sel); } catch (err) { sel(); }
   });
+
+
+  // Lumi vivo: la mirada sigue al puntero y salta al tocarlo
+  const lumi = document.getElementById('lumiVivo'), mirada = document.getElementById('mirada');
+  if (lumi) {
+    addEventListener('pointermove', e => {
+      const r = lumi.getBoundingClientRect(); const cx = r.left + r.width / 2, cy = r.top + r.height * .55;
+      const dx = e.clientX - cx, dy = e.clientY - cy, d = Math.hypot(dx, dy) || 1, k = Math.min(1, d / 400);
+      mirada.setAttribute('transform', `translate(${(dx / d * 3.2 * k).toFixed(2)} ${(dy / d * 2.4 * k).toFixed(2)})`);
+    }, { passive: true });
+    lumi.addEventListener('click', e => {
+      lumi.classList.remove('salta'); void lumi.getBoundingClientRect(); lumi.classList.add('salta');
+      const cont = lumi.parentElement, r = cont.getBoundingClientRect();
+      for (let i = 0; i < 6; i++) {
+        const h = document.createElement('span'); h.className = 'corazon'; h.textContent = '♥';
+        h.style.left = (e.clientX - r.left - 10) + 'px'; h.style.top = (e.clientY - r.top - 20) + 'px'; cont.appendChild(h);
+        const a = -Math.PI / 2 + (Math.random() - .5) * 1.6, dist = 60 + Math.random() * 60;
+        h.animate([{ transform: 'translate(0,0) scale(.6)', opacity: 1 }, { transform: `translate(${Math.cos(a) * dist}px,${Math.sin(a) * dist}px) scale(1.2)`, opacity: 0 }], { duration: 900 + Math.random() * 300, easing: 'cubic-bezier(.2,.7,.3,1)' }).onfinish = () => h.remove();
+      }
+    });
+    lumi.addEventListener('animationend', () => lumi.classList.remove('salta'));
+  }
 
   // Pausar animaciones
   const pausa = document.getElementById('pausa');
