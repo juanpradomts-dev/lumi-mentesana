@@ -320,6 +320,32 @@ html{scroll-padding-top:90px}
 .no-crisis{margin-top:14px;font-weight:700;font-size:.95rem}
 .pie a,.escudo a,.acordeon a,.no-crisis a{font-weight:800;color:inherit}
 @media (prefers-reduced-motion:reduce){[data-a="voltea"]{animation-name:a-sube!important}.anillo.gira{animation-duration:90s}}
+
+/* Formulario de prueba con aviso de privacidad */
+.form-prueba{max-width:640px;margin:30px auto 0;text-align:left;background:#fff;border:3px solid var(--tinta);border-radius:28px;box-shadow:8px 8px 0 var(--tinta);padding:26px;display:grid;gap:14px}
+.form-prueba label{display:grid;gap:6px;font-weight:800}
+.form-prueba small{font-weight:600;color:#5D5675}
+.form-prueba input:not([type=radio]):not([type=checkbox]),.form-prueba textarea{font:600 1rem var(--texto);border:2px solid var(--tinta);border-radius:14px;padding:12px 14px;background:var(--crema);color:var(--tinta);width:100%}
+.form-prueba textarea{resize:vertical}
+.fila2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:560px){.fila2{grid-template-columns:1fr}}
+.quiero{border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px}
+.quiero legend{font-weight:800;margin-bottom:8px;padding:0}
+.quiero label{display:flex;align-items:center;gap:8px;background:var(--lila-2);border:2px solid var(--tinta);border-radius:999px;padding:8px 14px;cursor:pointer}
+.quiero label:has(input:checked){background:var(--amarillo)}
+.check{display:flex!important;grid-template-columns:none;align-items:flex-start;gap:10px!important;font-weight:700!important}
+.check input{width:22px;height:22px;margin-top:2px;flex:none;accent-color:var(--morado)}
+.ayuda-campo{font-size:.9rem;font-weight:600;color:#5D5675;margin-top:-6px}
+.error-form{color:#B3261E;font-weight:800;min-height:1.2em}
+.form-prueba button[type=submit]{justify-self:start}
+.plan-b{border-top:2px dashed #CFC9E0;padding-top:14px;display:grid;gap:10px}
+.plan-b textarea{font:600 .92rem var(--texto)}
+.plan-b button{justify-self:start}
+.fila2 label{align-content:start}
+.aviso-priv{max-width:640px;margin:18px auto 0;text-align:left;background:rgba(255,255,255,.75);border:2px solid var(--tinta);border-radius:20px}
+.aviso-priv summary{cursor:pointer;padding:14px 18px;font:700 1.05rem var(--display)}
+.aviso-priv div{padding:0 18px 16px;display:grid;gap:10px;font-size:.95rem}
+.pie a{color:#fff}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es MenteSana y qué es Lumi?", "acceptedAnswer": {"@type": "Answer", "text": "MenteSana es una startup peruana de salud mental universitaria. Lumi es su producto: el acompañante con IA que usan los estudiantes, junto con un panel anónimo para la universidad."}}, {"@type": "Question", "name": "¿Lumi es una persona?", "acceptedAnswer": {"@type": "Answer", "text": "No. Es una inteligencia artificial. Puede ayudarte a ordenar ideas y a dar el primer paso, pero puede equivocarse. Las decisiones sobre tu salud tómalas con un profesional."}}, {"@type": "Question", "name": "¿Y si me siento muy mal ahora?", "acceptedAnswer": {"@type": "Answer", "text": "No esperes a Lumi. Llama gratis a la Línea 113, opción 5, a cualquier hora. Si estás en peligro inmediato, llama al SAMU 106. Pedir ayuda funciona: mucha gente que pasó por momentos así hoy está mejor."}}, {"@type": "Question", "name": "¿Lumi reemplaza al psicólogo?", "acceptedAnswer": {"@type": "Answer", "text": "No. Lumi orienta y acompaña, pero no diagnostica ni da tratamiento. Su trabajo es que llegues al servicio de psicología de tu universidad cuando lo necesites."}}, {"@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": {"@type": "Answer", "text": "Para el estudiante será gratis: la idea es que cada universidad lo ofrezca, como ofrece la biblioteca o el correo."}}, {"@type": "Question", "name": "¿Quién puede leer lo que le cuento a Lumi?", "acceptedAnswer": {"@type": "Answer", "text": "Tu universidad no ve tus conversaciones ni sabe quién eres. Solo recibe cifras generales y anónimas, nunca de grupos de menos de 20 estudiantes."}}, {"@type": "Question", "name": "¿Ya puedo usarlo?", "acceptedAnswer": {"@type": "Answer", "text": "Todavía no. Lumi está en desarrollo: hoy es un prototipo que probamos con estudiantes y la IA aún no está conectada. Si quieres probarlo, escríbenos."}}]}</script>
 <script>document.documentElement.lang='es'</script>
@@ -537,7 +563,39 @@ html{scroll-padding-top:90px}
     <span class="etq" data-a="pop">Tu opinión nos importa</span>
     <h2 class="h2" data-a="sube" style="margin-inline:auto">¿Quieres probar a Lumi antes del lanzamiento?</h2>
     <p class="cierre-lead" data-a="sube" style="--d:1">Estamos haciendo a Lumi junto con estudiantes. Cuéntanos qué le cambiarías o pide una prueba del prototipo para conversar con él.</p>
-    <div class="cierre-btns" data-a="pop" style="--d:2"><a class="btn amarillo" href="mailto:mentesanalumi@gmail.com?subject=Quiero%20probar%20Lumi&amp;body=Hola%20equipo%20de%20MenteSana%2C%20me%20gustar%C3%ADa%20probar%20el%20prototipo%20de%20Lumi.%20Mi%20universidad%20es%3A%20">Quiero probar a Lumi</a><a class="btn blanco" href="mailto:mentesanalumi@gmail.com?subject=Mi%20opini%C3%B3n%20sobre%20Lumi">Enviar mi opinión</a></div>
+    <form class="form-prueba" id="formPrueba" data-a="pop" style="--d:2" novalidate>
+      <div class="fila2">
+        <label for="f-nombre"><span>Nombre <small>(opcional)</small></span><input id="f-nombre" name="nombre" autocomplete="given-name" maxlength="60"></label>
+        <label for="f-correo"><span>Correo</span><input id="f-correo" name="correo" type="email" autocomplete="email" required maxlength="100"></label>
+      </div>
+      <label for="f-uni"><span>Universidad</span><input id="f-uni" name="universidad" autocomplete="organization" required maxlength="100"></label>
+      <fieldset class="quiero"><legend>¿Qué quieres hacer?</legend>
+        <label><input type="radio" name="motivo" value="Quiero probar el prototipo de Lumi" checked> Probar el prototipo</label>
+        <label><input type="radio" name="motivo" value="Quiero dar mi opinión sobre Lumi"> Dar mi opinión</label>
+      </fieldset>
+      <label for="f-msg"><span>Tu mensaje <small>(opcional)</small></span><textarea id="f-msg" name="mensaje" rows="3" maxlength="500" aria-describedby="f-msg-ayuda"></textarea></label>
+      <p class="ayuda-campo" id="f-msg-ayuda">No incluyas información sobre tu salud: aquí solo queremos saber cómo contactarte.</p>
+      <label class="check"><input type="checkbox" id="f-edad" required> <span>Tengo 18 años o más.</span></label>
+      <label class="check"><input type="checkbox" id="f-ok" required> <span>Leí el <a href="#privacidad">aviso de privacidad</a> y acepto que MenteSana use estos datos solo para responderme.</span></label>
+      <p class="error-form" id="errorForm" role="alert"></p>
+      <button class="btn amarillo" type="submit">Enviar</button>
+      <div class="plan-b" id="planB" hidden>
+        <p>Abrimos tu correo con el mensaje listo: solo presiona enviar. Si no se abrió, copia este texto y envíalo a <b>mentesanalumi@gmail.com</b>:</p>
+        <textarea id="textoListo" rows="6" readonly aria-label="Texto listo para enviar a MenteSana"></textarea>
+        <button class="btn blanco" type="button" id="copiarTexto">Copiar el texto</button>
+      </div>
+    </form>
+    <details class="aviso-priv" id="privacidad">
+      <summary>Aviso de privacidad del formulario</summary>
+      <div>
+        <p><b>Quién recibe tus datos.</b> El equipo de MenteSana, un proyecto estudiantil en desarrollo. Contacto: mentesanalumi@gmail.com.</p>
+        <p><b>Qué datos pedimos y para qué.</b> Tu nombre (opcional), tu correo, tu universidad y tu mensaje. Los usamos solo para responderte, coordinar una prueba del prototipo o tener en cuenta tu opinión. No los usamos para publicidad ni los vendemos.</p>
+        <p><b>Dónde quedan.</b> El formulario abre tu propio correo y el mensaje llega a nuestra cuenta de Gmail (Google), cuyos servidores pueden estar fuera del Perú. No pedimos ni queremos datos sobre tu salud en este formulario.</p>
+        <p><b>Cuánto tiempo.</b> Solo mientras dure el desarrollo del prototipo. Puedes pedir que los borremos cuando quieras.</p>
+        <p><b>Tus derechos.</b> Puedes pedir acceso, corrección o eliminación de tus datos, gratis, escribiendo a mentesanalumi@gmail.com. Si no te respondemos, puedes reclamar ante la Autoridad Nacional de Protección de Datos Personales (Ministerio de Justicia y Derechos Humanos), según la Ley 29733.</p>
+        <p><b>Si estás en riesgo ahora,</b> no uses este formulario: llama gratis a la <a href="tel:113">Línea 113, opción 5</a>, o al <a href="tel:106">SAMU 106</a>.</p>
+      </div>
+    </details>
     <p class="cierre-o" data-a="sube" style="--d:3">o escríbenos directamente a</p>
     <div class="correo" data-a="pop" style="--d:1"><span id="correo">mentesanalumi@gmail.com</span><button class="btn amarillo" type="button" id="copiar">Copiar</button></div>
     <p class="estado" id="estado" role="status" aria-live="polite"></p>
@@ -547,7 +605,7 @@ html{scroll-padding-top:90px}
 </section>
 </main>
 
-<footer class="pie" id="ayuda"><p><b>¿Necesitas ayuda ahora?</b> Llama gratis a la <a href="tel:113">Línea 113, opción 5</a>, a cualquier hora. Si estás en peligro inmediato, llama al <a href="tel:106">SAMU 106</a> o acude a la emergencia más cercana.</p><p style="margin-top:8px">Lumi es un producto de MenteSana: una IA en desarrollo que orienta y no reemplaza a un psicólogo.</p></footer>
+<footer class="pie" id="ayuda"><p><b>¿Necesitas ayuda ahora?</b> Llama gratis a la <a href="tel:113">Línea 113, opción 5</a>, a cualquier hora. Si estás en peligro inmediato, llama al <a href="tel:106">SAMU 106</a> o acude a la emergencia más cercana.</p><p style="margin-top:8px">Lumi es un producto de MenteSana: una IA en desarrollo que orienta y no reemplaza a un psicólogo. <a href="#privacidad">Aviso de privacidad</a></p></footer>
 
 
 <script>
@@ -613,6 +671,29 @@ html{scroll-padding-top:90px}
   mb.addEventListener('click', () => { const abrir = mm.hidden; mm.hidden = !abrir; mb.setAttribute('aria-expanded', String(abrir)); mb.textContent = abrir ? 'Cerrar' : 'Menú'; });
   mm.addEventListener('click', e => { if (e.target.closest('a')) cerrarMenu(); });
   addEventListener('keydown', e => { if (e.key === 'Escape' && !mm.hidden) { cerrarMenu(); mb.focus(); } });
+
+  // Formulario de prueba: valida, arma el correo y deja un plan B para copiar
+  const fp = document.getElementById('formPrueba');
+  if (fp) {
+    const err = document.getElementById('errorForm'), planB = document.getElementById('planB'), listo = document.getElementById('textoListo');
+    fp.addEventListener('submit', e => {
+      e.preventDefault(); err.textContent = '';
+      const v = id => document.getElementById(id).value.trim();
+      const correo = v('f-correo'), uni = v('f-uni');
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(correo)) { err.textContent = 'Escribe un correo válido.'; document.getElementById('f-correo').focus(); return; }
+      if (!uni) { err.textContent = 'Escribe tu universidad.'; document.getElementById('f-uni').focus(); return; }
+      if (!document.getElementById('f-edad').checked) { err.textContent = 'Por ahora las pruebas son solo para mayores de 18 años.'; return; }
+      if (!document.getElementById('f-ok').checked) { err.textContent = 'Para enviarlo, acepta el aviso de privacidad.'; return; }
+      const motivo = fp.querySelector('input[name=motivo]:checked').value;
+      const texto = `Hola, equipo de MenteSana.\n\n${motivo}.\n\nNombre: ${v('f-nombre') || '(no lo indiqué)'}\nCorreo: ${correo}\nUniversidad: ${uni}\nMensaje: ${v('f-msg') || '(sin mensaje)'}\n\nTengo 18 años o más y acepto el aviso de privacidad del formulario.`;
+      listo.value = texto; planB.hidden = false;
+      location.href = 'mailto:mentesanalumi@gmail.com?subject=' + encodeURIComponent(motivo) + '&body=' + encodeURIComponent(texto);
+    });
+    document.getElementById('copiarTexto').addEventListener('click', () => {
+      try { navigator.clipboard.writeText(listo.value).then(() => { err.textContent = ''; listo.select(); }).catch(() => listo.select()); } catch (e) { listo.select(); }
+    });
+    document.querySelectorAll('a[href="#privacidad"]').forEach(a => a.addEventListener('click', () => { document.getElementById('privacidad').open = true; }));
+  }
 
   // Pausar animaciones (se recuerda la elección)
   try { if (localStorage.getItem('lumi-quieto') === '1') { document.body.classList.add('quieto'); document.getElementById('pausa').textContent = 'Reanudar animaciones'; } } catch (e) {}
