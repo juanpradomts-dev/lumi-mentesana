@@ -275,6 +275,12 @@ html{scroll-padding-top:90px}
 .prob-fuente p{font-size:.88rem}
 @media (max-width:900px){.picto-card{rotate:0deg;box-shadow:6px 6px 0 var(--coral);margin-right:8px}.problema .anillo{display:none}}
 
+/* 10 · Cierre: opinión y prueba de Lumi */
+.cierre-lead{font-size:1.2rem;font-weight:700;max-width:56ch;margin:18px auto 0}
+.cierre-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:30px}
+.cierre-o{margin-top:26px;font-weight:700}
+.contacto .correo{margin-top:10px}
+
 </style>
 <script>document.documentElement.lang='es'</script>
 
@@ -480,8 +486,11 @@ html{scroll-padding-top:90px}
   <span class="forma chispa titila" style="right:14%;top:30%;animation-delay:-1s;background:#fff" aria-hidden="true"></span>
   <span class="forma circulo flota" style="width:140px;height:140px;background:var(--amarillo);right:-40px;bottom:30px" aria-hidden="true"></span>
   <div class="env">
-    <span class="etq" data-a="pop">Contacto</span>
-    <h2 class="h2" data-a="sube" style="margin-inline:auto">¡Conversemos!</h2>
+    <span class="etq" data-a="pop">Tu opinión nos importa</span>
+    <h2 class="h2" data-a="sube" style="margin-inline:auto">¿Quieres conocer a Lumi antes que nadie?</h2>
+    <p class="cierre-lead" data-a="sube" style="--d:1">Estamos construyendo Lumi junto con estudiantes. Cuéntanos qué te parece, qué le cambiarías o qué te gustaría que hiciera. Y si quieres, pide una prueba del prototipo para conversar con Lumi antes de su lanzamiento.</p>
+    <div class="cierre-btns" data-a="pop" style="--d:2"><a class="btn amarillo" href="mailto:mentesanalumi@gmail.com?subject=Quiero%20probar%20Lumi&amp;body=Hola%20equipo%20de%20MenteSana%2C%20me%20gustar%C3%ADa%20probar%20el%20prototipo%20de%20Lumi.%20Mi%20universidad%20es%3A%20">Quiero probar a Lumi</a><a class="btn blanco" href="mailto:mentesanalumi@gmail.com?subject=Mi%20opini%C3%B3n%20sobre%20Lumi">Enviar mi opinión</a></div>
+    <p class="cierre-o" data-a="sube" style="--d:3">o escríbenos directamente a</p>
     <div class="correo" data-a="pop" style="--d:1"><span id="correo">mentesanalumi@gmail.com</span><button class="btn amarillo" type="button" id="copiar">Copiar</button></div>
     <p class="estado" id="estado" role="status" aria-live="polite"></p>
     <img class="lumi-saluda sticker flota" src="assets/lumi_motivador.webp" alt="Lumi saludando" loading="lazy">
