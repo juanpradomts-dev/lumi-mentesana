@@ -4,306 +4,330 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lumi · MenteSana</title>
-<meta name="description" content="Lumi, de MenteSana, escucha a los universitarios a cualquier hora y los lleva al psicólogo de su universidad. El puente entre lo que sientes y la ayuda que necesitas.">
-<meta name="theme-color" content="#FFFBF6">
+<meta name="description" content="Lumi es un acompañante con inteligencia artificial para universitarios: te escucha a cualquier hora y, si lo necesitas, te acompaña hasta el psicólogo de tu universidad.">
+<meta name="theme-color" content="#CFEFFF">
 <meta property="og:title" content="Lumi · MenteSana">
-<meta property="og:description" content="El puente entre lo que sientes y la ayuda que necesitas.">
+<meta property="og:description" content="Alguien con quien hablar, a cualquier hora. El puente entre lo que sientes y la ayuda que necesitas.">
 <meta property="og:image" content="assets/lumi_cercano.webp">
 <link rel="icon" href="assets/lumi_logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/lumi_cercano.webp" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+/* El mundo de Lumi: la página es un paisaje ilustrado donde vive Lumi.
+   Un camino de puntos coral la recorre hasta la puerta de la universidad; cada sección es un lugar o un momento del día.
+   Diseño de un solo tema a propósito (es una ilustración), con todos los colores definidos aquí. */
 :root{
   color-scheme: light;
-  --crema:#FFFBF6; --crema-2:#F6EFE6; --tinta:#1F2A2E; --tinta-2:#4A5559;
-  --verde:#1F7F66; --verde-oscuro:#0F4A3B; --menta:#A5E6CF; --menta-clara:#D3F1E6;
-  --lila:#C8B6EE; --lila-clara:#EEE8FA; --morado:#5E46A0; --coral:#FF7A5C; --coral-oscuro:#D9553A;
-  --gris-linea:#D9D2C7; --luz:#FFE7C2;
-  --radio:24px; --ancho:1160px; --lado:clamp(16px,4vw,40px);
-  --f-titulo:clamp(2rem,1.2rem + 3.6vw,3.6rem);
-  --f-h2:clamp(1.7rem,1.15rem + 2.3vw,2.75rem);
+  --cielo:#CFEFFF; --cielo-2:#ECF9FF; --pasto:#7FD3A8; --pasto-2:#A9E3C4; --pasto-3:#5EBF8F;
+  --tierra:#8B6B4A; --crema:#FFFBF6; --crema-2:#F6EFE6; --tinta:#173B33; --tinta-2:#46645C;
+  --coral:#FF7A5C; --coral-2:#D9553A; --morado:#5E46A0; --lila:#EEE8FA; --lila-2:#C8B6EE;
+  --menta:#A5E6CF; --menta-2:#D3F1E6; --verde:#0F4A3B; --noche:#24305E; --noche-2:#3B3F86; --luz:#FFE7C2;
+  --radio:28px; --ancho:1160px;
+  --t-titulo:clamp(2.3rem,1.3rem + 4vw,4.6rem);
+  --t-h2:clamp(1.9rem,1.25rem + 2.4vw,3.1rem);
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--crema);color:var(--tinta);font:400 1.0625rem/1.6 Nunito,system-ui,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--crema);color:var(--tinta);font:600 1.0625rem/1.6 Nunito,system-ui,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--cielo)}
 img,svg,video{display:block;max-width:100%}
-h1,h2,h3{font-weight:900;line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1,h2,h3{font-weight:900;line-height:1.05;letter-spacing:-.025em;margin:0;text-wrap:balance}
 p{margin:0;text-wrap:pretty}
 a{color:inherit}
-.envoltura{width:min(100% - 2*var(--lado),var(--ancho));margin-inline:auto}
-.acento{color:var(--coral-oscuro)}
-.saltar{position:absolute;left:12px;top:-60px;background:var(--verde-oscuro);color:#fff;padding:10px 16px;border-radius:12px;z-index:50;font-weight:700}
+.env{width:min(100% - 2*max(16px,4vw),var(--ancho));margin-inline:auto}
+:focus-visible{outline:3px solid var(--morado);outline-offset:3px;border-radius:10px}
+.saltar{position:absolute;left:12px;top:-60px;z-index:60;background:var(--verde);color:#fff;padding:10px 16px;border-radius:12px;font-weight:800}
 .saltar:focus{top:12px}
-:focus-visible{outline:3px solid var(--morado);outline-offset:3px;border-radius:8px}
-.fuente{font-size:.78rem;color:var(--tinta-2);margin-top:20px}
-
-/* Cabecera */
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--crema)}
-.cabecera{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:color-mix(in oklab,var(--crema) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
-.cabecera.con-borde{border-color:var(--gris-linea)}
-.cabecera .envoltura{display:flex;align-items:center;gap:24px;height:68px}
-.logo{display:inline-flex;align-items:center;gap:8px;text-decoration:none}
-.logo img{height:40px;width:auto}
-.marca{font-weight:900;font-size:1.45rem;letter-spacing:-.02em;line-height:1}
-.marca b:first-child{color:var(--verde-oscuro)} .marca b:last-child{color:var(--morado)}
-.cabecera .logo:hover img{transform:rotate(-8deg)} .logo img{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
-.cabecera nav{margin-left:auto;display:flex;gap:6px}
-.cabecera nav a{text-decoration:none;font-weight:700;font-size:.95rem;padding:8px 14px;border-radius:999px;transition:background .2s}
-.cabecera nav a:hover{background:var(--menta-clara)}
-.cabecera nav a{white-space:nowrap}
-@media (max-width:1100px){.cabecera nav a:not(.urgente-nav):not(.boton-nav):not([href="#contacto"]){display:none}}
-@media (max-width:760px){.cabecera nav a:not(.urgente-nav){display:none}}
-.boton-nav{background:var(--verde-oscuro);color:#fff}
-.cabecera nav .urgente-nav{display:inline-flex;align-items:center;gap:6px;color:var(--coral-oscuro);background:#FFF0EB}
-.cabecera nav .urgente-nav:hover{background:#FFD9CF}
-.cabecera nav .boton-nav:hover{background:var(--verde)}
+.etiqueta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--morado);font-weight:900;font-size:.85rem;padding:7px 14px;border-radius:999px;box-shadow:0 3px 0 rgba(94,70,160,.15)}
+.h2{font-size:var(--t-h2);margin-top:14px;max-width:20ch}
+.bajada{font-size:1.18rem;color:var(--tinta-2);margin-top:14px;max-width:48ch}
+section{position:relative}
 
 /* Botones */
-.botones{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.boton{display:inline-flex;align-items:center;gap:10px;font:800 1rem/1 Nunito,sans-serif;text-decoration:none;padding:16px 26px;border-radius:999px;border:2px solid var(--verde-oscuro);cursor:pointer;transition:transform .15s,background .2s,color .2s}
-.boton:active{transform:scale(.97)}
-.boton.lleno{background:var(--verde-oscuro);color:#fff}
-.boton.lleno:hover{background:var(--verde)}
-.boton.vacio{background:transparent;color:var(--verde-oscuro)}
-.boton.vacio:hover{background:var(--menta-clara)}
+.boton{display:inline-flex;align-items:center;gap:10px;font:900 1.05rem/1 Nunito,sans-serif;text-decoration:none;padding:17px 28px;border-radius:999px;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.boton:active{transform:translateY(3px)}
+.boton.coral{background:var(--coral);color:#fff;box-shadow:0 6px 0 var(--coral-2)}
+.boton.coral:active{box-shadow:0 3px 0 var(--coral-2)}
+.boton.blanco{background:#fff;color:var(--tinta);box-shadow:0 6px 0 rgba(23,59,51,.18)}
 
-/* Héroe */
-.heroe{position:relative;padding-block:clamp(40px,7vw,88px) 0}
-.heroe .envoltura{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
-@media (max-width:860px){.heroe .envoltura{grid-template-columns:1fr}}
-.insignia{display:inline-flex;align-items:center;gap:8px;background:var(--lila-clara);color:var(--morado);font-weight:800;font-size:.85rem;padding:7px 14px;border-radius:999px;margin-bottom:22px}
-.insignia::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--morado)}
-.heroe h1{font-size:var(--f-titulo)}
-.heroe h1 .lo{color:var(--verde)} .heroe h1 .la{color:var(--morado)}
-@media (min-width:600px){.heroe h1 .lo,.heroe h1 .la,.cierre h2 .junto{display:inline-block}}
-.junto{white-space:nowrap}
-.heroe .bajada{font-size:clamp(1.1rem,1rem + .5vw,1.3rem);color:var(--tinta-2);margin-top:22px;max-width:34ch}
-.escena{position:relative;justify-self:center;width:min(100%,440px)}
-.halo{position:absolute;inset:6% 4% 10%;border-radius:50%;background:var(--lila-clara)}
-.halo::after{content:"";position:absolute;width:22%;aspect-ratio:1;border-radius:50%;background:var(--menta-clara);right:2%;top:4%}
-.lumi-boton{position:relative;display:block;width:100%;padding:0;border:0;background:none;cursor:pointer}
-.lumi-boton img{width:100%;height:auto;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
-.lumi-boton:hover img{transform:translateY(-6px) rotate(-2deg)}
-.lumi-boton.salta img{transform:translateY(-18px) scale(1.04)}
+/* Cabecera */
+.cab{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;transition:background .3s,box-shadow .3s}
+.cab.solida{background:rgba(236,249,255,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(23,59,51,.08)}
+.cab .env{display:flex;align-items:center;gap:14px;height:72px}
+.logo{display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.logo img{height:42px;width:auto;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.logo:hover img{transform:rotate(-8deg)}
+.marca{font-weight:900;font-size:1.45rem;letter-spacing:-.02em;line-height:1}
+.marca b:first-child{color:var(--verde)} .marca b:last-child{color:var(--morado)}
+.cab nav{margin-left:auto;display:flex;gap:6px}
+.cab nav a{white-space:nowrap;text-decoration:none;font-weight:800;font-size:.95rem;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.75);transition:background .2s}
+.cab nav a:hover{background:#fff}
+.cab nav .urgente{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--coral-2)}
+@media (max-width:1060px){.cab nav a:not(.urgente):not([href="#contacto"]){display:none}}
+@media (max-width:640px){.cab nav a:not(.urgente){display:none}}
+
+/* Héroe: el paisaje */
+.heroe{margin-top:-72px;padding:128px 0 0;min-height:max(880px,100svh);background:linear-gradient(var(--cielo),var(--cielo-2) 72%);overflow:hidden;text-align:center}
+.heroe .texto{position:relative;z-index:3}
+.heroe{--lumi-w:clamp(170px,17vw,300px);--lumi-b:clamp(104px,8.5vw,170px)}
+.heroe h1{font-size:clamp(2.3rem,1.2rem + 3.2vw,4.3rem);max-width:22ch;margin:0 auto;text-shadow:0 3px 0 #fff}
+.heroe .bajada{margin:18px auto 0;color:#2E5A50;font-weight:700;max-width:46ch}
+.heroe .botones{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:30px}
+.nube{position:absolute;z-index:1;background:#fff;border-radius:999px}
+.nube::before,.nube::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.n1{width:190px;height:58px;top:150px;left:5%}.n1::before{width:84px;height:84px;top:-42px;left:32px}.n1::after{width:62px;height:62px;top:-28px;left:96px}
+.n2{width:150px;height:46px;top:250px;right:7%}.n2::before{width:66px;height:66px;top:-33px;left:28px}.n2::after{width:50px;height:50px;top:-22px;left:80px}
+.n3{width:110px;height:36px;top:420px;left:16%;opacity:.8}.n3::before{width:48px;height:48px;top:-24px;left:22px}.n3::after{width:36px;height:36px;top:-14px;left:58px}
 @media (prefers-reduced-motion:no-preference){
-  .respira{animation:respira 4.5s ease-in-out infinite}
-  @keyframes respira{50%{transform:translateY(-8px)}}
+  .n1{animation:flota 20s ease-in-out infinite}.n2{animation:flota 26s ease-in-out infinite reverse}.n3{animation:flota 30s ease-in-out infinite}
+  @keyframes flota{50%{translate:46px 0}}
+  .respira{animation:respira 4.6s ease-in-out infinite}
+  @keyframes respira{50%{translate:0 -8px}}
 }
-.globo{position:absolute;left:50%;top:2%;translate:-50% 0;background:#fff;border:2px solid var(--tinta);border-radius:20px;padding:10px 16px;font-weight:800;white-space:nowrap;box-shadow:4px 4px 0 var(--tinta);opacity:0;transition:opacity .25s,translate .25s;pointer-events:none}
-.globo::after{content:"";position:absolute;left:50%;bottom:-9px;width:14px;height:14px;background:#fff;border-right:2px solid var(--tinta);border-bottom:2px solid var(--tinta);transform:translateX(-50%) rotate(45deg)}
-.globo.visible{opacity:1;translate:-50% -10px}
-.pista{font-size:.85rem;color:var(--tinta-2);text-align:center;margin-top:4px}
-.camino-heroe{display:block;width:100%;height:auto;margin-top:clamp(8px,3vw,24px)}
+.paisaje{position:absolute;inset:auto 0 0;height:clamp(360px,30vw,560px);z-index:0}
+.paisaje svg{width:100%;height:100%}
+.lumi-heroe{position:absolute;z-index:2;left:50%;bottom:var(--lumi-b);width:var(--lumi-w);translate:-60% 0;padding:0;border:0;background:none;cursor:pointer}
+.lumi-heroe img{width:100%;height:auto;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.lumi-heroe:hover img{transform:translateY(-6px) rotate(-3deg)}
+.lumi-heroe.salta img{transform:translateY(-22px) scale(1.05)}
+.globo{position:absolute;z-index:3;left:calc(50% + var(--lumi-w) * .3);bottom:calc(var(--lumi-b) + var(--lumi-w) * .72);background:#fff;border:3px solid var(--tinta);border-radius:22px;padding:11px 18px;font-weight:900;box-shadow:5px 5px 0 var(--tinta);white-space:nowrap;transition:scale .2s}
+.globo.pop{scale:1.08}
+.pista{position:absolute;z-index:3;left:50%;bottom:calc(var(--lumi-b) - 46px);translate:-60% 0;font-size:.85rem;font-weight:800;color:var(--verde);background:rgba(255,255,255,.7);padding:4px 12px;border-radius:999px}
+@media (max-width:700px){
+  .heroe{min-height:1010px;padding-top:120px}
+  .n1{top:104px;left:-60px}.n2{top:380px;right:-40px}.n3{display:none}
+  .heroe{--lumi-w:190px;--lumi-b:120px}
+  .lumi-heroe{translate:-50% 0}
+  .globo{left:50%;translate:-50% 0;bottom:calc(var(--lumi-b) + 190px)}
+  .pista{translate:-50% 0}
+}
 
-/* Secciones */
-section{padding-block:clamp(72px,10vw,128px)}
-.seccion-titulo{font-size:var(--f-h2);max-width:22ch}
-.seccion-bajada{font-size:1.15rem;color:var(--tinta-2);margin-top:16px;max-width:52ch}
+/* Momentos del día */
+.momentos{padding:110px 0 60px}
+.momentos .cabeza{text-align:center}
+.momentos .cabeza .h2,.momentos .cabeza .bajada{margin-inline:auto}
+.lista-momentos{margin-top:56px;display:grid;gap:clamp(48px,7vw,96px)}
+.momento{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.momento:nth-child(even) .escena{order:2}
+.momento h3{font-size:clamp(1.6rem,1.15rem + 1.6vw,2.4rem);margin-top:12px}
+.momento p{font-size:1.15rem;color:var(--tinta-2);margin-top:12px;max-width:38ch}
+.momento .lumi-dice{margin-top:18px;display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:20px 20px 20px 6px;padding:14px 18px;box-shadow:0 10px 24px -16px rgba(23,59,51,.5);max-width:40ch;font-weight:700}
+.momento .lumi-dice img{width:40px;height:40px;flex:none;border-radius:50%;background:var(--menta-2)}
+@media (max-width:820px){.momento{grid-template-columns:1fr}.momento:nth-child(even) .escena{order:0}}
+.escena{position:relative;border-radius:36px;aspect-ratio:4/3;overflow:hidden;box-shadow:0 30px 50px -34px rgba(23,59,51,.6)}
+.escena svg{position:absolute;inset:0;width:100%;height:100%}
+.escena .lumi{position:absolute;width:34%;height:auto}
+.escena .hora{position:absolute;top:22px;left:22px;font-weight:900;font-variant-numeric:tabular-nums;background:#fff;color:var(--tinta);padding:7px 14px;border-radius:12px;font-size:1rem}
+.escena .burbuja{position:absolute;background:#fff;border-radius:18px;padding:10px 14px;font-weight:800;font-size:.92rem;line-height:1.35;box-shadow:0 10px 24px rgba(0,0,0,.18);max-width:52%}
 
-/* Frase de cierre de sección */
-.conclusion{margin-top:56px;font-size:clamp(1.4rem,1.1rem + 1.2vw,2rem);font-weight:900;max-width:26ch;text-wrap:balance}
-.conclusion em{font-style:normal;background:linear-gradient(transparent 60%,var(--menta) 60%)}
-
-/* Camino (scrollytelling) */
-.camino{padding:0;background:var(--menta-clara)}
-.camino .intro{padding-block:clamp(72px,10vw,120px) 0}
+/* Recorrido: Lumi camina el camino al bajar */
+.camino{background:linear-gradient(var(--crema),var(--pasto-2) 18%,var(--pasto-2));padding-top:90px}
+.camino .cabeza{text-align:center}
+.camino .cabeza .h2,.camino .cabeza .bajada{margin-inline:auto}
 .recorrido{height:320vh;position:relative}
-.fijo{position:sticky;top:calc(68px + env(safe-area-inset-top,0px));height:calc(100svh - 68px);display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:24px}
-.mapa{width:100%;height:min(78svh,640px);overflow:visible}
-.mapa .pista-gris{fill:none;stroke:#fff;stroke-width:10;stroke-linecap:round}
-.mapa .pista-coral{fill:none;stroke:var(--coral);stroke-width:10;stroke-linecap:round}
+.fijo{position:sticky;top:calc(72px + env(safe-area-inset-top,0px));height:calc(100svh - 72px);display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:24px}
+.mapa{width:100%;height:min(76svh,640px);overflow:visible}
+.mapa .pista-base{fill:none;stroke:rgba(255,255,255,.75);stroke-width:12;stroke-linecap:round}
+.mapa .pista-coral{fill:none;stroke:var(--coral);stroke-width:12;stroke-linecap:round}
 .mapa .nodo{fill:#fff;stroke:var(--verde);stroke-width:5;transition:fill .3s}
 .mapa .nodo.pasado{fill:var(--verde)}
 .mapa .horizontal{display:none}
+.lado{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center}
 .pasos{list-style:none;margin:0;padding:0;display:grid}
 .pasos li{grid-area:1/1;transition:opacity .4s,translate .4s}
 .js .pasos li{opacity:0;translate:0 14px;pointer-events:none}
 .js .pasos li.activo{opacity:1;translate:0 0;pointer-events:auto}
-.paso-num{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--verde-oscuro);color:#fff;font-weight:900;margin-bottom:14px}
-.pasos h3{font-size:clamp(1.8rem,1.3rem + 2vw,2.8rem)}
-.pasos p{font-size:1.15rem;color:var(--tinta-2);margin-top:12px;max-width:30ch}
-.lado-derecho{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
-.telefono{position:relative;width:clamp(200px,22vw,270px);aspect-ratio:600/1298;border-radius:38px;border:10px solid var(--tinta);background:#fff;overflow:hidden;box-shadow:0 30px 60px -30px rgba(15,74,59,.55)}
-.telefono img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s}
-.js .telefono img{opacity:0}
-.js .telefono img.activo{opacity:1}
-.no-js-nota{display:none}
+.num{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--verde);color:#fff;font-weight:900;margin-bottom:12px}
+.pasos h3{font-size:clamp(1.9rem,1.3rem + 2vw,2.9rem)}
+.pasos p{font-size:1.12rem;color:var(--tinta-2);margin-top:10px;max-width:28ch}
+.tel{position:relative;width:clamp(200px,20vw,260px);aspect-ratio:600/1298;max-width:100%;border-radius:38px;border:10px solid var(--tinta);background:#fff;overflow:hidden;box-shadow:0 30px 60px -30px rgba(15,74,59,.6)}
+.tel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s}
+.js .tel img{opacity:0}
+.js .tel img.activo{opacity:1}
 @media (max-width:860px){
   .fijo{grid-template-columns:1fr;grid-template-rows:auto auto 1fr;align-content:start;gap:12px;padding-top:12px}
   .mapa{height:auto;aspect-ratio:600/150}
-  .mapa .vertical{display:none}
-  .mapa .horizontal{display:inline}
-  .lado-derecho{grid-template-columns:1fr;justify-items:center;gap:14px}
+  .mapa .vertical{display:none}.mapa .horizontal{display:inline}
+  .lado{grid-template-columns:1fr;justify-items:center;text-align:center;gap:14px}
   .pasos p{max-width:none}
-  .pasos{text-align:center}
-  .telefono{width:auto;height:min(46svh,420px);border-width:8px;border-radius:30px}
+  .tel{width:auto;height:min(44svh,400px);border-width:8px;border-radius:30px}
 }
 html:not(.js) .recorrido{height:auto}
 html:not(.js) .fijo{position:static;height:auto;padding-block:40px}
-html:not(.js) .pasos{gap:28px}
+html:not(.js) .pasos{gap:24px}
 html:not(.js) .pasos li{grid-area:auto}
-html:not(.js) .telefono img:not(:first-child){display:none}
+html:not(.js) .tel img:not(:first-child){display:none}
 
-/* Promesas */
-.promesas .rejilla{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
-@media (max-width:960px){.promesas .rejilla{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:520px){.promesas .rejilla{grid-template-columns:1fr}}
-.promesa{border-radius:var(--radio);padding:26px 24px 28px;background:#fff;border:1px solid var(--gris-linea)}
-.promesa svg{width:44px;height:44px;margin-bottom:18px}
-.promesa h3{font-size:1.3rem}
-.promesa p{color:var(--tinta-2);margin-top:8px}
-.promesa.crisis{background:#FFF0EB;border-color:#FFC9BA}
+/* Chat de ejemplo */
+.charla{background:var(--pasto-2);padding:40px 0 120px}
+.charla .caja{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:center;background:var(--lila);border-radius:44px;padding:clamp(28px,5vw,64px)}
+@media (max-width:860px){.charla .caja{grid-template-columns:1fr}}
+.temas{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.temas li{background:#fff;color:var(--morado);font-weight:800;font-size:.92rem;padding:8px 14px;border-radius:999px}
+.ventana{background:#fff;border-radius:30px;padding:20px;box-shadow:0 40px 70px -40px rgba(94,70,160,.55);min-width:0}
+.ventana .top{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid #EEE9F7}
+.ventana .top img{width:46px;height:46px;border-radius:50%;background:var(--menta-2)}
+.ventana .top b{display:block;font-weight:900}
+.ventana .top small{display:block;color:#2F9A73;font-weight:800}
+.msgs{display:grid;gap:10px;padding:16px 0 8px;min-height:230px;align-content:end}
+.m{max-width:84%;padding:12px 16px;border-radius:20px;line-height:1.45;font-weight:700;overflow-wrap:anywhere}
+.m.lumi{background:#F1EDFA;border-bottom-left-radius:6px}
+.m.yo{background:var(--verde);color:#fff;justify-self:end;border-bottom-right-radius:6px}
+.m.lumi.entra{animation:entra .3s ease-out}
+@keyframes entra{from{opacity:0;translate:0 8px}}
+.escribe{display:inline-flex;gap:5px;padding:14px 16px;background:#F1EDFA;border-radius:20px;border-bottom-left-radius:6px;justify-self:start}
+.escribe i{width:7px;height:7px;border-radius:50%;background:#9C8CC8}
+@media (prefers-reduced-motion:no-preference){.escribe i{animation:punto 1s infinite}.escribe i:nth-child(2){animation-delay:.15s}.escribe i:nth-child(3){animation-delay:.3s}@keyframes punto{50%{translate:0 -4px;opacity:.5}}}
+.opciones{display:flex;flex-wrap:wrap;gap:8px;padding-top:8px}
+.opciones button{font:800 .95rem Nunito,sans-serif;border:2px solid var(--lila-2);background:#fff;color:var(--morado);padding:10px 14px;border-radius:999px;cursor:pointer;transition:background .2s}
+.opciones button:hover{background:#F1EDFA}
+.opciones .acc{background:var(--verde);border-color:var(--verde);color:#fff}
+.aviso-chat{font-size:.8rem;color:var(--tinta-2);text-align:center;margin-top:12px}
 
-/* Tu Lumi */
-.tu-lumi{background:var(--lila-clara)}
-.tu-lumi .rejilla{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center}
-@media (max-width:860px){.tu-lumi .rejilla{grid-template-columns:1fr}}
-.vitrina{position:relative;width:min(100%,420px);justify-self:center}
-.vitrina::before{content:"";position:absolute;inset:8% 8% 4%;border-radius:50%;background:#fff}
+/* La puerta: Lumi y el psicólogo */
+.puerta{padding:120px 0}
+.puerta .rej{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
+@media (max-width:760px){.puerta .rej{grid-template-columns:1fr}}
+.lado-a,.lado-b{border-radius:var(--radio);padding:30px 30px 32px}
+.lado-a{background:var(--menta-2)} .lado-b{background:var(--lila)}
+.lado-a h3,.lado-b h3{display:flex;align-items:center;gap:12px;font-size:1.5rem}
+.lado-a h3 img{height:46px;width:auto}
+.lado-b h3 svg{width:40px;height:40px}
+.puerta ul{margin:16px 0 0;padding-left:1.2em;display:grid;gap:8px;font-weight:700}
+.puerta .remate{margin-top:22px;font-size:1.2rem;font-weight:900;color:var(--verde)}
+
+/* Un lugar seguro */
+.seguro{background:var(--crema-2);padding:110px 0}
+.promesas{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+@media (max-width:980px){.promesas{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:540px){.promesas{grid-template-columns:1fr}}
+.promesa{background:#fff;border-radius:24px;padding:26px 24px 28px;box-shadow:0 6px 0 rgba(23,59,51,.07)}
+.promesa .ico{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;margin-bottom:16px}
+.promesa .ico svg{width:28px;height:28px}
+.promesa h3{font-size:1.22rem}
+.promesa p{color:var(--tinta-2);margin-top:8px;font-weight:600}
+.fuente{font-size:.8rem;color:var(--tinta-2);margin-top:22px}
+
+/* Cuándo pedir ayuda: atardecer */
+.ayuda{padding:110px 0;background:linear-gradient(#FFE9D6,#FFD9C7)}
+.ayuda .rej{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);align-items:start}
+@media (max-width:860px){.ayuda .rej{grid-template-columns:1fr}}
+.senales{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:12px}
+.senales li{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:18px;padding:15px 18px;font-weight:700}
+.senales li::before{content:"";flex:none;width:14px;height:14px;margin-top:5px;border-radius:50%;border:4px solid var(--coral)}
+.urgente-caja{background:var(--noche);color:#fff;border-radius:var(--radio);padding:32px 30px;display:grid;gap:14px;position:relative;overflow:hidden}
+.urgente-caja::after{content:"";position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;background:var(--luz);opacity:.9;box-shadow:0 0 60px var(--luz)}
+.urgente-caja h3{font-size:1.6rem;position:relative;z-index:1;max-width:14ch}
+.urgente-caja p{position:relative;z-index:1;color:#DCE2F5}
+.urgente-caja strong{color:var(--luz)}
+.numero{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;background:rgba(255,255,255,.1);border-radius:16px;padding:12px 16px;position:relative;z-index:1}
+.numero b{font-size:1.8rem;color:#fff;font-variant-numeric:tabular-nums}
+
+/* Primera cita */
+.cita{padding:110px 0;background:var(--crema)}
+.pasos-cita{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+.pasos-cita::before{content:"";position:absolute;left:4%;right:4%;top:26px;border-top:8px dotted var(--coral);z-index:0}
+@media (max-width:980px){.pasos-cita{grid-template-columns:repeat(2,1fr)}.pasos-cita::before{display:none}}
+@media (max-width:540px){.pasos-cita{grid-template-columns:1fr}}
+.pasos-cita li{position:relative;z-index:1;background:#fff;border-radius:24px;padding:22px 22px 26px;box-shadow:0 8px 24px -18px rgba(23,59,51,.6)}
+.pasos-cita .n{display:grid;place-items:center;width:52px;height:52px;margin-top:-48px;border-radius:50%;background:var(--coral);color:#fff;font-weight:900;font-size:1.3rem;border:6px solid var(--crema)}
+.pasos-cita h3{font-size:1.2rem;margin-top:12px}
+.pasos-cita p{color:var(--tinta-2);margin-top:8px;font-weight:600}
+
+/* Crea tu Lumi: el armario */
+.armario{padding:110px 0;background:linear-gradient(var(--cielo-2),var(--cielo));overflow:hidden}
+.armario .rej{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center}
+@media (max-width:860px){.armario .rej{grid-template-columns:1fr}}
+.vitrina{position:relative;width:min(100%,440px);justify-self:center}
+.vitrina .colina{position:absolute;inset:auto -10% -4% -10%;height:34%;background:var(--pasto);border-radius:50% 50% 0 0}
 .vitrina img{position:relative;width:100%;height:auto;view-transition-name:lumi-vitrina}
 .vitrina img.pop{animation:pop .35s cubic-bezier(.3,1.6,.5,1)}
 @keyframes pop{from{transform:scale(.92)}}
 ::view-transition-old(lumi-vitrina),::view-transition-new(lumi-vitrina){animation-duration:.3s}
-.selector{border:0;padding:0;margin:28px 0 0;display:flex;flex-wrap:wrap;gap:10px}
-.selector legend{font-weight:800;margin-bottom:12px;padding:0}
-.selector label{position:relative;display:flex;align-items:center;gap:8px;padding:6px 16px 6px 6px;border-radius:999px;background:#fff;border:2px solid transparent;font-weight:700;cursor:pointer;transition:border-color .2s,background .2s}
-.selector label:hover{border-color:var(--lila)}
-.selector input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
-.selector img{width:36px;height:36px;border-radius:50%;background:var(--lila-clara)}
+.selector{border:0;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.selector legend{font-weight:900;margin-bottom:12px;padding:0}
+.selector label{position:relative;display:flex;align-items:center;gap:8px;padding:6px 16px 6px 6px;border-radius:999px;background:#fff;border:3px solid transparent;font-weight:800;cursor:pointer;transition:border-color .2s,background .2s;box-shadow:0 4px 0 rgba(23,59,51,.1)}
+.selector label:hover{border-color:var(--lila-2)}
+.selector input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.selector img{width:36px;height:36px;border-radius:50%;background:var(--lila)}
 .selector label:has(input:checked){border-color:var(--morado);background:var(--morado);color:#fff}
 .selector label:has(input:focus-visible){outline:3px solid var(--morado);outline-offset:3px}
-.nota-lumi{margin-top:22px;color:var(--tinta-2)}
+.nota-lumi{margin-top:18px;color:var(--tinta-2);font-weight:700}
 
 /* Anuncio */
-.anuncio .rejilla{display:grid;grid-template-columns:auto 1fr;gap:clamp(32px,6vw,80px);align-items:center}
-@media (max-width:760px){.anuncio .rejilla{grid-template-columns:1fr;justify-items:center;text-align:center}.anuncio .seccion-bajada{margin-inline:auto}}
-.marco-video{position:relative;width:clamp(240px,26vw,300px);aspect-ratio:9/16;border-radius:40px;border:10px solid var(--tinta);overflow:hidden;background:var(--tinta);box-shadow:0 30px 60px -30px rgba(15,74,59,.6)}
-.marco-video video{width:100%;height:100%;object-fit:cover}
-.controles{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
-@media (max-width:760px){.controles{justify-content:center}}
-
-/* Cierre */
-.cierre{padding-bottom:0;text-align:center;overflow:hidden}
-.cierre h2{font-size:var(--f-titulo);max-width:18ch;margin-inline:auto}
-.cierre h2 .lo{color:var(--verde)} .cierre h2 .la{color:var(--morado)}
-.cierre .seccion-bajada{margin-inline:auto}
-.cierre .botones{justify-content:center}
-.final{display:block;width:min(100%,900px);height:auto;margin:48px auto 0}
-.js .final .puerta-hoja{transform-box:fill-box;transform-origin:left center;transition:transform 1.2s cubic-bezier(.5,0,.2,1) .3s}
-.js .final:not(.visto) .puerta-hoja{transform:scaleX(1)}
-.final.visto .puerta-hoja,html:not(.js) .final .puerta-hoja{transform:scaleX(.32)}
-
-/* Situaciones */
-.situaciones{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}
-.situaciones li{background:#fff;border:1px solid var(--gris-linea);border-radius:20px;padding:22px 22px 24px;display:grid;gap:10px;align-content:start}
-.hora{justify-self:start;font-weight:800;font-size:.85rem;font-variant-numeric:tabular-nums;color:var(--morado);background:var(--lila-clara);padding:4px 10px;border-radius:999px}
-.situaciones p{font-size:1.08rem;font-weight:600}
-
-/* Temas y comparación */
-.chips{list-style:none;margin:32px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
-.chips li{background:var(--menta-clara);color:var(--verde-oscuro);font-weight:800;padding:10px 18px;border-radius:999px}
-.chips .otro{background:transparent;border:2px dashed var(--verde);padding:8px 16px}
-.comparar{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
-@media (max-width:760px){.comparar{grid-template-columns:1fr}}
-.comparar article{border-radius:var(--radio);padding:26px 26px 28px;background:var(--menta-clara)}
-.comparar article.psico{background:var(--lila-clara)}
-.comparar h3{display:flex;align-items:center;gap:10px;font-size:1.4rem}
-.comparar h3 img{height:36px;width:auto}
-.comparar h3 svg{width:30px;height:30px;color:var(--morado)}
-.comparar ul{margin:16px 0 0;padding-left:1.2em;display:grid;gap:8px}
-.nota-comparar{margin-top:20px;font-weight:800;color:var(--verde-oscuro)}
-
-/* Señales */
-.senales{background:var(--crema-2)}
-.senales .rejilla{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(28px,5vw,64px);align-items:start}
-@media (max-width:860px){.senales .rejilla{grid-template-columns:1fr}}
-.lista-senales{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:12px}
-.lista-senales li{position:relative;padding:14px 18px 14px 50px;background:#fff;border-radius:16px;font-weight:600}
-.lista-senales li::before{content:"";position:absolute;left:18px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;border:4px solid var(--coral)}
-.urgente{background:var(--verde-oscuro);color:#fff;border-radius:var(--radio);padding:30px 28px;display:grid;gap:14px}
-.urgente h3{font-size:1.5rem;color:#fff}
-.urgente strong{color:var(--luz)}
-.urgente .pequeno{color:#CDE8DE;font-size:.95rem}
-
-/* Primera cita */
-.pasos-cita{list-style:none;margin:44px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:paso}
-@media (max-width:960px){.pasos-cita{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.pasos-cita{grid-template-columns:1fr}}
-.pasos-cita li{counter-increment:paso;border-top:6px solid var(--coral);background:#fff;border-radius:0 0 20px 20px;padding:22px 22px 24px;border-inline:1px solid var(--gris-linea);border-bottom:1px solid var(--gris-linea)}
-.pasos-cita li::before{content:counter(paso);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--coral);color:#fff;font-weight:900;margin-bottom:14px}
-.pasos-cita h3{font-size:1.2rem}
-.pasos-cita p{color:var(--tinta-2);margin-top:8px}
+.anuncio{padding:110px 0;background:var(--crema)}
+.anuncio .rej{display:grid;grid-template-columns:auto 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+@media (max-width:760px){.anuncio .rej{grid-template-columns:1fr;justify-items:center;text-align:center}.anuncio .bajada{margin-inline:auto}.controles{justify-content:center}}
+.marco{width:clamp(230px,24vw,290px);aspect-ratio:9/16;max-width:100%;border-radius:40px;border:10px solid var(--tinta);overflow:hidden;background:var(--tinta);box-shadow:0 30px 60px -30px rgba(15,74,59,.6)}
+.marco video{width:100%;height:100%;object-fit:cover}
+.controles{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
 
 /* Preguntas */
-.preguntas{background:var(--crema-2)}
-.acordeon{margin-top:36px;display:grid;gap:10px;max-width:820px}
-.acordeon details{background:#fff;border-radius:16px;border:1px solid var(--gris-linea)}
-.acordeon summary{cursor:pointer;list-style:none;padding:18px 56px 18px 22px;font-weight:800;font-size:1.08rem;position:relative}
+.faq{padding:110px 0;background:var(--crema-2)}
+.acordeon{margin-top:36px;display:grid;gap:10px;max-width:840px}
+.acordeon details{background:#fff;border-radius:18px;box-shadow:0 4px 0 rgba(23,59,51,.06)}
+.acordeon summary{cursor:pointer;list-style:none;padding:18px 58px 18px 22px;font-weight:900;font-size:1.08rem;position:relative}
 .acordeon summary::-webkit-details-marker{display:none}
-.acordeon summary::after{content:"+";position:absolute;right:20px;top:50%;translate:0 -50%;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--menta-clara);color:var(--verde-oscuro);font-weight:900;transition:rotate .2s}
+.acordeon summary::after{content:"+";position:absolute;right:18px;top:50%;translate:0 -50%;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:var(--menta-2);color:var(--verde);font-weight:900;transition:rotate .2s}
 .acordeon details[open] summary::after{rotate:45deg}
-.acordeon details p{padding:0 22px 20px;color:var(--tinta-2);max-width:65ch}
-
-/* Hecho por */
-.hecho-por{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;padding-block:28px 40px;color:var(--tinta-2);text-align:center}
-.caritas{display:flex}
-.caritas img{width:48px;height:48px;margin-left:-10px;border-radius:50%;background:var(--crema-2);border:2px solid var(--crema)}
-.caritas img:first-child{margin-left:0}
-
-/* Seguridad */
-.seguridad .rejilla{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
-@media (max-width:760px){.seguridad .rejilla{grid-template-columns:1fr}}
-.seguridad article{padding:26px 26px 28px;border-radius:var(--radio);background:var(--crema-2);border-left:6px solid var(--verde)}
-.seguridad article:first-child{border-left-color:var(--coral)}
-.seguridad h3{font-size:1.25rem}
-.seguridad p{color:var(--tinta-2);margin-top:8px}
+.acordeon details p{padding:0 22px 20px;color:var(--tinta-2);max-width:65ch;font-weight:600}
 
 /* Contacto */
-.contacto{background:var(--morado);color:#fff}
-.contacto .envoltura{display:grid;grid-template-columns:240px 1fr;gap:clamp(24px,5vw,56px);align-items:center}
-@media (max-width:760px){.contacto .envoltura{grid-template-columns:1fr;justify-items:center;text-align:center}.canales{justify-content:center}}
-.contacto img{width:min(100%,240px);height:auto}
-.contacto .seccion-bajada{color:#E6DEFA}
-.correo{margin-top:28px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;background:#fff;color:var(--morado);border-radius:20px;padding:12px 12px 12px 20px;max-width:100%}
-.correo span{font-weight:800;font-size:clamp(1rem,.9rem + .6vw,1.25rem);user-select:all;overflow-wrap:anywhere;color:var(--tinta)}
-.correo button{font:800 .95rem/1 Nunito,system-ui,sans-serif;background:var(--morado);color:#fff;border:0;border-radius:999px;padding:12px 18px;cursor:pointer;transition:background .2s}
-.correo button:hover{background:#4A3685}
-.estado-copia{min-height:1.4em;margin-top:8px;font-weight:700;color:var(--luz)}
-.nota-contacto{margin-top:18px;font-size:.88rem;color:#D4C8F2}
+.contacto{background:var(--morado);color:#fff;padding:100px 0}
+.contacto .rej{display:grid;grid-template-columns:230px 1fr;gap:clamp(24px,5vw,56px);align-items:center}
+@media (max-width:760px){.contacto .rej{grid-template-columns:1fr;justify-items:center;text-align:center}}
+.contacto img{width:min(100%,230px);height:auto}
+.contacto .bajada{color:#E6DEFA}
+.correo{margin-top:26px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;background:#fff;color:var(--morado);border-radius:22px;padding:12px 12px 12px 20px;max-width:100%}
+.correo span{font-weight:900;font-size:clamp(1rem,.9rem + .6vw,1.25rem);user-select:all;overflow-wrap:anywhere;color:var(--tinta)}
+.correo button{font:900 .95rem/1 Nunito,sans-serif;background:var(--morado);color:#fff;border:0;border-radius:999px;padding:12px 18px;cursor:pointer}
+.estado{min-height:1.4em;margin-top:8px;font-weight:800;color:var(--luz)}
+.nota-contacto{margin-top:12px;font-size:.88rem;color:#D4C8F2}
+
+/* Cierre: atardecer y la puerta abierta */
+.cierre{background:linear-gradient(#FFD9C7,#FFC4A8 55%,var(--pasto-2) 55%);padding:110px 0 0;text-align:center;overflow:hidden}
+.cierre h2{font-size:var(--t-titulo);max-width:16ch;margin:0 auto}
+.cierre .bajada{margin:18px auto 0;color:#5A4A44}
+.final{display:block;width:min(100%,980px);height:auto;margin:40px auto 0}
+.js .final .hoja{transform-box:fill-box;transform-origin:left center;transition:transform 1.2s cubic-bezier(.5,0,.2,1) .3s}
+.final.visto .hoja,html:not(.js) .final .hoja{transform:scaleX(.3)}
+.hecho{background:var(--pasto-2);padding:20px 16px 40px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px;color:var(--tinta);font-weight:700}
+.caritas{display:flex}
+.caritas img{width:48px;height:48px;margin-left:-10px;border-radius:50%;background:#fff;border:3px solid var(--pasto-2)}
+.caritas img:first-child{margin-left:0}
 
 /* Pie */
-.pie{background:var(--tinta);color:#DDE3E4;padding-block:48px;font-size:.92rem}
-.pie .envoltura{display:grid;gap:22px}
+.pie{background:var(--tinta);color:#DDE7E4;padding:48px 0;font-size:.95rem}
+.pie .env{display:grid;gap:20px}
+.pie .logo{justify-self:start;background:var(--crema);border-radius:16px;padding:10px 14px}
+.pie .logo img{height:34px}
+.pie .marca{font-size:1.2rem}
 .aviso{display:flex;gap:14px;align-items:flex-start;background:rgba(255,122,92,.14);border:1px solid rgba(255,122,92,.45);border-radius:16px;padding:16px 18px;color:#fff}
 .aviso svg{flex:none;width:24px;height:24px;color:var(--coral)}
-.aviso a{font-weight:800;color:#fff}
-.pie small{color:#9FAAAD}
-.logo-pie{justify-self:start;background:var(--crema);border-radius:14px;padding:10px 14px}
-.logo-pie img{height:34px}
-.logo-pie .marca{font-size:1.25rem}
+.pie small{color:#9FB0AB}
 
-/* Aparición (fundido: va para todos) */
+/* Aparición suave al bajar (si el navegador lo permite; nunca oculta contenido en reposo) */
 @supports ((animation-timeline: view()) and (animation-range: entry)){
   .aparece{animation:aparecer linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
 }
-@keyframes aparecer{from{opacity:0;translate:0 18px}}
+@keyframes aparecer{from{opacity:0;translate:0 22px}}
 </style>
 <script>document.documentElement.classList.add('js');document.documentElement.lang='es'</script>
+
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 
-<header class="cabecera">
-  <div class="envoltura">
+<header class="cab" id="cab">
+  <div class="env">
     <a class="logo" href="#inicio" aria-label="MenteSana, inicio"><img src="assets/lumi_logo.svg" alt="" width="40" height="49"><span class="marca"><b>Mente</b><b>Sana</b></span></a>
     <nav aria-label="Secciones">
       <a href="#camino">Cómo funciona</a>
-      <a href="#promesas">Privacidad</a>
+      <a href="#charla">Pruébalo</a>
+      <a href="#seguro">Privacidad</a>
       <a href="#preguntas">Preguntas</a>
       <a href="#contacto">Contacto</a>
-      <a class="urgente-nav" href="#ayuda-urgente"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg>Ayuda urgente</a>
-      <a class="boton-nav" href="#tu-lumi">Crea tu Lumi</a>
+      <a class="urgente" href="#ayuda-urgente"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg>Ayuda urgente</a>
     </nav>
   </div>
 </header>
@@ -311,100 +335,190 @@ html:not(.js) .telefono img:not(:first-child){display:none}
 <main id="contenido">
 
 <!-- HÉROE -->
-<section class="heroe" id="inicio" aria-labelledby="titulo-heroe">
-  <div class="envoltura">
-    <div>
-      <span class="insignia">En desarrollo</span>
-      <h1 id="titulo-heroe">El puente entre <span class="lo">lo que sientes</span> y <span class="la">la ayuda que necesitas</span></h1>
-      <p class="bajada">Lumi es un acompañante con inteligencia artificial para universitarios. Te escucha a cualquier hora y, si lo necesitas, te ayuda a llegar al psicólogo de tu universidad.</p>
-      <div class="botones">
-        <a class="boton lleno" href="#camino">Cómo funciona
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-        <a class="boton vacio" href="#senales">¿Cuándo pedir ayuda?</a>
-      </div>
-    </div>
-    <div class="escena">
-      <div class="halo" aria-hidden="true"></div>
-      <span class="globo" id="globo" role="status" aria-live="polite"></span>
-      <button class="lumi-boton" id="lumiHola" type="button" aria-label="Saludar a Lumi">
-        <img class="respira" src="assets/lumi_cercano.webp" alt="Lumi, una mascota redonda color menta con un brote en la cabeza y bufanda coral" width="560" height="560" fetchpriority="high">
-      </button>
-      <p class="pista">Tócalo, no muerde</p>
+<section class="heroe" id="inicio" aria-labelledby="t-heroe">
+  <span class="nube n1" aria-hidden="true"></span><span class="nube n2" aria-hidden="true"></span><span class="nube n3" aria-hidden="true"></span>
+  <div class="texto env">
+    <h1 id="t-heroe">Alguien con quien hablar, a cualquier hora</h1>
+    <p class="bajada">Lumi es un acompañante con IA para universitarios: te escucha sin juicios y, cuando lo necesitas, te acompaña hasta el psicólogo de tu universidad.</p>
+    <div class="botones">
+      <a class="boton coral" href="#charla">Habla con Lumi</a>
+      <a class="boton blanco" href="#camino">Cómo funciona</a>
     </div>
   </div>
-  <svg class="camino-heroe" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 70 C 240 10, 420 120, 720 70 S 1180 20, 1300 64" fill="none" stroke="#FF7A5C" stroke-width="6" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
-  </svg>
+  <div class="paisaje" aria-hidden="true">
+    <svg viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice">
+      <path d="M0 230 C 240 140 420 210 620 170 S 1040 110 1440 190 V420 H0Z" fill="#A9E3C4"/>
+      <g fill="#5EBF8F"><circle cx="160" cy="186" r="40"/><circle cx="214" cy="200" r="28"/><circle cx="1290" cy="150" r="48"/></g>
+      <g fill="#8B6B4A"><rect x="155" y="210" width="10" height="42"/><rect x="1285" y="180" width="10" height="48"/></g>
+      <g transform="translate(1030 86)">
+        <rect width="210" height="132" rx="12" fill="#FFFBF6"/>
+        <path d="M-14 6 L105 -50 L224 6Z" fill="#E3634A"/>
+        <rect x="86" y="62" width="40" height="70" rx="5" fill="#0F4A3B"/><circle cx="117" cy="98" r="3.5" fill="#A5E6CF"/>
+        <g fill="#CFEFFF"><rect x="20" y="28" width="38" height="26" rx="5"/><rect x="152" y="28" width="38" height="26" rx="5"/></g>
+        <rect x="70" y="-24" width="70" height="20" rx="10" fill="#fff"/><text x="105" y="-9" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="900" font-size="12" fill="#5E46A0">TU U</text>
+      </g>
+      <path d="M-20 300 C 260 220 470 320 730 268 S 1060 236 1136 216" fill="none" stroke="#FF7A5C" stroke-width="14" stroke-linecap="round" stroke-dasharray="1 26"/>
+      <path d="M0 290 C 300 360 600 270 900 330 S 1300 280 1440 320 V420 H0Z" fill="#7FD3A8"/>
+      <g fill="#fff" opacity=".9"><circle cx="300" cy="372" r="5"/><circle cx="312" cy="366" r="5"/><circle cx="1010" cy="384" r="5"/><circle cx="1022" cy="378" r="5"/></g>
+    </svg>
+  </div>
+  <span class="globo" id="globo" role="status" aria-live="polite">¡Hola! ¿Cómo estás hoy?</span>
+  <button class="lumi-heroe" id="lumiHola" type="button" aria-label="Saludar a Lumi">
+    <img class="respira" src="assets/lumi_cercano.webp" alt="Lumi, una mascota redonda color menta con un brote en la cabeza y bufanda coral" width="560" height="560" fetchpriority="high">
+  </button>
+  <span class="pista" aria-hidden="true">Tócalo, no muerde</span>
 </section>
 
-<!-- FAMILIAR -->
-<section class="familiar" id="familiar" aria-labelledby="titulo-familiar">
-  <div class="envoltura">
-    <h2 class="seccion-titulo aparece" id="titulo-familiar">¿Te suena alguna?</h2>
-    <p class="seccion-bajada aparece">La vida universitaria pesa, y casi nunca avisa. No necesitas estar en crisis para querer hablar.</p>
-    <ul class="situaciones">
-      <li class="aparece"><span class="hora">23:40</span><p>Tres exámenes esta semana y sientes que no te alcanza el tiempo ni para dormir.</p></li>
-      <li class="aparece"><span class="hora">07:00</span><p>Te levantas cansado aunque hayas dormido, y estudiar se siente cuesta arriba.</p></li>
-      <li class="aparece"><span class="hora">14:15</span><p>No le cuentas a nadie cómo estás porque no quieres cargar a los demás.</p></li>
-      <li class="aparece"><span class="hora">19:30</span><p>Quieres hablar con alguien de tu universidad, pero no sabes ni dónde pedir la cita.</p></li>
-    </ul>
-    <p class="conclusion aparece">Para esos momentos existe Lumi: <em>alguien con quien hablar ahora, y un camino claro si necesitas más.</em></p>
+<!-- MOMENTOS -->
+<section class="momentos" id="momentos" aria-labelledby="t-momentos">
+  <div class="env">
+    <div class="cabeza aparece">
+      <span class="etiqueta">Un día cualquiera en la U</span>
+      <h2 class="h2" id="t-momentos">Para los momentos que nadie ve</h2>
+      <p class="bajada">La vida universitaria pesa, y casi nunca avisa. No necesitas estar en crisis para querer hablar.</p>
+    </div>
+    <div class="lista-momentos">
+
+      <article class="momento">
+        <div class="escena aparece" aria-hidden="true">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#24305E"/><rect y="150" width="400" height="150" fill="#3B3F86"/>
+            <g fill="#fff" opacity=".8"><circle cx="60" cy="40" r="2"/><circle cx="140" cy="70" r="1.6"/><circle cx="230" cy="30" r="2"/><circle cx="190" cy="110" r="1.4"/></g>
+            <circle cx="330" cy="62" r="30" fill="#FFE7C2"/>
+            <rect x="40" y="96" width="210" height="204" rx="16" fill="#1C2448"/><rect x="52" y="108" width="186" height="192" rx="10" fill="#FFE7C2"/>
+            <rect x="250" y="210" width="130" height="14" rx="7" fill="#1C2448"/><rect x="270" y="224" width="10" height="76" fill="#1C2448"/><rect x="350" y="224" width="10" height="76" fill="#1C2448"/>
+            <path d="M300 210 l14 -40 h22 l-14 40z" fill="#FF7A5C"/><rect x="296" y="196" width="40" height="14" rx="3" fill="#fff" opacity=".9"/>
+          </svg>
+          <span class="hora">23:40</span>
+          <img class="lumi" src="assets/lumi_audifonos.webp" alt="" width="560" height="560" loading="lazy" style="left:14%;bottom:4%">
+          <span class="burbuja" style="right:5%;bottom:40%">Tres exámenes y no me alcanza el tiempo…</span>
+        </div>
+        <div class="aparece">
+          <span class="etiqueta">La residencia · 23:40</span>
+          <h3>Cuando no puedes dormir</h3>
+          <p>Tres exámenes, poco tiempo y nadie despierto a quien escribirle.</p>
+          <div class="lumi-dice"><img src="assets/lumi_audifonos.webp" alt="" width="40" height="40" loading="lazy"><span>«Te escucho. ¿Ordenamos la semana juntos? Empecemos por el examen que más te preocupa.»</span></div>
+        </div>
+      </article>
+
+      <article class="momento">
+        <div class="escena aparece" aria-hidden="true">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#CFEFFF"/><path d="M0 200 C 100 170 200 210 400 180 V300 H0Z" fill="#A9E3C4"/>
+            <circle cx="80" cy="70" r="34" fill="#FFD36E"/><circle cx="80" cy="70" r="50" fill="#FFD36E" opacity=".25"/>
+            <g transform="translate(200 70)"><rect width="170" height="140" rx="10" fill="#FFFBF6"/><g fill="#CFEFFF"><rect x="16" y="20" width="30" height="24" rx="4"/><rect x="70" y="20" width="30" height="24" rx="4"/><rect x="124" y="20" width="30" height="24" rx="4"/><rect x="16" y="62" width="30" height="24" rx="4"/><rect x="124" y="62" width="30" height="24" rx="4"/></g><rect x="68" y="80" width="34" height="60" rx="4" fill="#0F4A3B"/></g>
+            <g fill="#5EBF8F"><circle cx="40" cy="190" r="26"/></g><rect x="36" y="206" width="8" height="30" fill="#8B6B4A"/>
+            <rect x="120" y="230" width="90" height="10" rx="5" fill="#8B6B4A"/><rect x="128" y="240" width="8" height="26" fill="#8B6B4A"/><rect x="196" y="240" width="8" height="26" fill="#8B6B4A"/>
+          </svg>
+          <span class="hora">14:15</span>
+          <img class="lumi" src="assets/lumi_flor.webp" alt="" width="560" height="560" loading="lazy" style="left:26%;bottom:6%;width:30%">
+          <span class="burbuja" style="left:5%;top:24%">No le cuento a nadie para no cargarlos…</span>
+        </div>
+        <div class="aparece">
+          <span class="etiqueta">El campus · 14:15</span>
+          <h3>Cuando no quieres ser una carga</h3>
+          <p>Callas cómo estás porque sientes que tus amigos ya tienen suficiente.</p>
+          <div class="lumi-dice"><img src="assets/lumi_flor.webp" alt="" width="40" height="40" loading="lazy"><span>«Aquí puedes decirlo a tu ritmo y sin juicios. No le quitas nada a nadie.»</span></div>
+        </div>
+      </article>
+
+      <article class="momento">
+        <div class="escena aparece" aria-hidden="true">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#FFD9C7"/><rect y="200" width="400" height="100" fill="#F2C3AA"/>
+            <circle cx="320" cy="96" r="40" fill="#FF9E7A"/>
+            <g transform="translate(150 60)"><rect width="200" height="160" rx="10" fill="#FFFBF6"/><path d="M-12 6 L100 -40 L212 6Z" fill="#5E46A0"/><rect x="80" y="74" width="44" height="86" rx="5" fill="#0F4A3B"/><circle cx="114" cy="118" r="4" fill="#A5E6CF"/><rect x="40" y="22" width="120" height="26" rx="8" fill="#EEE8FA"/><text x="100" y="40" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="900" font-size="13" fill="#5E46A0">PSICOLOGÍA</text></g>
+            <path d="M0 270 C 80 240 120 280 220 250" fill="none" stroke="#FF7A5C" stroke-width="9" stroke-linecap="round" stroke-dasharray="1 17"/>
+          </svg>
+          <span class="hora">19:30</span>
+          <img class="lumi" src="assets/lumi_lentes.webp" alt="" width="560" height="560" loading="lazy" style="left:4%;bottom:4%;width:30%">
+          <span class="burbuja" style="left:5%;top:20%">¿Dónde se pide cita con el psicólogo?</span>
+        </div>
+        <div class="aparece">
+          <span class="etiqueta">La puerta del servicio · 19:30</span>
+          <h3>Cuando quieres ayuda y no sabes por dónde empezar</h3>
+          <p>Sabes que tu universidad tiene psicólogos, pero no dónde pedir la cita ni qué decir.</p>
+          <div class="lumi-dice"><img src="assets/lumi_lentes.webp" alt="" width="40" height="40" loading="lazy"><span>«Te muestro los canales de tu universidad y te ayudo a ordenar qué contar. Tú decides cuándo.»</span></div>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
 
 <!-- CAMINO -->
-<section class="camino" id="camino" aria-labelledby="titulo-camino">
-  <div class="envoltura intro">
-    <h2 class="seccion-titulo aparece" id="titulo-camino">Cómo funciona</h2>
-    <p class="seccion-bajada aparece">Tres pasos, a tu ritmo. Baja despacio y acompaña a Lumi hasta la puerta.</p>
+<section class="camino" id="camino" aria-labelledby="t-camino">
+  <div class="env cabeza aparece">
+    <span class="etiqueta">Cómo funciona</span>
+    <h2 class="h2" id="t-camino">Un camino corto, a tu ritmo</h2>
+    <p class="bajada">Baja despacio y acompaña a Lumi hasta la puerta.</p>
   </div>
   <div class="recorrido" id="recorrido">
-    <div class="fijo envoltura">
+    <div class="fijo env">
       <svg class="mapa" id="mapa" viewBox="0 0 600 700" aria-hidden="true">
         <g class="vertical">
-          <path class="pista-gris" d="M120 40 C 120 160, 470 150, 470 270 S 130 380, 130 500 S 420 590, 470 640"/>
+          <path class="pista-base" d="M120 40 C 120 160, 470 150, 470 270 S 130 380, 130 500 S 420 590, 470 640"/>
           <path class="pista-coral" d="M120 40 C 120 160, 470 150, 470 270 S 130 380, 130 500 S 420 590, 470 640"/>
           <g class="nodos"></g>
-          <rect x="468" y="566" width="70" height="112" rx="8" fill="#0F4A3B"/><circle cx="522" cy="624" r="5" fill="#A5E6CF"/>
-          <image class="viajero" href="assets/lumi_cercano.webp" width="110" height="110"/>
+          <g transform="translate(452 540)"><rect width="110" height="120" rx="8" fill="#FFFBF6"/><path d="M-8 4 L55 -30 L118 4Z" fill="#E3634A"/><rect x="38" y="52" width="34" height="68" rx="4" fill="#0F4A3B"/><circle cx="64" cy="88" r="3.5" fill="#A5E6CF"/></g>
+          <image class="viajero" href="assets/lumi_cercano.webp" width="112" height="112"/>
         </g>
         <g class="horizontal">
-          <path class="pista-gris" d="M30 95 C 120 20, 200 20, 260 80 S 400 140, 470 80 S 520 60, 530 74"/>
-          <path class="pista-coral" d="M30 95 C 120 20, 200 20, 260 80 S 400 140, 470 80 S 520 60, 530 74"/>
+          <path class="pista-base" d="M30 100 C 120 25, 200 25, 260 85 S 400 145, 470 85 S 505 70, 512 82"/>
+          <path class="pista-coral" d="M30 100 C 120 25, 200 25, 260 85 S 400 145, 470 85 S 505 70, 512 82"/>
           <g class="nodos"></g>
-          <rect x="530" y="34" width="40" height="66" rx="6" fill="#0F4A3B"/><circle cx="560" cy="68" r="3.5" fill="#A5E6CF"/>
-          <image class="viajero" href="assets/lumi_cercano.webp" width="80" height="80"/>
+          <g transform="translate(512 36)"><rect width="64" height="72" rx="6" fill="#FFFBF6"/><path d="M-5 3 L32 -18 L69 3Z" fill="#E3634A"/><rect x="22" y="32" width="20" height="40" rx="3" fill="#0F4A3B"/></g>
+          <image class="viajero" href="assets/lumi_cercano.webp" width="82" height="82"/>
         </g>
       </svg>
-      <div class="lado-derecho">
+      <div class="lado">
         <ol class="pasos" id="pasos">
-          <li class="activo"><span class="paso-num">1</span><h3>Escucha</h3><p>Entras con tu correo de la universidad y le cuentas cómo estás. Sin cita y a cualquier hora.</p></li>
-          <li><span class="paso-num">2</span><h3>Orienta</h3><p>Te propone algo pequeño, como respirar u ordenar tu semana. No te diagnostica ni te pone etiquetas.</p></li>
-          <li><span class="paso-num">3</span><h3>Acompaña</h3><p>Si lo necesitas, te muestra cómo llegar al psicólogo de tu universidad. Tú decides: siempre puedes decir «Ahora no».</p></li>
+          <li class="activo"><span class="num">1</span><h3>Escucha</h3><p>Entras con tu correo de la universidad y le cuentas cómo estás. Sin cita y a cualquier hora.</p></li>
+          <li><span class="num">2</span><h3>Orienta</h3><p>Te propone algo pequeño, como respirar u ordenar tu semana. No te diagnostica ni te pone etiquetas.</p></li>
+          <li><span class="num">3</span><h3>Acompaña</h3><p>Si lo necesitas, te muestra cómo llegar al psicólogo de tu universidad. Siempre puedes decir «Ahora no».</p></li>
         </ol>
-        <div class="telefono" id="telefono">
-          <img class="activo" src="assets/pantalla_bienvenida.webp" alt="Pantalla de bienvenida: Un espacio seguro para sentirte mejor" width="600" height="1298" loading="lazy">
-          <img src="assets/pantalla_chat.webp" alt="Chat con Lumi: el estudiante cuenta que tiene tres exámenes y Lumi propone respirar u organizar la semana" width="600" height="1298" loading="lazy">
-          <img src="assets/pantalla_apoyo.webp" alt="Pantalla de apoyo profesional con la Línea 113 y los canales del servicio de psicología de la universidad" width="600" height="1298" loading="lazy">
+        <div class="tel" id="tel">
+          <img class="activo" src="assets/pantalla_bienvenida.webp" alt="Pantalla de bienvenida de MenteSana: Un espacio seguro para sentirte mejor" width="600" height="1298" loading="lazy">
+          <img src="assets/pantalla_chat.webp" alt="Chat con Lumi: el estudiante cuenta que tiene tres exámenes y Lumi propone respirar u ordenar la semana" width="600" height="1298" loading="lazy">
+          <img src="assets/pantalla_apoyo.webp" alt="Pantalla de apoyo profesional con la Línea 113 y los canales de psicología de la universidad" width="600" height="1298" loading="lazy">
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TEMAS -->
-<section class="temas" id="temas" aria-labelledby="titulo-temas">
-  <div class="envoltura">
-    <h2 class="seccion-titulo aparece" id="titulo-temas">¿De qué puedes hablar con Lumi?</h2>
-    <p class="seccion-bajada aparece">De lo grande y de lo pequeño. Si no está en la lista, también.</p>
-    <ul class="chips aparece">
-      <li>Estrés por exámenes</li><li>Organizar mi semana</li><li>Dormir mejor</li><li>Nervios antes de exponer</li>
-      <li>Me siento solo</li><li>Problemas con mi grupo</li><li>Me cuesta motivarme</li><li>Adaptarme a la universidad</li>
-      <li>Presión de casa</li><li>Trabajar y estudiar</li><li class="otro">Otro tema</li>
-    </ul>
-    <div class="comparar">
-      <article class="aparece">
-        <h3><img src="assets/lumi_logo.svg" alt="" width="32" height="39"> Lumi</h3>
+<!-- CHARLA -->
+<section class="charla" id="charla" aria-labelledby="t-charla">
+  <div class="env">
+    <div class="caja">
+      <div class="aparece">
+        <span class="etiqueta">Pruébalo</span>
+        <h2 class="h2" id="t-charla">¿Qué traes en la mente? Empecemos por ahí.</h2>
+        <p class="bajada">Elige un tema y mira cómo te respondería Lumi. También puedes hablarle de:</p>
+        <ul class="temas" aria-label="Otros temas">
+          <li>Nervios antes de exponer</li><li>Problemas con mi grupo</li><li>Me cuesta motivarme</li><li>Presión de casa</li><li>Trabajar y estudiar</li><li>Adaptarme a la U</li>
+        </ul>
+      </div>
+      <div class="ventana" aria-label="Conversación de ejemplo con Lumi">
+        <div class="top"><img src="assets/lumi_cercano.webp" alt="" width="46" height="46"><div><b>Lumi</b><small>● Orientación con IA</small></div></div>
+        <div class="msgs" id="msgs" aria-live="polite"><div class="m lumi">Hola, aquí estoy. ¿Qué te gustaría contarme hoy?</div></div>
+        <div class="opciones" id="opciones"></div>
+        <p class="aviso-chat">Ejemplo con respuestas escritas por el equipo: la IA de Lumi aún está en desarrollo. Lumi orienta, no reemplaza a un psicólogo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LA PUERTA -->
+<section class="puerta" id="puerta" aria-labelledby="t-puerta">
+  <div class="env">
+    <div class="aparece">
+      <span class="etiqueta">Lumi y tu psicólogo</span>
+      <h2 class="h2" id="t-puerta">Lumi te lleva hasta la puerta. Adentro te espera un profesional.</h2>
+    </div>
+    <div class="rej">
+      <article class="lado-a aparece">
+        <h3><img src="assets/lumi_logo.svg" alt="" width="40" height="49"> Lumi</h3>
         <ul>
           <li>Está disponible a cualquier hora, sin cita.</li>
           <li>Te escucha y te ayuda a ordenar lo que sientes.</li>
@@ -412,8 +526,8 @@ html:not(.js) .telefono img:not(:first-child){display:none}
           <li>Te muestra cómo llegar al servicio de tu universidad.</li>
         </ul>
       </article>
-      <article class="aparece psico">
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg> Un psicólogo</h3>
+      <article class="lado-b aparece">
+        <h3><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#5E46A0"/><circle cx="20" cy="15" r="6" fill="#fff"/><path d="M9 32c0-6 5-10 11-10s11 4 11 10" fill="#fff"/></svg> Un psicólogo</h3>
         <ul>
           <li>Evalúa lo que te pasa y, si hace falta, diagnostica.</li>
           <li>Te acompaña con sesiones y seguimiento.</li>
@@ -422,117 +536,97 @@ html:not(.js) .telefono img:not(:first-child){display:none}
         </ul>
       </article>
     </div>
-    <p class="nota-comparar aparece">Lumi no reemplaza a un psicólogo: te ayuda a llegar a uno cuando lo necesitas.</p>
+    <p class="remate aparece">Lumi no reemplaza a un psicólogo: te ayuda a llegar a uno.</p>
   </div>
 </section>
 
-<!-- PROMESAS -->
-<section class="promesas" id="promesas" aria-labelledby="titulo-promesas">
-  <div class="envoltura">
-    <h2 class="seccion-titulo aparece" id="titulo-promesas">Lo que Lumi nunca hará</h2>
-    <p class="seccion-bajada aparece">Un espacio seguro empieza por reglas claras. Estas no cambian.</p>
-    <div class="rejilla">
+<!-- UN LUGAR SEGURO -->
+<section class="seguro" id="seguro" aria-labelledby="t-seguro">
+  <div class="env">
+    <div class="aparece">
+      <span class="etiqueta">Privacidad y seguridad</span>
+      <h2 class="h2" id="t-seguro">Un lugar seguro, con reglas que no cambian</h2>
+      <p class="bajada">Lumi se diseña siguiendo lo que piden los expertos y la ley peruana.</p>
+    </div>
+    <div class="promesas">
       <article class="promesa aparece">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#D3F1E6"/><path d="M15 25l6 6 12-13" fill="none" stroke="#1F7F66" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <h3>Diagnosticarte</h3><p>Lumi orienta y acompaña. No reemplaza a un psicólogo y te lo dice desde el primer mensaje.</p>
+        <div class="ico" style="background:#FFE3DA"><svg viewBox="0 0 24 24" fill="none" stroke="#D9553A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-9-9.3C1.7 8.3 4 5 7.3 5c2 0 3.4 1.1 4.7 2.7C13.3 6.1 14.7 5 16.7 5 20 5 22.3 8.3 21 11.7 19 16.6 12 21 12 21z"/></svg></div>
+        <h3>Primero tu seguridad</h3><p>Si aparece un riesgo para tu vida, Lumi deja todo lo demás y te muestra la Línea 113, opción 5, y el SAMU 106.</p>
       </article>
       <article class="promesa aparece">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#EEE8FA"/><path d="M17 24h14M24 17v14" stroke="#5E46A0" stroke-width="4" stroke-linecap="round" transform="rotate(45 24 24)"/></svg>
-        <h3>Obligarte</h3><p>Nunca llama ni agenda por ti. Te muestra opciones y la decisión es tuya.</p>
+        <div class="ico" style="background:var(--lila)"><svg viewBox="0 0 24 24" fill="none" stroke="#5E46A0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="12" rx="4"/><path d="M12 3v4M9 13h.01M15 13h.01"/></svg></div>
+        <h3>Una IA que dice que es IA</h3><p>Siempre sabrás que hablas con una inteligencia artificial. No diagnostica ni da tratamiento.</p>
       </article>
       <article class="promesa aparece">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#D3F1E6"/><rect x="15" y="22" width="18" height="13" rx="3" fill="#1F7F66"/><path d="M18.5 22v-3a5.5 5.5 0 0 1 11 0v3" fill="none" stroke="#1F7F66" stroke-width="3.5"/></svg>
-        <h3>Mostrar tus chats</h3><p>Tu universidad no ve tus conversaciones ni quién eres. Solo cifras de grupo, sin nombres.</p>
+        <div class="ico" style="background:var(--menta-2)"><svg viewBox="0 0 24 24" fill="none" stroke="#0F4A3B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+        <h3>Tus chats son tuyos</h3><p>Tu universidad no ve tus conversaciones ni quién eres: solo cifras de grupos de 20 estudiantes o más.</p>
       </article>
-      <article class="promesa crisis aparece">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#FFD9CF"/><path d="M18 15c1.5 0 3 3.5 3 5s-2 2-2 3 3.5 5.5 5 6 2-2 3-2 5 1.5 5 3-2.5 4-4.5 4C20 34 14 26 14 19.5c0-2 2.5-4.5 4-4.5z" fill="#D9553A"/></svg>
-        <h3>Dejarte solo en una crisis</h3><p>Si estás en peligro, te muestra la Línea 113, opción 5: gratis y a toda hora.</p>
+      <article class="promesa aparece">
+        <div class="ico" style="background:#FFF1C9"><svg viewBox="0 0 24 24" fill="none" stroke="#8A6400" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></div>
+        <h3>Tú decides siempre</h3><p>Lumi nunca llama ni agenda por ti. Pide tu permiso de forma expresa y puedes retirarlo cuando quieras.</p>
       </article>
     </div>
+    <p class="fuente">Diseñado según el aviso de la Asociación Americana de Psicología sobre IA y salud mental (noviembre de 2025) y la Ley 29733 de protección de datos personales, que considera la salud mental un dato sensible.</p>
   </div>
 </section>
 
-<!-- SEGURIDAD -->
-<section class="seguridad" id="seguridad" aria-labelledby="titulo-seguridad">
-  <div class="envoltura">
-    <h2 class="seccion-titulo aparece" id="titulo-seguridad">Seguridad y privacidad, con respaldo</h2>
-    <p class="seccion-bajada aparece">Lumi se diseña siguiendo lo que piden los expertos y la ley peruana.</p>
-    <div class="rejilla">
-      <article class="aparece">
-        <h3>Si hay riesgo, primero tu seguridad</h3>
-        <p>Si en la conversación aparece un riesgo para tu vida, Lumi deja todo lo demás y te muestra la Línea 113, opción 5, y el SAMU 106. El protocolo de crisis se elabora con un psicólogo colegiado.</p>
-      </article>
-      <article class="aparece">
-        <h3>Una IA que dice que es IA</h3>
-        <p>Siempre sabrás que hablas con una inteligencia artificial. Seguimos la recomendación de la Asociación Americana de Psicología (APA, 2025): estas herramientas son un apoyo y no reemplazan la terapia.</p>
-      </article>
-      <article class="aparece">
-        <h3>Tus datos, protegidos por ley</h3>
-        <p>En el Perú, la información sobre salud mental es un dato sensible (Ley 29733). Por eso pedimos tu permiso de forma expresa, con casillas que nunca vienen marcadas, y puedes retirarlo cuando quieras.</p>
-      </article>
-      <article class="aparece">
-        <h3>Nada se vende</h3>
-        <p>Tus conversaciones no se venden ni se usan para entrenar a la IA. Tu universidad solo ve cifras de grupos de 20 estudiantes o más.</p>
-      </article>
-    </div>
-    <p class="fuente">Fuentes: APA, aviso de salud sobre chatbots y apps de bienestar (noviembre de 2025) · Ley 29733 y su reglamento, DS 016-2024-JUS.</p>
-  </div>
-</section>
-
-<!-- SEÑALES -->
-<section class="senales" id="senales" aria-labelledby="titulo-senales">
-  <div class="envoltura rejilla">
-    <div>
-      <h2 class="seccion-titulo aparece" id="titulo-senales">Cuándo buscar a un profesional</h2>
-      <p class="seccion-bajada aparece">Pedir ayuda no es exagerar. Estas señales indican que vale la pena hablar con un psicólogo:</p>
-      <ul class="lista-senales">
-        <li class="aparece">La tristeza, la preocupación o el desgano duran más de dos semanas.</li>
-        <li class="aparece">Duermes o comes mucho más, o mucho menos, que antes.</li>
-        <li class="aparece">Te cuesta concentrarte o hacer lo que antes hacías sin problema.</li>
-        <li class="aparece">Te alejas de tus amigos o de lo que antes disfrutabas.</li>
-        <li class="aparece">Usas alcohol u otras sustancias para aguantar.</li>
+<!-- CUÁNDO PEDIR AYUDA -->
+<section class="ayuda" id="senales" aria-labelledby="t-ayuda">
+  <div class="env rej">
+    <div class="aparece">
+      <span class="etiqueta">Cuándo pedir ayuda</span>
+      <h2 class="h2" id="t-ayuda">Pedir ayuda no es exagerar</h2>
+      <p class="bajada">Estas señales indican que vale la pena hablar con un psicólogo:</p>
+      <ul class="senales">
+        <li>La tristeza, la preocupación o el desgano duran más de dos semanas.</li>
+        <li>Duermes o comes mucho más, o mucho menos, que antes.</li>
+        <li>Te cuesta concentrarte o hacer lo que antes hacías sin problema.</li>
+        <li>Te alejas de tus amigos o de lo que antes disfrutabas.</li>
+        <li>Usas alcohol u otras sustancias para aguantar.</li>
       </ul>
     </div>
-    <aside class="urgente aparece" id="ayuda-urgente" aria-labelledby="titulo-urgente">
-      <h3 id="titulo-urgente">Si piensas en hacerte daño, busca ayuda hoy</h3>
-      <p>Llama gratis a la <strong>Línea 113, opción 5</strong>. Atiende a toda hora en todo el Perú.</p>
-      <p>Si estás en peligro inmediato, ve a la emergencia más cercana o llama al <strong>SAMU 106</strong>.</p>
-      <p class="pequeno">Cuéntale también a alguien de confianza. No tienes que pasar por esto solo.</p>
+    <aside class="urgente-caja aparece" id="ayuda-urgente" aria-labelledby="t-urgente">
+      <h3 id="t-urgente">Si piensas en hacerte daño, busca ayuda hoy</h3>
+      <div class="numero"><b>113</b><span>opción 5 · gratis, a toda hora, en todo el Perú</span></div>
+      <div class="numero"><b>106</b><span>SAMU · si estás en peligro inmediato</span></div>
+      <p>También puedes ir a la emergencia más cercana. Y cuéntale a alguien de confianza: <strong>no tienes que pasar por esto solo.</strong></p>
     </aside>
   </div>
 </section>
 
 <!-- PRIMERA CITA -->
-<section class="cita" id="cita" aria-labelledby="titulo-cita">
-  <div class="envoltura">
-    <h2 class="seccion-titulo aparece" id="titulo-cita">Tu primera cita con psicología, paso a paso</h2>
-    <p class="seccion-bajada aparece">Muchas universidades tienen un servicio de psicología para sus estudiantes. Así se llega:</p>
+<section class="cita" id="cita" aria-labelledby="t-cita">
+  <div class="env">
+    <div class="aparece">
+      <span class="etiqueta">Paso a paso</span>
+      <h2 class="h2" id="t-cita">Tu primera cita con psicología</h2>
+      <p class="bajada">Muchas universidades tienen un servicio de psicología para sus estudiantes. Así se llega:</p>
+    </div>
     <ol class="pasos-cita">
-      <li class="aparece"><h3>Ubica el servicio</h3><p>Búscalo en el portal del estudiante o pregunta en tu facultad. En MenteSana, Lumi te muestra los canales de tu universidad.</p></li>
-      <li class="aparece"><h3>Pide la cita</h3><p>Si no hay cupo, pregunta por la lista de espera y por talleres mientras tanto. Insistir está bien.</p></li>
-      <li class="aparece"><h3>Prepara qué contar</h3><p>Qué te pasa, desde cuándo y cómo afecta tu día. No tiene que estar perfecto. Lumi puede ayudarte a ordenarlo, y tú decides si lo compartes.</p></li>
-      <li class="aparece"><h3>Ve a la primera sesión</h3><p>Lo que cuentas es confidencial, salvo que haya un riesgo grave para tu vida. Puedes preguntar todo y decir si algo no te acomoda.</p></li>
+      <li class="aparece"><span class="n">1</span><h3>Ubica el servicio</h3><p>Búscalo en el portal del estudiante o pregunta en tu facultad. En MenteSana, Lumi te muestra los canales de tu universidad.</p></li>
+      <li class="aparece"><span class="n">2</span><h3>Pide la cita</h3><p>Si no hay cupo, pregunta por la lista de espera y por talleres mientras tanto. Insistir está bien.</p></li>
+      <li class="aparece"><span class="n">3</span><h3>Prepara qué contar</h3><p>Qué te pasa, desde cuándo y cómo afecta tu día. No tiene que estar perfecto: Lumi te ayuda a ordenarlo.</p></li>
+      <li class="aparece"><span class="n">4</span><h3>Ve a la primera sesión</h3><p>Lo que cuentas es confidencial, salvo un riesgo grave para tu vida. Puedes preguntar todo y decir si algo no te acomoda.</p></li>
     </ol>
   </div>
 </section>
 
-<!-- TU LUMI -->
-<section class="tu-lumi" id="tu-lumi" aria-labelledby="titulo-tu-lumi">
-  <div class="envoltura rejilla">
-    <div class="vitrina">
-      <img id="vitrina" src="assets/lumi_cercano.webp" alt="Lumi con bufanda" width="560" height="560" loading="lazy">
-    </div>
+<!-- CREA TU LUMI -->
+<section class="armario" id="tu-lumi" aria-labelledby="t-lumi">
+  <div class="env rej">
+    <div class="vitrina"><span class="colina" aria-hidden="true"></span><img id="vitrina" src="assets/lumi_cercano.webp" alt="Lumi con bufanda" width="560" height="560" loading="lazy"></div>
     <div>
-      <h2 class="seccion-titulo aparece" id="titulo-tu-lumi">Crea tu Lumi</h2>
-      <p class="seccion-bajada aparece">Tu acompañante se viste a tu manera. Elige un accesorio y mira cómo cambia.</p>
+      <span class="etiqueta">Crea tu Lumi</span>
+      <h2 class="h2" id="t-lumi">Tu acompañante, a tu manera</h2>
+      <p class="bajada">Elige un accesorio y mira cómo cambia.</p>
       <fieldset class="selector" id="selector">
         <legend>Accesorio</legend>
-        <label><input type="radio" name="acc" value="cercano" data-alt="Lumi con bufanda" checked><img src="assets/lumi_cercano.webp" alt="" width="36" height="36" loading="lazy">Bufanda</label>
-        <label><input type="radio" name="acc" value="audifonos" data-alt="Lumi con audífonos"><img src="assets/lumi_audifonos.webp" alt="" width="36" height="36" loading="lazy">Audífonos</label>
-        <label><input type="radio" name="acc" value="lentes" data-alt="Lumi con lentes"><img src="assets/lumi_lentes.webp" alt="" width="36" height="36" loading="lazy">Lentes</label>
-        <label><input type="radio" name="acc" value="gorro" data-alt="Lumi con gorro"><img src="assets/lumi_gorro.webp" alt="" width="36" height="36" loading="lazy">Gorro</label>
-        <label><input type="radio" name="acc" value="flor" data-alt="Lumi con una flor"><img src="assets/lumi_flor.webp" alt="" width="36" height="36" loading="lazy">Flor</label>
-        <label><input type="radio" name="acc" value="ninguno" data-alt="Lumi sin accesorios"><img src="assets/lumi_ninguno.webp" alt="" width="36" height="36" loading="lazy">Así nomás</label>
+        <label><input type="radio" name="acc" id="acc-cercano" value="cercano" data-alt="Lumi con bufanda" checked><img src="assets/lumi_cercano.webp" alt="" width="36" height="36" loading="lazy">Bufanda</label>
+        <label><input type="radio" name="acc" id="acc-audifonos" value="audifonos" data-alt="Lumi con audífonos"><img src="assets/lumi_audifonos.webp" alt="" width="36" height="36" loading="lazy">Audífonos</label>
+        <label><input type="radio" name="acc" id="acc-lentes" value="lentes" data-alt="Lumi con lentes"><img src="assets/lumi_lentes.webp" alt="" width="36" height="36" loading="lazy">Lentes</label>
+        <label><input type="radio" name="acc" id="acc-gorro" value="gorro" data-alt="Lumi con gorro"><img src="assets/lumi_gorro.webp" alt="" width="36" height="36" loading="lazy">Gorro</label>
+        <label><input type="radio" name="acc" id="acc-flor" value="flor" data-alt="Lumi con una flor"><img src="assets/lumi_flor.webp" alt="" width="36" height="36" loading="lazy">Flor</label>
+        <label><input type="radio" name="acc" id="acc-ninguno" value="ninguno" data-alt="Lumi sin accesorios"><img src="assets/lumi_ninguno.webp" alt="" width="36" height="36" loading="lazy">Así nomás</label>
       </fieldset>
       <p class="nota-lumi" id="notaLumi" aria-live="polite">Bufanda: el clásico, para los días fríos de Lima.</p>
     </div>
@@ -540,26 +634,25 @@ html:not(.js) .telefono img:not(:first-child){display:none}
 </section>
 
 <!-- ANUNCIO -->
-<section class="anuncio" id="anuncio" aria-labelledby="titulo-anuncio">
-  <div class="envoltura rejilla">
-    <div class="marco-video">
-      <video id="video" src="assets/anuncio.mp4" poster="assets/anuncio_poster.webp" muted loop playsinline preload="none" aria-label="Anuncio de Lumi, 17 segundos"></video>
-    </div>
-    <div>
-      <h2 class="seccion-titulo aparece" id="titulo-anuncio">Escucha. Orienta. Acompaña.</h2>
-      <p class="seccion-bajada aparece">Lumi en 17 segundos.</p>
+<section class="anuncio" id="anuncio" aria-labelledby="t-anuncio">
+  <div class="env rej">
+    <div class="marco"><video id="video" src="assets/anuncio.mp4" poster="assets/anuncio_poster.webp" muted loop playsinline preload="none" aria-label="Anuncio de Lumi, 17 segundos"></video></div>
+    <div class="aparece">
+      <span class="etiqueta">Lumi en 17 segundos</span>
+      <h2 class="h2" id="t-anuncio">Escucha. Orienta. Acompaña.</h2>
       <div class="controles">
-        <button class="boton lleno" id="reproducir" type="button" aria-pressed="false">Reproducir</button>
-        <button class="boton vacio" id="sonido" type="button" aria-pressed="false">Activar sonido</button>
+        <button class="boton coral" id="reproducir" type="button" aria-pressed="false">Reproducir</button>
+        <button class="boton blanco" id="sonido" type="button" aria-pressed="false">Activar sonido</button>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PREGUNTAS -->
-<section class="preguntas" id="preguntas" aria-labelledby="titulo-preguntas">
-  <div class="envoltura">
-    <h2 class="seccion-titulo aparece" id="titulo-preguntas">Preguntas frecuentes</h2>
+<section class="faq" id="preguntas" aria-labelledby="t-faq">
+  <div class="env">
+    <span class="etiqueta">Preguntas frecuentes</span>
+    <h2 class="h2" id="t-faq">Lo que más nos preguntan</h2>
     <div class="acordeon">
       <details name="faq" open><summary>¿Lumi es una persona o un psicólogo?</summary><p>Ninguna de las dos. Lumi es un acompañante con inteligencia artificial que orienta. No diagnostica ni da tratamiento, y te lo recuerda en cada conversación.</p></details>
       <details name="faq"><summary>¿Cuánto cuesta?</summary><p>Para el estudiante será gratis: la idea es que cada universidad lo ofrezca a sus estudiantes, como ofrece la biblioteca o el correo.</p></details>
@@ -573,41 +666,40 @@ html:not(.js) .telefono img:not(:first-child){display:none}
 </section>
 
 <!-- CONTACTO -->
-<section class="contacto" id="contacto" aria-labelledby="titulo-contacto">
-  <div class="envoltura">
+<section class="contacto" id="contacto" aria-labelledby="t-contacto">
+  <div class="env rej">
     <img src="assets/lumi_audifonos.webp" alt="" width="560" height="560" loading="lazy">
     <div>
-      <h2 class="seccion-titulo" id="titulo-contacto">Conversemos</h2>
-      <p class="seccion-bajada">¿Tienes preguntas sobre Lumi, eres de una universidad o trabajas en salud mental? Escríbenos.</p>
+      <h2 class="h2" id="t-contacto">Conversemos</h2>
+      <p class="bajada">¿Tienes preguntas sobre Lumi, eres de una universidad o trabajas en salud mental? Escríbenos.</p>
       <div class="correo">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
         <span id="correoTexto">mentesanalumi@gmail.com</span>
         <button type="button" id="copiarCorreo">Copiar</button>
       </div>
-      <p class="estado-copia" id="estadoCopia" role="status" aria-live="polite"></p>
-      <p class="nota-contacto">Este canal no atiende emergencias. Si estás en peligro, llama a la Línea 113, opción 5.</p>
+      <p class="estado" id="estadoCopia" role="status" aria-live="polite"></p>
+      <p class="nota-contacto">Este correo no atiende emergencias. Si estás en peligro, llama a la Línea 113, opción 5.</p>
     </div>
   </div>
 </section>
 
 <!-- CIERRE -->
-<section class="cierre" id="cierre" aria-labelledby="titulo-cierre">
-  <div class="envoltura">
-    <h2 class="aparece" id="titulo-cierre">Hablar es el primer paso</h2>
-    <p class="seccion-bajada aparece">Lumi te acompaña hasta la puerta. Cruzarla, y cuándo, lo decides tú.</p>
-    <div class="botones aparece">
-      <a class="boton lleno" href="#tu-lumi">Crea tu Lumi</a>
-      <a class="boton vacio" href="#inicio">Volver al inicio</a>
-    </div>
+<section class="cierre" id="cierre" aria-labelledby="t-cierre">
+  <div class="env aparece">
+    <h2 id="t-cierre">El puente entre lo que sientes y la ayuda que necesitas</h2>
+    <p class="bajada">Lumi te acompaña hasta la puerta. Cruzarla, y cuándo, lo decides tú.</p>
   </div>
-  <svg class="final" id="final" viewBox="0 0 900 260" aria-hidden="true">
-    <path d="M0 200 C 160 140, 300 250, 470 200 S 640 170, 700 196" fill="none" stroke="#FF7A5C" stroke-width="6" stroke-linecap="round"/>
-    <rect x="700" y="60" width="104" height="176" rx="4" fill="#FFE7C2"/>
-    <rect class="puerta-hoja" x="700" y="60" width="104" height="176" rx="6" fill="#0F4A3B"/>
-    <image href="assets/lumi_motivador.webp" x="560" y="96" width="140" height="140"/>
-    <rect x="0" y="236" width="900" height="24" fill="#F6EFE6"/>
+  <svg class="final" id="final" viewBox="0 0 980 300" aria-hidden="true">
+    <path d="M0 250 C 180 190 330 290 520 240 S 700 210 750 236" fill="none" stroke="#FF7A5C" stroke-width="12" stroke-linecap="round" stroke-dasharray="1 22"/>
+    <g transform="translate(740 64)">
+      <rect width="200" height="200" rx="10" fill="#FFFBF6"/><path d="M-12 6 L100 -48 L212 6Z" fill="#E3634A"/>
+      <rect x="70" y="80" width="62" height="120" rx="4" fill="#FFE7C2"/>
+      <rect class="hoja" x="70" y="80" width="62" height="120" rx="5" fill="#0F4A3B"/>
+      <g fill="#CFEFFF"><rect x="18" y="30" width="40" height="30" rx="5"/><rect x="142" y="30" width="40" height="30" rx="5"/></g>
+    </g>
+    <image href="assets/lumi_motivador.webp" x="600" y="128" width="150" height="150"/>
   </svg>
-  <div class="hecho-por envoltura">
+  <div class="hecho">
     <div class="caritas" aria-hidden="true"><img src="assets/lumi_juan.webp" alt="" width="320" height="320" loading="lazy"><img src="assets/lumi_williams.webp" alt="" width="320" height="320" loading="lazy"><img src="assets/lumi_nick.webp" alt="" width="320" height="320" loading="lazy"><img src="assets/lumi_yasuri.webp" alt="" width="320" height="320" loading="lazy"></div>
     <p>Hecho por Juan, Williams, Nick y Yasuri, estudiantes de la Universidad Científica del Sur.</p>
   </div>
@@ -616,12 +708,12 @@ html:not(.js) .telefono img:not(:first-child){display:none}
 </main>
 
 <footer class="pie">
-  <div class="envoltura">
-    <span class="logo logo-pie"><img src="assets/lumi_logo.svg" alt="" width="40" height="49"><span class="marca"><b>Mente</b><b>Sana</b></span></span>
+  <div class="env">
+    <a class="logo" href="#inicio" aria-label="MenteSana, volver al inicio"><img src="assets/lumi_logo.svg" alt="" width="40" height="49"><span class="marca"><b>Mente</b><b>Sana</b></span></a>
     <p class="aviso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg>
-      <span>Si sientes que estás en peligro o que podrías hacerte daño, llama gratis a la <a href="tel:113">Línea 113, opción 5</a>. Para emergencias médicas, SAMU <a href="tel:106">106</a>.</span></p>
+      <span>Si sientes que estás en peligro o que podrías hacerte daño, llama gratis a la Línea 113, opción 5. Para emergencias médicas, SAMU 106.</span></p>
     <p>Lumi orienta, no reemplaza a un psicólogo. MenteSana está en desarrollo y todavía no está disponible.</p>
-    <p>Contacto: <span class="correo-pie">mentesanalumi@gmail.com</span></p>
+    <p>Contacto: mentesanalumi@gmail.com</p>
     <small>MenteSana · El puente entre lo que sientes y la ayuda que necesitas</small>
   </div>
 </footer>
@@ -631,36 +723,30 @@ html:not(.js) .telefono img:not(:first-child){display:none}
   const NS = 'http://www.w3.org/2000/svg';
   const reducir = matchMedia('(prefers-reduced-motion: reduce)');
 
-  // Cabecera con borde al bajar
-  const cab = document.querySelector('.cabecera');
-  const marcarCab = () => cab.classList.toggle('con-borde', scrollY > 8);
-
-  // Apariciones (fundidos para todos)
-  const io = new IntersectionObserver((es) => es.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); }
-  }), { rootMargin: '0px 0px -12% 0px' });
-
-  document.querySelectorAll('.aparece, #final').forEach(el => io.observe(el));
+  // Cabecera: transparente sobre el cielo, sólida al bajar
+  const cab = document.getElementById('cab');
+  const pintarCab = () => cab.classList.toggle('solida', scrollY > 40);
 
   // Lumi saluda
-  const frases = ['¡Hola! Aquí estoy', '¿Cómo te sientes hoy?', 'Sin juicios, lo prometo', 'Respira conmigo un ratito', 'Tú decides el ritmo'];
-  let f = 0, tGlobo;
+  const frases = ['¡Hola! ¿Cómo estás hoy?', 'Aquí estoy, sin apuro', 'Sin juicios, lo prometo', '¿Respiramos un ratito?', 'Tú decides el ritmo'];
+  let f = 1, tSalto;
   const globo = document.getElementById('globo'), hola = document.getElementById('lumiHola');
   hola.addEventListener('click', () => {
     globo.textContent = frases[f++ % frases.length];
-    globo.classList.add('visible');
+    globo.classList.add('pop'); setTimeout(() => globo.classList.remove('pop'), 200);
     hola.classList.remove('salta'); void hola.offsetWidth; hola.classList.add('salta');
-    setTimeout(() => hola.classList.remove('salta'), 260);
-    clearTimeout(tGlobo); tGlobo = setTimeout(() => globo.classList.remove('visible'), 2600);
+    clearTimeout(tSalto); tSalto = setTimeout(() => hola.classList.remove('salta'), 260);
   });
 
+  // Puerta del cierre: se abre al llegar
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), { threshold: .4 });
+  io.observe(document.getElementById('final'));
+
   // Recorrido: Lumi camina por el camino según el scroll
-  const rec = document.getElementById('recorrido');
-  const mapa = document.getElementById('mapa');
-  const pasos = [...document.querySelectorAll('#pasos li')];
-  const pantallas = [...document.querySelectorAll('#telefono img')];
-  const grupos = [...document.querySelectorAll('#mapa > g')].map(gr => {
-    const [gris, coral] = gr.querySelectorAll('path');
+  const rec = document.getElementById('recorrido'), mapa = document.getElementById('mapa');
+  const pasos = [...document.querySelectorAll('#pasos li')], pantallas = [...document.querySelectorAll('#tel img')];
+  const grupos = [...mapa.querySelectorAll(':scope > g')].map(gr => {
+    const coral = gr.querySelector('.pista-coral');
     const L = coral.getTotalLength();
     coral.style.strokeDasharray = L;
     const marcas = [0.18, 0.52, 0.86];
@@ -668,27 +754,24 @@ html:not(.js) .telefono img:not(:first-child){display:none}
       const pt = coral.getPointAtLength(L * m);
       const c = document.createElementNS(NS, 'circle');
       c.setAttribute('cx', pt.x); c.setAttribute('cy', pt.y);
-      c.setAttribute('r', gr.classList.contains('vertical') ? 12 : 8);
+      c.setAttribute('r', gr.classList.contains('vertical') ? 13 : 8);
       c.setAttribute('class', 'nodo');
       gr.querySelector('.nodos').appendChild(c);
       return c;
     });
     const img = gr.querySelector('.viajero');
-    const tam = +img.getAttribute('width');
-    return { gr, coral, L, nodos, marcas, img, tam };
+    return { gr, coral, L, nodos, marcas, img, tam: +img.getAttribute('width'), vb: gr.classList.contains('vertical') ? '0 0 600 700' : '0 0 600 150' };
   });
   let actual = -1;
   function recorrer() {
     const r = rec.getBoundingClientRect();
-    const total = r.height - innerHeight;
-    const p = Math.min(1, Math.max(0, -r.top / total));
+    const p = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight)));
     for (const o of grupos) {
       if (getComputedStyle(o.gr).display === 'none') continue;
-      const vb = o.gr.classList.contains('vertical') ? '0 0 600 700' : '0 0 600 150';
-      if (mapa.getAttribute('viewBox') !== vb) mapa.setAttribute('viewBox', vb);
+      if (mapa.getAttribute('viewBox') !== o.vb) mapa.setAttribute('viewBox', o.vb);
       const pt = o.coral.getPointAtLength(o.L * p);
       o.img.setAttribute('x', pt.x - o.tam / 2);
-      o.img.setAttribute('y', pt.y - o.tam * 0.82);
+      o.img.setAttribute('y', pt.y - o.tam * 0.84);
       o.coral.style.strokeDashoffset = o.L * (1 - p);
       o.nodos.forEach((n, i) => n.classList.toggle('pasado', p >= o.marcas[i] - 0.01));
     }
@@ -699,65 +782,70 @@ html:not(.js) .telefono img:not(:first-child){display:none}
       pantallas.forEach((im, i) => im.classList.toggle('activo', i === idx));
     }
   }
-
   let pendiente = false;
-  function alBajar() {
-    if (pendiente) return;
-    pendiente = true;
-    requestAnimationFrame(() => { pendiente = false; marcarCab(); recorrer(); });
+  const alMover = () => { if (pendiente) return; pendiente = true; requestAnimationFrame(() => { pendiente = false; pintarCab(); recorrer(); }); };
+  addEventListener('scroll', alMover, { passive: true });
+  addEventListener('resize', alMover);
+  alMover();
+
+  // Chat de ejemplo con respuestas fijas
+  const GUION = {
+    inicio: { ops: ['examenes', 'dormir', 'solo', 'psicologo'] },
+    examenes: { yo: 'Tengo muchos exámenes', lumi: 'Tres exámenes en pocos días cansa a cualquiera. ¿Ordenamos la semana juntos? Empecemos por el que más te preocupa.', ops: ['orden', 'otro'] },
+    orden: { yo: 'Sí, ordenemos', lumi: 'Bien. Escribe tus exámenes con su fecha y cuánto te falta de cada uno. Luego armamos bloques cortos con pausas para dormir. Dormir también es estudiar.', ops: ['otro'] },
+    dormir: { yo: 'No estoy durmiendo bien', lumi: 'Dormir poco lo hace todo más pesado. ¿Probamos una respiración corta? Inhala en 4 tiempos, sostén 4 y suelta en 6. Lo repetimos tres veces.', ops: ['otro'] },
+    solo: { yo: 'Me siento solo', lumi: 'Gracias por contármelo. A veces cuesta hablar con los demás. Aquí puedes decirlo a tu ritmo, sin juicios. ¿Quieres contarme desde cuándo te sientes así?', ops: ['otro'] },
+    psicologo: { yo: 'Quiero hablar con un psicólogo', lumi: 'Me parece un gran paso. Puedo mostrarte cómo pedir cita con el servicio de psicología de tu universidad. Tú decides cuándo.', ops: ['ver', 'ahora'] },
+    ver: { yo: 'Ver opciones', lumi: 'En la app verías los canales oficiales de tu universidad para pedir cita, y la Línea 113, opción 5, si es urgente.', ops: ['otro'] },
+    ahora: { yo: 'Ahora no', lumi: 'Está bien. La opción queda aquí cuando la necesites. ¿Te gustaría hablar de otra cosa?', ops: ['otro'] },
+    otro: { yo: 'Probar otro tema', lumi: '¿De qué te gustaría hablar?', ops: ['examenes', 'dormir', 'solo', 'psicologo'] }
+  };
+  const msgs = document.getElementById('msgs'), opciones = document.getElementById('opciones');
+  const etiqueta = k => GUION[k].yo;
+  function botones(lista) {
+    opciones.replaceChildren(...lista.map(k => {
+      const b = document.createElement('button'); b.type = 'button'; b.textContent = etiqueta(k); b.dataset.k = k;
+      if (k === 'ver') b.className = 'acc';
+      return b;
+    }));
   }
-  addEventListener('scroll', alBajar, { passive: true });
-  addEventListener('resize', alBajar);
-  alBajar();
+  function decir(txt, clase) {
+    const d = document.createElement('div'); d.className = 'm ' + clase; d.textContent = txt; msgs.appendChild(d);
+    while (msgs.children.length > 6) msgs.firstElementChild.remove();
+    return d;
+  }
+  opciones.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    const paso = GUION[b.dataset.k];
+    decir(paso.yo, 'yo'); opciones.replaceChildren();
+    const esc = document.createElement('div'); esc.className = 'escribe'; esc.setAttribute('aria-label', 'Lumi está escribiendo'); esc.innerHTML = '<i></i><i></i><i></i>'; msgs.appendChild(esc);
+    setTimeout(() => { esc.remove(); decir(paso.lumi, 'lumi entra'); botones(paso.ops); }, reducir.matches ? 250 : 800);
+  });
+  botones(GUION.inicio.ops);
 
   // Crea tu Lumi
-  const notas = {
-    cercano: 'Bufanda: el clásico, para los días fríos de Lima.',
-    audifonos: 'Audífonos: para escucharte con toda la atención.',
-    lentes: 'Lentes: modo semana de exámenes.',
-    gorro: 'Gorro: abrigadito para las noches largas.',
-    flor: 'Flor: para los días tranquilos.',
-    ninguno: 'Así nomás: Lumi tal cual es.'
-  };
+  const notas = { cercano: 'Bufanda: el clásico, para los días fríos de Lima.', audifonos: 'Audífonos: para escucharte con toda la atención.', lentes: 'Lentes: modo semana de exámenes.', gorro: 'Gorro: abrigadito para las noches largas.', flor: 'Flor: para los días tranquilos.', ninguno: 'Así nomás: Lumi tal cual es.' };
   const vit = document.getElementById('vitrina'), nota = document.getElementById('notaLumi');
-  document.getElementById('selector').addEventListener('change', (e) => {
+  document.getElementById('selector').addEventListener('change', e => {
     const v = e.target.value, alt = e.target.dataset.alt;
     const cambiar = () => { vit.src = `assets/lumi_${v}.webp`; vit.alt = alt; nota.textContent = notas[v]; };
     if (document.startViewTransition) document.startViewTransition(cambiar);
     else { cambiar(); vit.classList.remove('pop'); void vit.offsetWidth; vit.classList.add('pop'); }
   });
 
-  // Contacto: copiar el correo (si el portapapeles falla, se selecciona el texto)
+  // Copiar correo
   const correo = document.getElementById('correoTexto'), estado = document.getElementById('estadoCopia');
   document.getElementById('copiarCorreo').addEventListener('click', () => {
-    const seleccionar = () => {
-      const r = document.createRange(); r.selectNodeContents(correo);
-      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
-      estado.textContent = 'Seleccionado: cópialo con Ctrl+C o mantén presionado.';
-    };
-    try {
-      navigator.clipboard.writeText(correo.textContent.trim())
-        .then(() => { estado.textContent = 'Correo copiado.'; })
-        .catch(seleccionar);
-    } catch (e) { seleccionar(); }
+    const seleccionar = () => { const r = document.createRange(); r.selectNodeContents(correo); const s = getSelection(); s.removeAllRanges(); s.addRange(r); estado.textContent = 'Seleccionado: cópialo con Ctrl+C o mantén presionado.'; };
+    try { navigator.clipboard.writeText(correo.textContent.trim()).then(() => { estado.textContent = 'Correo copiado.'; }).catch(seleccionar); } catch (err) { seleccionar(); }
   });
 
   // Anuncio: se reproduce solo si el sistema no pide menos movimiento
-  const video = document.getElementById('video');
-  const bRep = document.getElementById('reproducir'), bSon = document.getElementById('sonido');
-  const pintar = () => { const on = !video.paused; bRep.textContent = on ? 'Pausar' : 'Reproducir'; bRep.setAttribute('aria-pressed', on); };
+  const video = document.getElementById('video'), bRep = document.getElementById('reproducir'), bSon = document.getElementById('sonido');
+  const pintarVideo = () => { const on = !video.paused; bRep.textContent = on ? 'Pausar' : 'Reproducir'; bRep.setAttribute('aria-pressed', on); };
   bRep.addEventListener('click', () => { video.paused ? video.play() : video.pause(); });
-  bSon.addEventListener('click', () => {
-    video.muted = !video.muted;
-    bSon.textContent = video.muted ? 'Activar sonido' : 'Silenciar';
-    bSon.setAttribute('aria-pressed', !video.muted);
-    if (!video.muted && video.paused) video.play();
-  });
-  video.addEventListener('play', pintar); video.addEventListener('pause', pintar);
-  if (!reducir.matches) {
-    new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { video.preload = 'auto'; video.play().catch(() => {}); } else video.pause();
-    }, { threshold: 0.5 }).observe(video);
-  }
+  bSon.addEventListener('click', () => { video.muted = !video.muted; bSon.textContent = video.muted ? 'Activar sonido' : 'Silenciar'; bSon.setAttribute('aria-pressed', !video.muted); if (!video.muted && video.paused) video.play(); });
+  video.addEventListener('play', pintarVideo); video.addEventListener('pause', pintarVideo);
+  if (!reducir.matches) new IntersectionObserver(([e]) => { if (e.isIntersecting) { video.preload = 'auto'; video.play().catch(() => {}); } else video.pause(); }, { threshold: .5 }).observe(video);
 })();
 </script>
