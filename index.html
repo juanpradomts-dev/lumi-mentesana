@@ -53,8 +53,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .cabecera nav{margin-left:auto;display:flex;gap:6px}
 .cabecera nav a{text-decoration:none;font-weight:700;font-size:.95rem;padding:8px 14px;border-radius:999px;transition:background .2s}
 .cabecera nav a:hover{background:var(--menta-clara)}
-@media (max-width:760px){.cabecera nav a:not(.boton-nav){display:none}}
+@media (max-width:760px){.cabecera nav a:not(.urgente-nav){display:none}}
 .boton-nav{background:var(--verde-oscuro);color:#fff}
+.cabecera nav .urgente-nav{display:inline-flex;align-items:center;gap:6px;color:var(--coral-oscuro);background:#FFF0EB}
+.cabecera nav .urgente-nav:hover{background:#FFD9CF}
 .cabecera nav .boton-nav:hover{background:var(--verde)}
 
 /* Botones */
@@ -249,6 +251,24 @@ html:not(.js) .telefono img:not(:first-child){display:none}
 .caritas img{width:48px;height:48px;margin-left:-10px;border-radius:50%;background:var(--crema-2);border:2px solid var(--crema)}
 .caritas img:first-child{margin-left:0}
 
+/* Seguridad */
+.seguridad .rejilla{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
+@media (max-width:760px){.seguridad .rejilla{grid-template-columns:1fr}}
+.seguridad article{padding:26px 26px 28px;border-radius:var(--radio);background:var(--crema-2);border-left:6px solid var(--verde)}
+.seguridad article:first-child{border-left-color:var(--coral)}
+.seguridad h3{font-size:1.25rem}
+.seguridad p{color:var(--tinta-2);margin-top:8px}
+
+/* Lista de espera */
+.lista{background:var(--morado);color:#fff}
+.lista .envoltura{display:grid;grid-template-columns:260px 1fr;gap:clamp(24px,5vw,56px);align-items:center}
+@media (max-width:760px){.lista .envoltura{grid-template-columns:1fr;justify-items:center;text-align:center}.lista .botones{justify-content:center}}
+.lista img{width:min(100%,260px);height:auto}
+.lista .seccion-bajada{color:#E6DEFA}
+.lista .boton.lleno{background:#fff;color:var(--morado);border-color:#fff}
+.lista .boton.lleno:hover{background:var(--lila-clara)}
+.nota-lista{margin-top:16px;font-size:.88rem;color:#D4C8F2}
+
 /* Pie */
 .pie{background:var(--tinta);color:#DDE3E4;padding-block:48px;font-size:.92rem}
 .pie .envoltura{display:grid;gap:22px}
@@ -274,9 +294,9 @@ html:not(.js) .telefono img:not(:first-child){display:none}
     <a class="logo" href="#inicio" aria-label="MenteSana, inicio"><img src="assets/lumi_logo.svg" alt="" width="40" height="49"><span class="marca"><b>Mente</b><b>Sana</b></span></a>
     <nav aria-label="Secciones">
       <a href="#camino">Cómo funciona</a>
-      <a href="#senales">Pedir ayuda</a>
       <a href="#promesas">Privacidad</a>
       <a href="#preguntas">Preguntas</a>
+      <a class="urgente-nav" href="#ayuda-urgente"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg>Ayuda urgente</a>
       <a class="boton-nav" href="#tu-lumi">Crea tu Lumi</a>
     </nav>
   </div>
@@ -426,6 +446,33 @@ html:not(.js) .telefono img:not(:first-child){display:none}
   </div>
 </section>
 
+<!-- SEGURIDAD -->
+<section class="seguridad" id="seguridad" aria-labelledby="titulo-seguridad">
+  <div class="envoltura">
+    <h2 class="seccion-titulo aparece" id="titulo-seguridad">Seguridad y privacidad, con respaldo</h2>
+    <p class="seccion-bajada aparece">Lumi se diseña siguiendo lo que piden los expertos y la ley peruana.</p>
+    <div class="rejilla">
+      <article class="aparece">
+        <h3>Si hay riesgo, primero tu seguridad</h3>
+        <p>Si en la conversación aparece un riesgo para tu vida, Lumi deja todo lo demás y te muestra la Línea 113, opción 5, y el SAMU 106. El protocolo de crisis se elabora con un psicólogo colegiado.</p>
+      </article>
+      <article class="aparece">
+        <h3>Una IA que dice que es IA</h3>
+        <p>Siempre sabrás que hablas con una inteligencia artificial. Seguimos la recomendación de la Asociación Americana de Psicología (APA, 2025): estas herramientas son un apoyo y no reemplazan la terapia.</p>
+      </article>
+      <article class="aparece">
+        <h3>Tus datos, protegidos por ley</h3>
+        <p>En el Perú, la información sobre salud mental es un dato sensible (Ley 29733). Por eso pedimos tu permiso de forma expresa, con casillas que nunca vienen marcadas, y puedes retirarlo cuando quieras.</p>
+      </article>
+      <article class="aparece">
+        <h3>Nada se vende</h3>
+        <p>Tus conversaciones no se venden ni se usan para entrenar a la IA. Tu universidad solo ve cifras de grupos de 20 estudiantes o más.</p>
+      </article>
+    </div>
+    <p class="fuente">Fuentes: APA, aviso de salud sobre chatbots y apps de bienestar (noviembre de 2025) · Ley 29733 y su reglamento, DS 016-2024-JUS.</p>
+  </div>
+</section>
+
 <!-- SEÑALES -->
 <section class="senales" id="senales" aria-labelledby="titulo-senales">
   <div class="envoltura rejilla">
@@ -440,7 +487,7 @@ html:not(.js) .telefono img:not(:first-child){display:none}
         <li class="aparece">Usas alcohol u otras sustancias para aguantar.</li>
       </ul>
     </div>
-    <aside class="urgente aparece" aria-labelledby="titulo-urgente">
+    <aside class="urgente aparece" id="ayuda-urgente" aria-labelledby="titulo-urgente">
       <h3 id="titulo-urgente">Si piensas en hacerte daño, busca ayuda hoy</h3>
       <p>Llama gratis a la <strong>Línea 113, opción 5</strong>. Atiende a toda hora en todo el Perú.</p>
       <p>Si estás en peligro inmediato, ve a la emergencia más cercana o llama al <strong>SAMU 106</strong>.</p>
@@ -515,6 +562,19 @@ html:not(.js) .telefono img:not(:first-child){display:none}
       <details name="faq"><summary>¿Lo puedo usar de madrugada?</summary><p>Sí. Lumi está disponible a cualquier hora y no necesitas cita. Si es una emergencia, la Línea 113, opción 5, también atiende de madrugada.</p></details>
       <details name="faq"><summary>¿Ya puedo usarlo?</summary><p>Todavía no. MenteSana está en desarrollo: hoy es un prototipo de diseño, y la inteligencia artificial aún no está conectada.</p></details>
       <details name="faq"><summary>Trabajo en una universidad. ¿Qué recibiría?</summary><p>Un panel con datos generales y anónimos: ánimo por semana y por facultad, derivaciones y días hasta la primera cita. Sirve para saber cuándo y dónde reforzar el apoyo, sin ver a ninguna persona.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- LISTA -->
+<section class="lista" id="lista" aria-labelledby="titulo-lista" data-lista hidden>
+  <div class="envoltura">
+    <img src="assets/lumi_audifonos.webp" alt="" width="560" height="560" loading="lazy">
+    <div>
+      <h2 class="seccion-titulo" id="titulo-lista">¿Quieres Lumi en tu universidad?</h2>
+      <p class="seccion-bajada">Déjanos tu universidad y tu correo. Te avisaremos cuando llegue, y cada inscripción nos ayuda a mostrarle a tu universidad que los estudiantes lo quieren.</p>
+      <div class="botones"><a class="boton lleno" data-lista-enlace href="#" target="_blank" rel="noopener">Apúntate en la lista de espera</a></div>
+      <p class="nota-lista">Solo te escribiremos sobre MenteSana. Puedes pedir que borremos tus datos cuando quieras.</p>
     </div>
   </div>
 </section>
@@ -654,6 +714,13 @@ html:not(.js) .telefono img:not(:first-child){display:none}
     if (document.startViewTransition) document.startViewTransition(cambiar);
     else { cambiar(); vit.classList.remove('pop'); void vit.offsetWidth; vit.classList.add('pop'); }
   });
+
+  // Lista de espera: se muestra cuando exista el formulario
+  const LISTA_URL = '';
+  if (LISTA_URL) {
+    document.querySelectorAll('[data-lista]').forEach(el => { el.hidden = false; });
+    document.querySelectorAll('[data-lista-enlace]').forEach(a => { a.href = LISTA_URL; });
+  }
 
   // Anuncio: se reproduce solo si el sistema no pide menos movimiento
   const video = document.getElementById('video');
