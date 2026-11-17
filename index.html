@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MenteSana · Lumi</title>
-<meta name="description" content="MenteSana es una startup peruana de salud mental universitaria. Su acompañante con IA, Lumi, escucha a los estudiantes a cualquier hora y los lleva al servicio de psicología de su propia universidad.">
+<title>MenteSana</title>
+<meta name="description" content="MenteSana es una startup peruana de salud mental universitaria. Nuestro producto, Lumi, es un acompañante con IA que escucha a los estudiantes y los lleva al servicio de psicología de su universidad.">
 <meta name="theme-color" content="#0B3B30">
-<meta property="og:title" content="MenteSana · Lumi">
+<meta property="og:title" content="MenteSana">
 <meta property="og:description" content="El puente entre lo que sientes y la ayuda que necesitas.">
 <meta property="og:image" content="assets/pantalla_chat.webp">
-<link rel="icon" href="assets/lumi_logo.svg" type="image/svg+xml">
+<link rel="icon" href="assets/logo_icono.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=Nunito:wght@900&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@ em.serif{font-style:italic;font-weight:500}
 .cab{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(11,59,48,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
 .cab .env{display:flex;align-items:center;gap:20px;height:68px}
 .logo{display:inline-flex;align-items:center;gap:8px;text-decoration:none}
-.logo img{height:36px;width:auto}
+.logo img{height:34px;width:34px;border-radius:10px}
 .marca{font:900 1.3rem/1 Nunito,var(--texto);letter-spacing:-.02em}
 .marca b:first-child{color:#fff} .marca b:last-child{color:var(--lila)}
 .claro .marca b:first-child{color:var(--bosque)} .claro .marca b:last-child{color:var(--morado)}
@@ -138,6 +138,9 @@ em.serif{font-style:italic;font-weight:500}
 .actor li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--menta) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B3B30' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12l4 4 8-9'/%3E%3C/svg%3E") center/12px no-repeat}
 
 /* Producto */
+.presenta{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
+.presenta img{width:150px;height:auto}
+@media (max-width:640px){.presenta{grid-template-columns:1fr}.presenta img{width:120px}}
 .producto{padding:120px 0;background:var(--menta-3)}
 .pasos{margin-top:64px;display:grid;gap:96px}
 .paso{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
@@ -263,7 +266,7 @@ em.serif{font-style:italic;font-weight:500}
 
 <header class="cab">
   <div class="env">
-    <a class="logo" href="#inicio" aria-label="MenteSana, inicio"><img src="assets/lumi_logo.svg" alt="" width="36" height="44"><span class="marca"><b>Mente</b><b>Sana</b></span></a>
+    <a class="logo" href="#inicio" aria-label="MenteSana, inicio"><img src="assets/logo_icono.svg" alt="" width="36" height="36"><span class="marca"><b>Mente</b><b>Sana</b></span></a>
     <nav aria-label="Secciones">
       <a href="#problema">Problema</a>
       <a href="#solucion">Solución</a>
@@ -284,9 +287,9 @@ em.serif{font-style:italic;font-weight:500}
     <div>
       <span class="pildora"><span>Startup</span>Salud mental universitaria · Perú</span>
       <h1 id="t-heroe">El puente entre lo que sientes y <em>la ayuda que necesitas</em></h1>
-      <p class="lead">MenteSana es una plataforma para universidades. Su acompañante con IA, Lumi, escucha a los estudiantes a cualquier hora y los lleva al servicio de psicología de su propia universidad.</p>
+      <p class="lead">MenteSana es una startup peruana que acerca a los universitarios al servicio de psicología de su propia universidad. Nuestro producto es <strong style="color:#fff;font-weight:600">Lumi</strong>, un acompañante con IA que escucha a cualquier hora y deriva cuando hace falta.</p>
       <div class="acciones">
-        <a class="btn prim" href="#producto">Conoce el producto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn prim" href="#producto">Conoce Lumi <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn sec" href="#contacto">Contáctanos</a>
       </div>
     </div>
@@ -326,7 +329,7 @@ em.serif{font-style:italic;font-weight:500}
 <section class="solucion oscuro" id="solucion" aria-labelledby="t-solucion">
   <div class="env">
     <div class="aparece"><span class="sobre">La solución</span><h2 class="h2" id="t-solucion">Una plataforma que <span class="acento">acorta el camino</span> para los tres actores</h2>
-    <p class="lead">MenteSana no reemplaza al psicólogo: conecta al estudiante con el servicio que su universidad ya tiene.</p></div>
+    <p class="lead">Con Lumi, MenteSana no reemplaza al psicólogo: conecta al estudiante con el servicio que su universidad ya tiene.</p></div>
     <div class="actores">
       <article class="actor aparece">
         <span class="tag">Para el estudiante</span>
@@ -353,8 +356,11 @@ em.serif{font-style:italic;font-weight:500}
 <!-- PRODUCTO -->
 <section class="producto" id="producto" aria-labelledby="t-producto">
   <div class="env">
-    <div class="aparece"><span class="sobre">El producto</span><h2 class="h2" id="t-producto">Así funciona MenteSana</h2>
-    <p class="lead">Pantallas del prototipo navegable (versión 2), diseñado y probado con estudiantes.</p></div>
+    <div class="presenta aparece">
+      <img src="assets/lumi_cercano.webp" alt="Lumi, la mascota de MenteSana: redonda, color menta, con un brote y bufanda" width="560" height="560" loading="lazy">
+      <div><span class="sobre">Nuestro producto</span><h2 class="h2" id="t-producto">Conoce a Lumi</h2>
+      <p class="lead">Lumi es el acompañante con IA de MenteSana: una app para el estudiante y un panel para la universidad. Estas son pantallas del prototipo navegable (versión 2), diseñado y probado con estudiantes.</p></div>
+    </div>
     <div class="pasos">
       <article class="paso">
         <div class="marco aparece"><div class="mini"><img src="assets/pantalla_bienvenida.webp" alt="Pantalla de bienvenida: Un espacio seguro para sentirte mejor, con Lumi y el botón Comenzar" width="600" height="1298" loading="lazy"></div></div>
@@ -458,7 +464,8 @@ em.serif{font-style:italic;font-weight:500}
   <div class="env rej">
     <div class="aparece"><span class="sobre">Preguntas frecuentes</span><h2 class="h2" id="t-faq">Lo que más nos preguntan</h2></div>
     <div class="acordeon">
-      <details name="faq" open><summary>¿Lumi reemplaza al psicólogo?</summary><p>No. Lumi es un acompañante con IA que orienta y deriva. No diagnostica ni da tratamiento: su trabajo es que el estudiante llegue al servicio de psicología de su universidad cuando lo necesite.</p></details>
+      <details name="faq" open><summary>¿Qué es MenteSana y qué es Lumi?</summary><p>MenteSana es el proyecto: una startup peruana de salud mental universitaria. Lumi es nuestro producto: el acompañante con IA que usan los estudiantes, junto con el panel anónimo para la universidad.</p></details>
+      <details name="faq"><summary>¿Lumi reemplaza al psicólogo?</summary><p>No. Lumi es un acompañante con IA que orienta y deriva. No diagnostica ni da tratamiento: su trabajo es que el estudiante llegue al servicio de psicología de su universidad cuando lo necesite.</p></details>
       <details name="faq"><summary>¿Quién paga?</summary><p>La universidad contrata una licencia. Para el estudiante es gratis, como la biblioteca o el correo institucional.</p></details>
       <details name="faq"><summary>¿Qué datos ve la universidad?</summary><p>Solo cifras de grupo y anónimas: ánimo por semana y por facultad, derivaciones y días hasta la primera cita. Nunca conversaciones ni nombres, y nunca grupos de menos de 20 estudiantes.</p></details>
       <details name="faq"><summary>¿Qué pasa si un estudiante está en riesgo?</summary><p>Lumi deja todo lo demás y muestra de inmediato la Línea 113, opción 5, y el SAMU 106. El protocolo de crisis se elabora con psicólogos colegiados.</p></details>
@@ -492,10 +499,10 @@ em.serif{font-style:italic;font-weight:500}
     <p class="aviso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg>
       <span><b>¿Necesitas ayuda ahora?</b> Si sientes que estás en peligro o que podrías hacerte daño, llama gratis a la <b>Línea 113, opción 5</b>, a toda hora. Para emergencias médicas, <b>SAMU 106</b>.</span></p>
     <div class="fila">
-      <a class="logo" href="#inicio" aria-label="MenteSana, volver al inicio"><img src="assets/lumi_logo.svg" alt="" width="36" height="44"><span class="marca"><b>Mente</b><b>Sana</b></span></a>
+      <a class="logo" href="#inicio" aria-label="MenteSana, volver al inicio"><img src="assets/logo_icono.svg" alt="" width="36" height="36"><span class="marca"><b>Mente</b><b>Sana</b></span></a>
       <span>El puente entre lo que sientes y la ayuda que necesitas</span>
     </div>
-    <small>Lumi orienta, no reemplaza a un psicólogo. MenteSana está en desarrollo. Contacto: mentesanalumi@gmail.com</small>
+    <small>© 2026 MenteSana. Lumi es un producto de MenteSana; orienta, no reemplaza a un psicólogo. En desarrollo. Contacto: mentesanalumi@gmail.com</small>
   </div>
 </footer>
 
