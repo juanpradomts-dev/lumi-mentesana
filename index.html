@@ -259,15 +259,17 @@ html:not(.js) .telefono img:not(:first-child){display:none}
 .seguridad h3{font-size:1.25rem}
 .seguridad p{color:var(--tinta-2);margin-top:8px}
 
-/* Lista de espera */
-.lista{background:var(--morado);color:#fff}
-.lista .envoltura{display:grid;grid-template-columns:260px 1fr;gap:clamp(24px,5vw,56px);align-items:center}
-@media (max-width:760px){.lista .envoltura{grid-template-columns:1fr;justify-items:center;text-align:center}.lista .botones{justify-content:center}}
-.lista img{width:min(100%,260px);height:auto}
-.lista .seccion-bajada{color:#E6DEFA}
-.lista .boton.lleno{background:#fff;color:var(--morado);border-color:#fff}
-.lista .boton.lleno:hover{background:var(--lila-clara)}
-.nota-lista{margin-top:16px;font-size:.88rem;color:#D4C8F2}
+/* Contacto */
+.contacto{background:var(--morado);color:#fff}
+.contacto .envoltura{display:grid;grid-template-columns:240px 1fr;gap:clamp(24px,5vw,56px);align-items:center}
+@media (max-width:760px){.contacto .envoltura{grid-template-columns:1fr;justify-items:center;text-align:center}.canales{justify-content:center}}
+.contacto img{width:min(100%,240px);height:auto}
+.contacto .seccion-bajada{color:#E6DEFA}
+.canales{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:12px}
+.canales a{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--morado);font-weight:800;text-decoration:none;padding:14px 22px;border-radius:999px;transition:background .2s}
+.canales a:hover{background:var(--lila-clara)}
+.canales span{font-weight:600;color:var(--tinta-2)}
+.nota-contacto{margin-top:18px;font-size:.88rem;color:#D4C8F2}
 
 /* Pie */
 .pie{background:var(--tinta);color:#DDE3E4;padding-block:48px;font-size:.92rem}
@@ -556,7 +558,7 @@ html:not(.js) .telefono img:not(:first-child){display:none}
     <h2 class="seccion-titulo aparece" id="titulo-preguntas">Preguntas frecuentes</h2>
     <div class="acordeon">
       <details name="faq" open><summary>¿Lumi es una persona o un psicólogo?</summary><p>Ninguna de las dos. Lumi es un acompañante con inteligencia artificial que orienta. No diagnostica ni da tratamiento, y te lo recuerda en cada conversación.</p></details>
-      <details name="faq"><summary>¿Cuánto cuesta?</summary><p>Para el estudiante es gratis. La idea es que cada universidad lo ofrezca a sus estudiantes, como ofrece la biblioteca o el correo.</p></details>
+      <details name="faq"><summary>¿Cuánto cuesta?</summary><p>Para el estudiante será gratis: la idea es que cada universidad lo ofrezca a sus estudiantes, como ofrece la biblioteca o el correo.</p></details>
       <details name="faq"><summary>¿Quién puede leer lo que le cuento?</summary><p>Tu universidad no ve tus conversaciones ni sabe quién eres. Solo recibe cifras generales, como cuántos estudiantes usaron Lumi en una semana, y nunca de grupos de menos de 20 personas.</p></details>
       <details name="faq"><summary>¿Lumi me va a obligar a ir al psicólogo?</summary><p>No. Lumi te muestra opciones cuando cree que te pueden servir, y siempre puedes responder «Ahora no». Nunca llama ni agenda por ti.</p></details>
       <details name="faq"><summary>¿Lo puedo usar de madrugada?</summary><p>Sí. Lumi está disponible a cualquier hora y no necesitas cita. Si es una emergencia, la Línea 113, opción 5, también atiende de madrugada.</p></details>
@@ -566,15 +568,15 @@ html:not(.js) .telefono img:not(:first-child){display:none}
   </div>
 </section>
 
-<!-- LISTA -->
-<section class="lista" id="lista" aria-labelledby="titulo-lista" data-lista hidden>
+<!-- CONTACTO -->
+<section class="contacto" id="contacto" aria-labelledby="titulo-contacto" data-contacto hidden>
   <div class="envoltura">
     <img src="assets/lumi_audifonos.webp" alt="" width="560" height="560" loading="lazy">
     <div>
-      <h2 class="seccion-titulo" id="titulo-lista">¿Quieres Lumi en tu universidad?</h2>
-      <p class="seccion-bajada">Déjanos tu universidad y tu correo. Te avisaremos cuando llegue, y cada inscripción nos ayuda a mostrarle a tu universidad que los estudiantes lo quieren.</p>
-      <div class="botones"><a class="boton lleno" data-lista-enlace href="#" target="_blank" rel="noopener">Apúntate en la lista de espera</a></div>
-      <p class="nota-lista">Solo te escribiremos sobre MenteSana. Puedes pedir que borremos tus datos cuando quieras.</p>
+      <h2 class="seccion-titulo" id="titulo-contacto">Conversemos</h2>
+      <p class="seccion-bajada">¿Tienes preguntas sobre Lumi, eres de una universidad o trabajas en salud mental? Escríbenos.</p>
+      <ul class="canales" id="canales"></ul>
+      <p class="nota-contacto">Este canal no atiende emergencias. Si estás en peligro, llama a la Línea 113, opción 5.</p>
     </div>
   </div>
 </section>
@@ -715,11 +717,20 @@ html:not(.js) .telefono img:not(:first-child){display:none}
     else { cambiar(); vit.classList.remove('pop'); void vit.offsetWidth; vit.classList.add('pop'); }
   });
 
-  // Lista de espera: se muestra cuando exista el formulario
-  const LISTA_URL = '';
-  if (LISTA_URL) {
-    document.querySelectorAll('[data-lista]').forEach(el => { el.hidden = false; });
-    document.querySelectorAll('[data-lista-enlace]').forEach(a => { a.href = LISTA_URL; });
+  // Contacto: agrega aquí los canales; la sección aparece cuando hay al menos uno.
+  // Ejemplo: { nombre: 'Instagram', texto: '@mentesana', url: 'https://instagram.com/mentesana' }
+  const CONTACTOS = [];
+  if (CONTACTOS.length) {
+    const ul = document.getElementById('canales');
+    CONTACTOS.forEach(c => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = c.url; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = c.nombre + ' ';
+      const sp = document.createElement('span'); sp.textContent = c.texto; a.appendChild(sp);
+      li.appendChild(a); ul.appendChild(li);
+    });
+    document.querySelectorAll('[data-contacto]').forEach(el => { el.hidden = false; });
   }
 
   // Anuncio: se reproduce solo si el sistema no pide menos movimiento
