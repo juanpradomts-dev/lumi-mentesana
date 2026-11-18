@@ -346,6 +346,21 @@ html{scroll-padding-top:90px}
 .aviso-priv summary{cursor:pointer;padding:14px 18px;font:700 1.05rem var(--display)}
 .aviso-priv div{padding:0 18px 16px;display:grid;gap:10px;font-size:.95rem}
 .pie a{color:#fff}
+
+/* Para universidades (17-nov) */
+.univ{background:var(--blanco)}
+.univ-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.univ-lead{font-size:1.15rem;max-width:52ch;margin-top:14px}
+.univ-lista{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:18px}
+.univ-lista li{display:flex;gap:14px;align-items:flex-start}
+.univ-lista .em{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font:700 1.2rem var(--display);color:var(--tinta)}
+.univ-lista h3{font:700 1.12rem var(--display);margin:0 0 4px}
+.univ-lista p{margin:0;max-width:48ch}
+.univ-nota{margin:26px 0 22px;padding:12px 16px;background:var(--lila-2);border-radius:14px;font-size:.98rem;max-width:56ch}
+.univ-fig{margin:0;background:var(--crema);border:2px solid var(--tinta);border-radius:24px;padding:14px;box-shadow:8px 8px 0 var(--tinta);transform:rotate(1.2deg)}
+.univ-fig img{display:block;width:100%;height:auto;border-radius:14px}
+.univ-fig figcaption{font-size:.88rem;margin-top:10px;text-align:center}
+@media (max-width:900px){.univ-grid{grid-template-columns:minmax(0,1fr);gap:36px}.univ-fig{transform:none;box-shadow:5px 5px 0 var(--tinta)}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es MenteSana y qué es Lumi?", "acceptedAnswer": {"@type": "Answer", "text": "MenteSana es una startup peruana de salud mental universitaria. Lumi es su producto: el acompañante con IA que usan los estudiantes, junto con un panel anónimo para la universidad."}}, {"@type": "Question", "name": "¿Lumi es una persona?", "acceptedAnswer": {"@type": "Answer", "text": "No. Es una inteligencia artificial. Puede ayudarte a ordenar ideas y a dar el primer paso, pero puede equivocarse. Las decisiones sobre tu salud tómalas con un profesional."}}, {"@type": "Question", "name": "¿Y si me siento muy mal ahora?", "acceptedAnswer": {"@type": "Answer", "text": "No esperes a Lumi. Llama gratis a la Línea 113, opción 5, a cualquier hora. Si estás en peligro inmediato, llama al SAMU 106. Pedir ayuda funciona: mucha gente que pasó por momentos así hoy está mejor."}}, {"@type": "Question", "name": "¿Lumi reemplaza al psicólogo?", "acceptedAnswer": {"@type": "Answer", "text": "No. Lumi orienta y acompaña, pero no diagnostica ni da tratamiento. Su trabajo es que llegues al servicio de psicología de tu universidad cuando lo necesites."}}, {"@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": {"@type": "Answer", "text": "Para el estudiante será gratis: la idea es que cada universidad lo ofrezca, como ofrece la biblioteca o el correo."}}, {"@type": "Question", "name": "¿Quién puede leer lo que le cuento a Lumi?", "acceptedAnswer": {"@type": "Answer", "text": "Tu universidad no ve tus conversaciones ni sabe quién eres. Solo recibe cifras generales y anónimas, nunca de grupos de menos de 20 estudiantes."}}, {"@type": "Question", "name": "¿Ya puedo usarlo?", "acceptedAnswer": {"@type": "Answer", "text": "Todavía no. Lumi está en desarrollo: hoy es un prototipo que probamos con estudiantes y la IA aún no está conectada. Si quieres probarlo, escríbenos."}}]}</script>
 <script>document.documentElement.lang='es'</script>
@@ -354,12 +369,12 @@ html{scroll-padding-top:90px}
 
 <header class="cab"><nav aria-label="Secciones">
   <a class="logo" href="#inicio"><img src="assets/logo_icono.svg" alt="">Lumi</a>
-  <a class="l" href="#que">Qué es</a><a class="l" href="#como">Cómo funciona</a><a class="l" href="#mision">Misión</a><a class="l" href="#impacto">Impacto</a><a class="l" href="#preguntas">Preguntas</a>
+  <a class="l" href="#que">Qué es</a><a class="l" href="#como">Cómo funciona</a><a class="l" href="#mision">Misión</a><a class="l" href="#impacto">Impacto</a><a class="l" href="#universidades">Universidades</a><a class="l" href="#preguntas">Preguntas</a>
   <button class="l menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuMovil">Menú</button>
   <a class="l cta" href="#contacto">Contacto</a>
   <a class="l urg" href="#ayuda" title="Ayuda urgente: Línea 113, opción 5">Ayuda 113</a>
 </nav>
-<div class="menu-movil" id="menuMovil" hidden><a href="#que">Qué es Lumi</a><a href="#como">Cómo funciona</a><a href="#seguro">Seguro y privado</a><a href="#mision">Misión y visión</a><a href="#impacto">Impacto</a><a href="#preguntas">Preguntas</a><a href="#contacto">Probar a Lumi</a></div>
+<div class="menu-movil" id="menuMovil" hidden><a href="#que">Qué es Lumi</a><a href="#como">Cómo funciona</a><a href="#seguro">Seguro y privado</a><a href="#mision">Misión y visión</a><a href="#impacto">Impacto</a><a href="#universidades">Universidades</a><a href="#preguntas">Preguntas</a><a href="#contacto">Probar a Lumi</a></div>
 </header>
 
 <main>
@@ -536,6 +551,30 @@ html{scroll-padding-top:90px}
   </div>
 </section>
 
+<!-- 8b · PARA UNIVERSIDADES -->
+<section class="slide univ" id="universidades">
+  <span class="forma circulo flota" style="width:110px;height:110px;background:var(--lila);left:-34px;top:60px" aria-hidden="true"></span>
+  <span class="forma chispa titila" style="right:9%;top:12%;background:var(--amarillo)" aria-hidden="true"></span>
+  <div class="env univ-grid">
+    <div class="univ-txt">
+      <span class="etq" data-a="pop">Para universidades</span>
+      <h2 class="h2" data-a="sube">Bienestar estudiantil con datos anónimos</h2>
+      <p class="univ-lead" data-a="sube" style="--d:1">Lumi llega a los estudiantes a través de su universidad. Para ellos es gratis; tu equipo de bienestar recibe el apoyo y la información.</p>
+      <ul class="univ-lista">
+        <li data-a="sube" style="--d:2"><span class="em" style="background:var(--menta)">→</span><div><h3>Llegan a tu servicio de psicología</h3><p>Lumi orienta a cada estudiante hacia la ayuda que ya ofrece tu universidad.</p></div></li>
+        <li data-a="sube" style="--d:3"><span class="em" style="background:var(--lila)">▦</span><div><h3>Un panel con cifras anónimas</h3><p>Cómo está el ánimo por semana, sin nombres ni conversaciones, y nunca de grupos de menos de 20 estudiantes.</p></div></li>
+        <li data-a="sube" style="--d:4"><span class="em" style="background:var(--amarillo)">✓</span><div><h3>Un piloto pequeño y medido</h3><p>Empezamos con un grupo acotado y con metas que acordamos juntos.</p></div></li>
+      </ul>
+      <p class="univ-nota" data-a="sube" style="--d:5">Hoy Lumi es un prototipo y ninguna universidad lo usa todavía. Buscamos universidades que quieran conversar sobre un piloto.</p>
+      <div data-a="pop" style="--d:6"><a class="btn amarillo" href="#contacto" data-motivo="univ">Conversemos sobre tu universidad</a></div>
+    </div>
+    <figure class="univ-fig" data-a="sube" style="--d:2">
+      <img src="assets/panel.webp" width="1158" height="755" loading="lazy" alt="Panel del prototipo: ánimo promedio por semana, distribución del ánimo y derivaciones a Psicología, con datos de ejemplo.">
+      <figcaption>Simulación del panel en el prototipo. Los números son de ejemplo.</figcaption>
+    </figure>
+  </div>
+</section>
+
 <!-- 9 · PREGUNTAS -->
 <section class="slide faq" id="preguntas">
   <span class="forma circulo flota" style="width:130px;height:130px;background:var(--amarillo);right:-30px;bottom:40px" aria-hidden="true"></span>
@@ -572,6 +611,7 @@ html{scroll-padding-top:90px}
       <fieldset class="quiero"><legend>¿Qué quieres hacer?</legend>
         <label><input type="radio" name="motivo" value="Quiero probar el prototipo de Lumi" checked> Probar el prototipo</label>
         <label><input type="radio" name="motivo" value="Quiero dar mi opinión sobre Lumi"> Dar mi opinión</label>
+        <label><input type="radio" name="motivo" value="Quiero conversar sobre Lumi para mi universidad" id="m-univ"> Hablar por mi universidad</label>
       </fieldset>
       <label for="f-msg"><span>Tu mensaje <small>(opcional)</small></span><textarea id="f-msg" name="mensaje" rows="3" maxlength="500" aria-describedby="f-msg-ayuda"></textarea></label>
       <p class="ayuda-campo" id="f-msg-ayuda">No incluyas información sobre tu salud: aquí solo queremos saber cómo contactarte.</p>
@@ -605,7 +645,7 @@ html{scroll-padding-top:90px}
 </section>
 </main>
 
-<footer class="pie" id="ayuda"><p><b>¿Necesitas ayuda ahora?</b> Llama gratis a la <a href="tel:113">Línea 113, opción 5</a>, a cualquier hora. Si estás en peligro inmediato, llama al <a href="tel:106">SAMU 106</a> o acude a la emergencia más cercana.</p><p style="margin-top:8px">Lumi es un producto de MenteSana: una IA en desarrollo que orienta y no reemplaza a un psicólogo. <a href="#privacidad">Aviso de privacidad</a></p></footer>
+<footer class="pie" id="ayuda"><p><b>¿Necesitas ayuda ahora?</b> Llama gratis a la <a href="tel:113">Línea 113, opción 5</a>, a cualquier hora. Si estás en peligro inmediato, llama al <a href="tel:106">SAMU 106</a> o acude a la emergencia más cercana.</p><p style="margin-top:8px">Lumi es un producto de MenteSana: una IA en desarrollo que orienta y no reemplaza a un psicólogo. <a href="#universidades">Para universidades</a> · <a href="#privacidad">Aviso de privacidad</a></p></footer>
 
 
 <script>
@@ -694,6 +734,8 @@ html{scroll-padding-top:90px}
     });
     document.querySelectorAll('a[href="#privacidad"]').forEach(a => a.addEventListener('click', () => { document.getElementById('privacidad').open = true; }));
   }
+
+  document.querySelectorAll('a[data-motivo=univ]').forEach(a => a.addEventListener('click', () => { const r = document.getElementById('m-univ'); if (r) r.checked = true; }));
 
   // Pausar animaciones (se recuerda la elección)
   try { if (localStorage.getItem('lumi-quieto') === '1') { document.body.classList.add('quieto'); document.getElementById('pausa').textContent = 'Reanudar animaciones'; } } catch (e) {}
