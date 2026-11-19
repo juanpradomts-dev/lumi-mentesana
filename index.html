@@ -469,6 +469,11 @@ html{scroll-padding-top:90px}
   .faq .h2{position:sticky;top:110px}
   .faq .acordeon{margin-top:0;max-width:none}
 }
+
+/* Foco de Lumi solo con teclado y redondeado (18-nov) */
+#lumiVivo{border-radius:36px}
+#lumiVivo:focus:not(:focus-visible){outline:none;box-shadow:none}
+.lumi-vivo,.toca{-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es MenteSana y qué es Lumi?", "acceptedAnswer": {"@type": "Answer", "text": "MenteSana es una startup peruana de salud mental universitaria. Lumi es su producto: el acompañante con IA que usan los estudiantes, junto con un panel anónimo para la universidad."}}, {"@type": "Question", "name": "¿Lumi es una persona?", "acceptedAnswer": {"@type": "Answer", "text": "No. Es una inteligencia artificial. Puede ayudarte a ordenar ideas y a dar el primer paso, pero puede equivocarse. Las decisiones sobre tu salud tómalas con un profesional."}}, {"@type": "Question", "name": "¿Y si me siento muy mal ahora?", "acceptedAnswer": {"@type": "Answer", "text": "No esperes a Lumi. Llama gratis a la Línea 113, opción 5, a cualquier hora. Si estás en peligro inmediato, llama al SAMU 106. Pedir ayuda funciona: mucha gente que pasó por momentos así hoy está mejor."}}, {"@type": "Question", "name": "¿Lumi reemplaza al psicólogo?", "acceptedAnswer": {"@type": "Answer", "text": "No. Lumi orienta y acompaña, pero no diagnostica ni da tratamiento. Su trabajo es que llegues al servicio de psicología de tu universidad cuando lo necesites."}}, {"@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": {"@type": "Answer", "text": "Para el estudiante será gratis: la idea es que cada universidad lo ofrezca, como ofrece la biblioteca o el correo."}}, {"@type": "Question", "name": "¿Quién puede leer lo que le cuento a Lumi?", "acceptedAnswer": {"@type": "Answer", "text": "Tu universidad no ve tus conversaciones ni sabe quién eres. Solo recibe cifras generales y anónimas, nunca de grupos de menos de 20 estudiantes."}}, {"@type": "Question", "name": "¿Ya puedo usarlo?", "acceptedAnswer": {"@type": "Answer", "text": "Todavía no. Lumi está en desarrollo: hoy es un prototipo que probamos con estudiantes y la IA aún no está conectada. Si quieres probarlo, escríbenos."}}]}</script>
 <script>document.documentElement.lang='es'</script>
@@ -878,6 +883,9 @@ html{scroll-padding-top:90px}
   }
 
   document.querySelectorAll('a[data-motivo=univ]').forEach(a => a.addEventListener('click', () => { const r = document.getElementById('m-univ'); if (r) r.checked = true; }));
+
+  // Al tocar a Lumi con el mouse o el dedo no se deja el recuadro de foco (con teclado sí se ve)
+  { const lv = document.getElementById('lumiVivo'); if (lv) lv.addEventListener('pointerup', () => setTimeout(() => lv.blur(), 0)); }
 
   // Pausar animaciones (se recuerda la elección)
   try { if (localStorage.getItem('lumi-quieto') === '1') { document.body.classList.add('quieto'); document.getElementById('pausa').textContent = 'Reanudar animaciones'; } } catch (e) {}
