@@ -423,6 +423,12 @@ html{scroll-padding-top:90px}
 .univ-fig figcaption{margin-top:14px}
 .univ-nota{background:#fff}
 @media (max-width:900px){.univ-grid{grid-template-columns:minmax(0,1fr)}.univ-fig img{box-shadow:var(--sh-s)}}
+
+/* Sin repeticiones (18-nov) */
+.busca{padding-block:56px}
+.busca .cuatro{margin-top:0}
+.metas2{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:760px){.metas2{grid-template-columns:minmax(0,1fr)}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es MenteSana y qué es Lumi?", "acceptedAnswer": {"@type": "Answer", "text": "MenteSana es una startup peruana de salud mental universitaria. Lumi es su producto: el acompañante con IA que usan los estudiantes, junto con un panel anónimo para la universidad."}}, {"@type": "Question", "name": "¿Lumi es una persona?", "acceptedAnswer": {"@type": "Answer", "text": "No. Es una inteligencia artificial. Puede ayudarte a ordenar ideas y a dar el primer paso, pero puede equivocarse. Las decisiones sobre tu salud tómalas con un profesional."}}, {"@type": "Question", "name": "¿Y si me siento muy mal ahora?", "acceptedAnswer": {"@type": "Answer", "text": "No esperes a Lumi. Llama gratis a la Línea 113, opción 5, a cualquier hora. Si estás en peligro inmediato, llama al SAMU 106. Pedir ayuda funciona: mucha gente que pasó por momentos así hoy está mejor."}}, {"@type": "Question", "name": "¿Lumi reemplaza al psicólogo?", "acceptedAnswer": {"@type": "Answer", "text": "No. Lumi orienta y acompaña, pero no diagnostica ni da tratamiento. Su trabajo es que llegues al servicio de psicología de tu universidad cuando lo necesites."}}, {"@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": {"@type": "Answer", "text": "Para el estudiante será gratis: la idea es que cada universidad lo ofrezca, como ofrece la biblioteca o el correo."}}, {"@type": "Question", "name": "¿Quién puede leer lo que le cuento a Lumi?", "acceptedAnswer": {"@type": "Answer", "text": "Tu universidad no ve tus conversaciones ni sabe quién eres. Solo recibe cifras generales y anónimas, nunca de grupos de menos de 20 estudiantes."}}, {"@type": "Question", "name": "¿Ya puedo usarlo?", "acceptedAnswer": {"@type": "Answer", "text": "Todavía no. Lumi está en desarrollo: hoy es un prototipo que probamos con estudiantes y la IA aún no está conectada. Si quieres probarlo, escríbenos."}}]}</script>
 <script>document.documentElement.lang='es'</script>
@@ -541,11 +547,9 @@ html{scroll-padding-top:90px}
 </section>
 
 <!-- 5 · LO QUE HACE -->
-<section class="slide busca" id="busca">
+<section class="slide busca" id="busca" aria-label="Lo que hace Lumi">
   <span class="forma anillo gira" style="width:160px;height:160px;color:#fff;left:-40px;top:40px;opacity:.7" aria-hidden="true"></span>
   <div class="env">
-    <span class="etq" data-a="pop">Lo que hace Lumi</span>
-    <h2 class="h2" data-a="sube">Lumi escucha, orienta y te acompaña</h2>
     <div class="cuatro">
       <div data-a="tumbo" style="--d:0"><img class="sticker flota" src="assets/bordes/lumi_audifonos.webp" alt="" loading="lazy" style="animation-delay:-1s"><h3>Escuchar</h3><p>Sin interrumpirte ni apurarte.</p></div>
       <div data-a="tumbo" style="--d:2"><img class="sticker flota" src="assets/bordes/lumi_lentes.webp" alt="" loading="lazy" style="animation-delay:-2.5s"><h3>Orientar</h3><p>Pasos pequeños y concretos.</p></div>
@@ -603,11 +607,9 @@ html{scroll-padding-top:90px}
     <span class="etq" data-a="pop">El impacto que buscamos</span>
     <h2 class="h2" data-a="sube">Que llegar a la ayuda sea más fácil</h2>
     <div class="metas2">
-      <article class="meta" data-a="sube" style="--d:0"><span class="em" style="background:var(--menta)"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg></span><h3>Más estudiantes llegan</h3><p>al servicio de psicología de su universidad.</p></article>
       <article class="meta" data-a="sube" style="--d:1"><span class="em" style="background:var(--amarillo)"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Menos días de espera</h3><p>entre pedir ayuda y la primera cita.</p></article>
       <article class="meta" data-a="sube" style="--d:2"><span class="em" style="background:var(--lila)"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><h3>Pedir ayuda antes</h3><p>no cuando ya no puedes más.</p></article>
       <article class="meta" data-a="sube" style="--d:3"><span class="em" style="background:#FFC9BA"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/><path d="M22 9v5"/></svg></span><h3>Más estudiantes siguen en la U</h3><p>porque piden ayuda a tiempo.</p></article>
-      <article class="meta" data-a="sube" style="--d:4"><span class="em" style="background:var(--menta-2)"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V11M10 20V5M16 20v-7M21 20H3"/></svg></span><h3>Mejores decisiones</h3><p>de tu universidad, con datos anónimos.</p></article>
     </div>
   </div>
 </section>
