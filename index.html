@@ -361,6 +361,44 @@ html{scroll-padding-top:90px}
 .univ-fig img{display:block;width:100%;height:auto;border-radius:14px}
 .univ-fig figcaption{font-size:.88rem;margin-top:10px;text-align:center}
 @media (max-width:900px){.univ-grid{grid-template-columns:minmax(0,1fr);gap:36px}.univ-fig{transform:none;box-shadow:5px 5px 0 var(--tinta)}}
+/* Formulario rápido (propuesta 18-nov) */
+[hidden]{display:none!important}
+.form-prueba{gap:12px}
+.form-prueba .campo{display:grid;gap:6px;align-content:start}
+.form-prueba .campo[hidden]{display:none}
+.form-prueba .campo>label{display:block;font-weight:800}
+.form-prueba [aria-invalid=true]{border-color:#B3261E!important;background:#FFF4F2!important}
+.e-campo{color:#B3261E;font-weight:800;font-size:.92rem;margin:0}
+.e-campo:empty{display:none}
+.e-campo button{font:inherit;color:inherit;text-decoration:underline;background:none;border:0;padding:0;cursor:pointer}
+.mas{justify-self:start;font:800 .98rem var(--texto);color:var(--tinta);background:none;border:0;padding:10px 0;min-height:44px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.mas small{font-weight:600;color:#5D5675}
+.mas[hidden]{display:none}
+.quiero label{min-height:44px}
+.quiero input{accent-color:var(--morado)}
+.form-prueba button[type=submit]{justify-self:stretch}
+@media (min-width:561px){.form-prueba button[type=submit]{justify-self:start}}
+@media (max-width:560px){.quiero{gap:8px}.quiero label{padding:7px 12px;font-size:.95rem;gap:6px}}
+
+/* Nitidez (18-nov) */
+.junto{white-space:nowrap}
+.portada h1{font-size:clamp(2.8rem,1.4rem + 5.4vw,5.4rem)}
+[data-a]{animation-timing-function:cubic-bezier(.2,.7,.2,1);animation-range:entry calc(var(--d,0) * 3%) entry calc(38% + var(--d,0) * 3%)}
+[data-a="barre"]{animation-timing-function:linear}
+@keyframes a-sube{from{opacity:0;translate:0 28px}}
+@keyframes a-pop{from{opacity:0;scale:.88}}
+@keyframes a-izq{from{opacity:0;translate:-44px 0}}
+@keyframes a-der{from{opacity:0;translate:44px 0}}
+@keyframes a-tumbo{from{opacity:0;rotate:-8deg;scale:.9}}
+@keyframes a-cae{from{opacity:0;translate:0 -32px}}
+.univ-fig{transform:none}
+/* Stickers de Lumi: el borde blanco viene horneado en la imagen (assets/bordes/) en vez de 5 filtros
+   que el navegador recalculaba mientras flotaban; solo queda la sombra suave, y flotan sin girar */
+.sticker{filter:drop-shadow(0 12px 18px rgba(30,27,46,.18))}
+@keyframes flota-sticker{0%,100%{translate:0 0}50%{translate:0 -10px}}
+.sticker.flota{animation-name:flota-sticker}
+/* Entradas de la portada sin saltos de escala (el texto quedaba pixelado tras escalar desde 40 %) */
+@keyframes pop{from{opacity:0;translate:0 14px}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es MenteSana y qué es Lumi?", "acceptedAnswer": {"@type": "Answer", "text": "MenteSana es una startup peruana de salud mental universitaria. Lumi es su producto: el acompañante con IA que usan los estudiantes, junto con un panel anónimo para la universidad."}}, {"@type": "Question", "name": "¿Lumi es una persona?", "acceptedAnswer": {"@type": "Answer", "text": "No. Es una inteligencia artificial. Puede ayudarte a ordenar ideas y a dar el primer paso, pero puede equivocarse. Las decisiones sobre tu salud tómalas con un profesional."}}, {"@type": "Question", "name": "¿Y si me siento muy mal ahora?", "acceptedAnswer": {"@type": "Answer", "text": "No esperes a Lumi. Llama gratis a la Línea 113, opción 5, a cualquier hora. Si estás en peligro inmediato, llama al SAMU 106. Pedir ayuda funciona: mucha gente que pasó por momentos así hoy está mejor."}}, {"@type": "Question", "name": "¿Lumi reemplaza al psicólogo?", "acceptedAnswer": {"@type": "Answer", "text": "No. Lumi orienta y acompaña, pero no diagnostica ni da tratamiento. Su trabajo es que llegues al servicio de psicología de tu universidad cuando lo necesites."}}, {"@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": {"@type": "Answer", "text": "Para el estudiante será gratis: la idea es que cada universidad lo ofrezca, como ofrece la biblioteca o el correo."}}, {"@type": "Question", "name": "¿Quién puede leer lo que le cuento a Lumi?", "acceptedAnswer": {"@type": "Answer", "text": "Tu universidad no ve tus conversaciones ni sabe quién eres. Solo recibe cifras generales y anónimas, nunca de grupos de menos de 20 estudiantes."}}, {"@type": "Question", "name": "¿Ya puedo usarlo?", "acceptedAnswer": {"@type": "Answer", "text": "Todavía no. Lumi está en desarrollo: hoy es un prototipo que probamos con estudiantes y la IA aún no está conectada. Si quieres probarlo, escríbenos."}}]}</script>
 <script>document.documentElement.lang='es'</script>
@@ -388,7 +426,7 @@ html{scroll-padding-top:90px}
   <div class="env">
     <div>
       <span class="insignia c1"><i></i>En desarrollo · pide tu prueba</span>
-      <h1 aria-label="Alguien que te escucha, a cualquier hora"><span class="pal c1" style="animation-delay:.05s">Alguien</span> <span class="pal c1" style="animation-delay:.15s">que</span> <span class="pal c1 subrayado" style="animation-delay:.25s">te escucha<svg viewBox="0 0 200 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 20 C 50 6, 120 6, 196 16"/></svg></span><span class="pal c1" style="animation-delay:.35s">,</span> <span class="pal c1" style="animation-delay:.45s">a</span> <span class="pal c1" style="animation-delay:.55s">cualquier</span> <span class="pal c1" style="animation-delay:.65s">hora</span></h1>
+      <h1 aria-label="Alguien que te escucha, a cualquier hora"><span class="pal c1" style="animation-delay:.05s">Alguien</span> <span class="pal c1" style="animation-delay:.15s">que</span> <span class="junto"><span class="pal c1 subrayado" style="animation-delay:.25s">te escucha<svg viewBox="0 0 200 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 20 C 50 6, 120 6, 196 16"/></svg></span><span class="pal c1" style="animation-delay:.35s">,</span></span> <span class="pal c1" style="animation-delay:.45s">a</span> <span class="pal c1" style="animation-delay:.55s">cualquier</span> <span class="pal c1" style="animation-delay:.65s">hora</span></h1>
       <p class="c1" style="animation-delay:.8s">Lumi es el acompañante de salud mental con IA de MenteSana para universitarios. No es una persona: te escucha sin juzgarte y te ayuda a llegar al psicólogo de tu universidad.</p>
       <div class="botones c1" style="animation-delay:.95s"><a class="btn amarillo" href="#contacto">Quiero probar a Lumi</a><a class="btn blanco" href="#como">Cómo funciona</a></div>
     </div>
@@ -411,8 +449,8 @@ html{scroll-padding-top:90px}
         </g>
       </svg>
       <span aria-hidden="true" class="toca c-pop" style="animation-delay:1.6s">Tócalo</span>
-      <img class="mini sticker flota" src="assets/lumi_audifonos.webp" alt="" style="left:-4%;bottom:10%;animation-delay:-2s">
-      <img class="mini sticker flota" src="assets/lumi_lentes.webp" alt="" style="right:-2%;bottom:2%;animation-delay:-4s">
+      <img class="mini sticker flota" src="assets/bordes/lumi_audifonos.webp" alt="" style="left:-4%;bottom:10%;animation-delay:-2s">
+      <img class="mini sticker flota" src="assets/bordes/lumi_lentes.webp" alt="" style="right:-2%;bottom:2%;animation-delay:-4s">
       <span class="globo c-pop" aria-hidden="true" style="animation-delay:1.1s">¡Hola! ¿Cómo estás?</span>
     </div>
   </div>
@@ -485,10 +523,10 @@ html{scroll-padding-top:90px}
     <span class="etq" data-a="pop">Lo que hace Lumi</span>
     <h2 class="h2" data-a="sube">Lumi escucha, orienta y te acompaña</h2>
     <div class="cuatro">
-      <div data-a="tumbo" style="--d:0"><img class="sticker flota" src="assets/lumi_audifonos.webp" alt="" loading="lazy" style="animation-delay:-1s"><h3>Escuchar</h3><p>Sin interrumpirte ni apurarte.</p></div>
-      <div data-a="tumbo" style="--d:2"><img class="sticker flota" src="assets/lumi_lentes.webp" alt="" loading="lazy" style="animation-delay:-2.5s"><h3>Orientar</h3><p>Pasos pequeños y concretos.</p></div>
-      <div data-a="tumbo" style="--d:4"><img class="sticker flota" src="assets/lumi_gorro.webp" alt="" loading="lazy" style="animation-delay:-4s"><h3>Acompañar</h3><p>Contigo hasta que estés listo para dar el paso.</p></div>
-      <div data-a="tumbo" style="--d:6"><img class="sticker flota" src="assets/lumi_flor.webp" alt="" loading="lazy" style="animation-delay:-5.5s"><h3>Animarte</h3><p>Pedir ayuda no es exagerar.</p></div>
+      <div data-a="tumbo" style="--d:0"><img class="sticker flota" src="assets/bordes/lumi_audifonos.webp" alt="" loading="lazy" style="animation-delay:-1s"><h3>Escuchar</h3><p>Sin interrumpirte ni apurarte.</p></div>
+      <div data-a="tumbo" style="--d:2"><img class="sticker flota" src="assets/bordes/lumi_lentes.webp" alt="" loading="lazy" style="animation-delay:-2.5s"><h3>Orientar</h3><p>Pasos pequeños y concretos.</p></div>
+      <div data-a="tumbo" style="--d:4"><img class="sticker flota" src="assets/bordes/lumi_gorro.webp" alt="" loading="lazy" style="animation-delay:-4s"><h3>Acompañar</h3><p>Contigo hasta que estés listo para dar el paso.</p></div>
+      <div data-a="tumbo" style="--d:6"><img class="sticker flota" src="assets/bordes/lumi_flor.webp" alt="" loading="lazy" style="animation-delay:-5.5s"><h3>Animarte</h3><p>Pedir ayuda no es exagerar.</p></div>
     </div>
   </div>
 </section>
@@ -506,7 +544,6 @@ html{scroll-padding-top:90px}
       <article class="escudo" data-a="pop" style="--d:2"><span class="ico" style="background:var(--menta-2)"><svg viewBox="0 0 24 24" fill="none" stroke="#0F4A3B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><h3>Tu universidad no lee tus chats</h3><p>Solo recibirá totales anónimos de grupos de 20 estudiantes o más. Antes de abrir pruebas publicaremos qué datos guardamos y cómo borrarlos.</p></article>
       <article class="escudo" data-a="pop" style="--d:3"><span class="ico" style="background:var(--lila)"><svg viewBox="0 0 24 24" fill="none" stroke="#5E46A0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><h3>Tú decides siempre</h3><p>Nada pasa sin tu permiso. Lumi no llama ni agenda por ti: si estás en peligro, llama al 113 o al 106.</p></article>
     </div>
-    <p class="fuente" style="margin-top:24px">Tomamos como referencia el aviso de la Asociación Americana de Psicología sobre IA y salud mental (2025), la Ley 30947 de Salud Mental y la Ley 29733 de protección de datos personales.</p>
   </div>
 </section>
 
@@ -603,24 +640,36 @@ html{scroll-padding-top:90px}
     <h2 class="h2" data-a="sube" style="margin-inline:auto">¿Quieres probar a Lumi antes del lanzamiento?</h2>
     <p class="cierre-lead" data-a="sube" style="--d:1">Estamos haciendo a Lumi junto con estudiantes. Cuéntanos qué le cambiarías o pide una prueba del prototipo para conversar con él.</p>
     <form class="form-prueba" id="formPrueba" data-a="pop" style="--d:2" novalidate>
-      <div class="fila2">
-        <label for="f-nombre"><span>Nombre <small>(opcional)</small></span><input id="f-nombre" name="nombre" autocomplete="given-name" maxlength="60"></label>
-        <label for="f-correo"><span>Correo</span><input id="f-correo" name="correo" type="email" autocomplete="email" required maxlength="100"></label>
-      </div>
-      <label for="f-uni"><span>Universidad</span><input id="f-uni" name="universidad" autocomplete="organization" required maxlength="100"></label>
       <fieldset class="quiero"><legend>¿Qué quieres hacer?</legend>
         <label><input type="radio" name="motivo" value="Quiero probar el prototipo de Lumi" checked> Probar el prototipo</label>
-        <label><input type="radio" name="motivo" value="Quiero dar mi opinión sobre Lumi"> Dar mi opinión</label>
+        <label><input type="radio" name="motivo" value="Quiero dar mi opinión sobre Lumi" id="m-opina"> Dar mi opinión</label>
         <label><input type="radio" name="motivo" value="Quiero conversar sobre Lumi para mi universidad" id="m-univ"> Hablar por mi universidad</label>
       </fieldset>
-      <label for="f-msg"><span>Tu mensaje <small>(opcional)</small></span><textarea id="f-msg" name="mensaje" rows="3" maxlength="500" aria-describedby="f-msg-ayuda"></textarea></label>
-      <p class="ayuda-campo" id="f-msg-ayuda">No incluyas información sobre tu salud: aquí solo queremos saber cómo contactarte.</p>
-      <label class="check"><input type="checkbox" id="f-edad" required> <span>Tengo 18 años o más.</span></label>
-      <label class="check"><input type="checkbox" id="f-ok" required> <span>Leí el <a href="#privacidad">aviso de privacidad</a> y acepto que MenteSana use estos datos solo para responderme.</span></label>
-      <p class="error-form" id="errorForm" role="alert"></p>
-      <button class="btn amarillo" type="submit">Enviar</button>
+      <div class="fila2">
+        <div class="campo">
+          <label for="f-correo">Tu correo</label>
+          <input id="f-correo" name="correo" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" enterkeyhint="next" required maxlength="100" aria-describedby="e-correo">
+          <p class="e-campo" id="e-correo"></p>
+        </div>
+        <div class="campo">
+          <label for="f-uni">Tu universidad</label>
+          <input id="f-uni" name="universidad" list="unis" autocomplete="organization" enterkeyhint="done" required maxlength="100" aria-describedby="e-uni">
+          <datalist id="unis"><option value="UCSUR"><option value="PUCP"><option value="UPC"><option value="UNMSM"><option value="Universidad de Lima"><option value="UPCH"><option value="UNI"><option value="USIL"><option value="UTEC"><option value="Universidad del Pacífico"></datalist>
+          <p class="e-campo" id="e-uni"></p>
+        </div>
+      </div>
+      <button class="mas" type="button" id="masMsg" aria-expanded="false" aria-controls="cajaMsg">+ Añadir un comentario <small>(opcional)</small></button>
+      <div class="campo" id="cajaMsg" hidden>
+        <label for="f-msg">Tu comentario <small>(opcional)</small></label>
+        <textarea id="f-msg" name="mensaje" rows="3" maxlength="500" aria-describedby="f-msg-ayuda"></textarea>
+        <p class="ayuda-campo" id="f-msg-ayuda">No incluyas información sobre tu salud.</p>
+      </div>
+      <label class="check"><input type="checkbox" id="f-ok" required aria-describedby="e-ok"> <span>Tengo 18 años o más y acepto el <a href="#privacidad">aviso de privacidad</a>.</span></label>
+      <p class="e-campo" id="e-ok"></p>
+      <button class="btn amarillo" type="submit">Enviar desde mi correo</button>
+      <p class="ayuda-campo">Se abre tu correo con el mensaje listo. Solo presionas enviar.</p>
       <div class="plan-b" id="planB" hidden>
-        <p>Abrimos tu correo con el mensaje listo: solo presiona enviar. Si no se abrió, copia este texto y envíalo a <b>mentesanalumi@gmail.com</b>:</p>
+        <p>¿No se abrió tu correo? Copia este texto y envíalo a <b>mentesanalumi@gmail.com</b>:</p>
         <textarea id="textoListo" rows="6" readonly aria-label="Texto listo para enviar a MenteSana"></textarea>
         <button class="btn blanco" type="button" id="copiarTexto">Copiar el texto</button>
       </div>
@@ -629,7 +678,7 @@ html{scroll-padding-top:90px}
       <summary>Aviso de privacidad del formulario</summary>
       <div>
         <p><b>Quién recibe tus datos.</b> El equipo de MenteSana, un proyecto estudiantil en desarrollo. Contacto: mentesanalumi@gmail.com.</p>
-        <p><b>Qué datos pedimos y para qué.</b> Tu nombre (opcional), tu correo, tu universidad y tu mensaje. Los usamos solo para responderte, coordinar una prueba del prototipo o tener en cuenta tu opinión. No los usamos para publicidad ni los vendemos.</p>
+        <p><b>Qué datos pedimos y para qué.</b> Tu correo, tu universidad y, si quieres, un comentario. Los usamos solo para responderte, coordinar una prueba del prototipo o tener en cuenta tu opinión. No los usamos para publicidad ni los vendemos.</p>
         <p><b>Dónde quedan.</b> El formulario abre tu propio correo y el mensaje llega a nuestra cuenta de Gmail (Google), cuyos servidores pueden estar fuera del Perú. No pedimos ni queremos datos sobre tu salud en este formulario.</p>
         <p><b>Cuánto tiempo.</b> Solo mientras dure el desarrollo del prototipo. Puedes pedir que los borremos cuando quieras.</p>
         <p><b>Tus derechos.</b> Puedes pedir acceso, corrección o eliminación de tus datos, gratis, escribiendo a mentesanalumi@gmail.com. Si no te respondemos, puedes reclamar ante la Autoridad Nacional de Protección de Datos Personales (Ministerio de Justicia y Derechos Humanos), según la Ley 29733.</p>
@@ -640,7 +689,7 @@ html{scroll-padding-top:90px}
     <div class="correo" data-a="pop" style="--d:1"><span id="correo">mentesanalumi@gmail.com</span><button class="btn amarillo" type="button" id="copiar">Copiar</button></div>
     <p class="estado" id="estado" role="status" aria-live="polite"></p>
     <p class="no-crisis">Este correo no es un canal de ayuda en crisis. Si lo necesitas ahora, llama al <a href="tel:113">113, opción 5</a>.</p>
-    <img class="lumi-saluda sticker flota" src="assets/lumi_motivador.webp" alt="Lumi saludando" loading="lazy">
+    <img class="lumi-saluda sticker flota" src="assets/bordes/lumi_motivador.webp" alt="Lumi saludando" loading="lazy">
   </div>
 </section>
 </main>
@@ -712,27 +761,57 @@ html{scroll-padding-top:90px}
   mm.addEventListener('click', e => { if (e.target.closest('a')) cerrarMenu(); });
   addEventListener('keydown', e => { if (e.key === 'Escape' && !mm.hidden) { cerrarMenu(); mb.focus(); } });
 
-  // Formulario de prueba: valida, arma el correo y deja un plan B para copiar
+  // Formulario rápido: chips, comentario plegable, validación en línea, mailto + plan B
   const fp = document.getElementById('formPrueba');
   if (fp) {
-    const err = document.getElementById('errorForm'), planB = document.getElementById('planB'), listo = document.getElementById('textoListo');
+    const $ = id => document.getElementById(id);
+    const planB = $('planB'), listo = $('textoListo'), caja = $('cajaMsg'), mas = $('masMsg');
+    const abrirMsg = foco => { caja.hidden = false; mas.hidden = true; mas.setAttribute('aria-expanded', 'true'); if (foco) $('f-msg').focus(); };
+    mas.addEventListener('click', () => abrirMsg(true));
+    // "Dar mi opinión" sin caja de comentario no tiene sentido: se abre sola
+    fp.querySelectorAll('input[name=motivo]').forEach(r => r.addEventListener('change', () => { if ($('m-opina').checked) abrirMsg(false); }));
+    const typos = { 'gmial.com': 'gmail.com', 'gmai.com': 'gmail.com', 'gmail.co': 'gmail.com', 'gamil.com': 'gmail.com', 'hotmial.com': 'hotmail.com', 'hotmail.co': 'hotmail.com', 'outlok.com': 'outlook.com' };
+    const reglas = {
+      'f-correo': el => { const c = el.value.trim(); if (!c) return 'Escribe tu correo para poder responderte.'; if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(c)) return 'Revisa tu correo: debe verse como nombre@gmail.com.'; return ''; },
+      'f-uni': el => el.value.trim() ? '' : 'Escribe tu universidad.',
+      'f-ok': el => el.checked ? '' : 'Marca la casilla para enviar. Por ahora las pruebas son solo para mayores de 18 años.'
+    };
+    const errDe = { 'f-correo': 'e-correo', 'f-uni': 'e-uni', 'f-ok': 'e-ok' };
+    const marcar = id => {
+      const el = $(id), msg = reglas[id](el), e = $(errDe[id]);
+      e.textContent = msg; el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      if (id === 'f-correo' && !msg) { // sugerencia ante error de tipeo, sin bloquear el envío
+        const [u, d] = el.value.trim().toLowerCase().split('@');
+        if (typos[d]) {
+          const b = document.createElement('button'); b.type = 'button'; b.textContent = u + '@' + typos[d];
+          b.onclick = () => { el.value = b.textContent; e.textContent = ''; el.focus(); };
+          e.append('¿Quisiste decir ', b, '?');
+        }
+      }
+      return !msg;
+    };
+    // Se valida al salir del campo (no mientras escribe) y el error se borra en cuanto se corrige
+    Object.keys(reglas).forEach(id => {
+      const el = $(id), cb = el.type === 'checkbox';
+      el.addEventListener(cb ? 'change' : 'blur', () => { if (cb || el.value || el.getAttribute('aria-invalid') === 'true') marcar(id); });
+      if (!cb) el.addEventListener('input', () => { if (el.getAttribute('aria-invalid') === 'true') marcar(id); });
+    });
+    // Enter en el correo pasa a la universidad (enterkeyhint="next")
+    $('f-correo').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); $('f-uni').focus(); } });
     fp.addEventListener('submit', e => {
-      e.preventDefault(); err.textContent = '';
-      const v = id => document.getElementById(id).value.trim();
-      const correo = v('f-correo'), uni = v('f-uni');
-      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(correo)) { err.textContent = 'Escribe un correo válido.'; document.getElementById('f-correo').focus(); return; }
-      if (!uni) { err.textContent = 'Escribe tu universidad.'; document.getElementById('f-uni').focus(); return; }
-      if (!document.getElementById('f-edad').checked) { err.textContent = 'Por ahora las pruebas son solo para mayores de 18 años.'; return; }
-      if (!document.getElementById('f-ok').checked) { err.textContent = 'Para enviarlo, acepta el aviso de privacidad.'; return; }
+      e.preventDefault();
+      const malos = Object.keys(reglas).filter(id => !marcar(id));
+      if (malos.length) { $(malos[0]).focus(); return; }
+      const v = id => $(id).value.trim();
       const motivo = fp.querySelector('input[name=motivo]:checked').value;
-      const texto = `Hola, equipo de MenteSana.\n\n${motivo}.\n\nNombre: ${v('f-nombre') || '(no lo indiqué)'}\nCorreo: ${correo}\nUniversidad: ${uni}\nMensaje: ${v('f-msg') || '(sin mensaje)'}\n\nTengo 18 años o más y acepto el aviso de privacidad del formulario.`;
+      const texto = `Hola, equipo de MenteSana.\n\n${motivo}.\n\nCorreo: ${v('f-correo')}\nUniversidad: ${v('f-uni')}\nComentario: ${v('f-msg') || '(sin comentario)'}\n\nTengo 18 años o más y acepto el aviso de privacidad del formulario.`;
       listo.value = texto; planB.hidden = false;
       location.href = 'mailto:mentesanalumi@gmail.com?subject=' + encodeURIComponent(motivo) + '&body=' + encodeURIComponent(texto);
     });
-    document.getElementById('copiarTexto').addEventListener('click', () => {
-      try { navigator.clipboard.writeText(listo.value).then(() => { err.textContent = ''; listo.select(); }).catch(() => listo.select()); } catch (e) { listo.select(); }
+    $('copiarTexto').addEventListener('click', () => {
+      try { navigator.clipboard.writeText(listo.value).then(() => listo.select()).catch(() => listo.select()); } catch (e) { listo.select(); }
     });
-    document.querySelectorAll('a[href="#privacidad"]').forEach(a => a.addEventListener('click', () => { document.getElementById('privacidad').open = true; }));
+    document.querySelectorAll('a[href="#privacidad"]').forEach(a => a.addEventListener('click', () => { $('privacidad').open = true; }));
   }
 
   document.querySelectorAll('a[data-motivo=univ]').forEach(a => a.addEventListener('click', () => { const r = document.getElementById('m-univ'); if (r) r.checked = true; }));
