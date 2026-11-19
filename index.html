@@ -457,6 +457,18 @@ html{scroll-padding-top:90px}
 /* Misión en celular (18-nov) */
 @media (max-width:600px){.mv article{grid-template-columns:minmax(0,1fr);gap:12px}.mv .ico{width:56px;height:56px}}
 .ods-extra li b{font-size:1.2rem}
+
+/* Pulido (18-nov) */
+.toca{bottom:6%}
+.insignia i{animation:none}
+.pausa{font-size:.78rem;background:rgba(255,255,255,.92);box-shadow:none;opacity:.85}
+.pausa:hover,.pausa:focus-visible{opacity:1}
+.acordeon summary::after{content:"";background:linear-gradient(var(--tinta),var(--tinta)) center/14px 3px no-repeat,linear-gradient(var(--tinta),var(--tinta)) center/3px 14px no-repeat,var(--amarillo)}
+@media (min-width:901px){
+  .faq .env{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:56px;align-items:start}
+  .faq .h2{position:sticky;top:110px}
+  .faq .acordeon{margin-top:0;max-width:none}
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es MenteSana y qué es Lumi?", "acceptedAnswer": {"@type": "Answer", "text": "MenteSana es una startup peruana de salud mental universitaria. Lumi es su producto: el acompañante con IA que usan los estudiantes, junto con un panel anónimo para la universidad."}}, {"@type": "Question", "name": "¿Lumi es una persona?", "acceptedAnswer": {"@type": "Answer", "text": "No. Es una inteligencia artificial. Puede ayudarte a ordenar ideas y a dar el primer paso, pero puede equivocarse. Las decisiones sobre tu salud tómalas con un profesional."}}, {"@type": "Question", "name": "¿Y si me siento muy mal ahora?", "acceptedAnswer": {"@type": "Answer", "text": "No esperes a Lumi. Llama gratis a la Línea 113, opción 5, a cualquier hora. Si estás en peligro inmediato, llama al SAMU 106. Pedir ayuda funciona: mucha gente que pasó por momentos así hoy está mejor."}}, {"@type": "Question", "name": "¿Lumi reemplaza al psicólogo?", "acceptedAnswer": {"@type": "Answer", "text": "No. Lumi orienta y acompaña, pero no diagnostica ni da tratamiento. Su trabajo es que llegues al servicio de psicología de tu universidad cuando lo necesites."}}, {"@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": {"@type": "Answer", "text": "Para el estudiante será gratis: la idea es que cada universidad lo ofrezca, como ofrece la biblioteca o el correo."}}, {"@type": "Question", "name": "¿Quién puede leer lo que le cuento a Lumi?", "acceptedAnswer": {"@type": "Answer", "text": "Tu universidad no ve tus conversaciones ni sabe quién eres. Solo recibe cifras generales y anónimas, nunca de grupos de menos de 20 estudiantes."}}, {"@type": "Question", "name": "¿Ya puedo usarlo?", "acceptedAnswer": {"@type": "Answer", "text": "Todavía no. Lumi está en desarrollo: hoy es un prototipo que probamos con estudiantes y la IA aún no está conectada. Si quieres probarlo, escríbenos."}}]}</script>
 <script>document.documentElement.lang='es'</script>
@@ -477,7 +489,7 @@ html{scroll-padding-top:90px}
 <!-- 1 · PORTADA -->
 <section class="slide portada" id="inicio">
   <span class="forma blob morfo" style="width:260px;height:240px;background:var(--amarillo);left:-60px;top:110px" aria-hidden="true"></span>
-  <span class="forma circulo flota" style="width:120px;height:120px;background:var(--coral);right:6%;bottom:8%" aria-hidden="true"></span>
+  <span class="forma circulo flota" style="width:120px;height:120px;background:var(--coral);right:2%;bottom:2%" aria-hidden="true"></span>
   <span class="forma anillo gira" style="width:180px;height:180px;color:#fff;right:-50px;top:90px;opacity:.6" aria-hidden="true"></span>
   <span class="forma chispa titila" style="left:44%;top:16%" aria-hidden="true"></span>
   <span class="forma chispa titila" style="left:8%;bottom:16%;animation-delay:-1s;background:#fff" aria-hidden="true"></span>
@@ -562,7 +574,6 @@ html{scroll-padding-top:90px}
   <span class="forma circulo flota" style="width:160px;height:160px;background:var(--amarillo);left:-50px;bottom:40px" aria-hidden="true"></span>
   <span class="forma anillo gira" style="width:140px;height:140px;color:var(--lila);right:4%;top:60px" aria-hidden="true"></span>
   <div class="env">
-    <span class="etq" data-a="pop">Cómo funciona</span>
     <h2 class="h2" data-a="sube">Tres pasos, a tu ritmo</h2>
     <div class="pasos">
       <svg class="camino-pasos" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 C 200 -10, 300 50, 500 20 S 800 -10, 1000 20" data-a="barre"/></svg>
@@ -592,7 +603,6 @@ html{scroll-padding-top:90px}
   <span class="forma anillo gira" style="width:150px;height:150px;color:var(--lila);right:-30px;top:50px" aria-hidden="true"></span>
   <span class="forma chispa titila" style="left:8%;top:14%;background:var(--coral)" aria-hidden="true"></span>
   <div class="env">
-    <span class="etq" data-a="pop">Seguro y privado</span>
     <h2 class="h2" data-a="sube">Un lugar seguro, con reglas claras</h2>
     <div class="escudos">
       <article class="escudo" data-a="pop" style="--d:0"><span class="ico" style="background:#FFE3DA"><svg viewBox="0 0 24 24" fill="none" stroke="#D9553A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-9-9.3C1.7 8.3 4 5 7.3 5c2 0 3.4 1.1 4.7 2.7C13.3 6.1 14.7 5 16.7 5 20 5 22.3 8.3 21 11.7 19 16.6 12 21 12 21z"/></svg></span><h3>Es una IA, no una persona</h3><p>Lumi orienta, pero puede equivocarse. No da diagnósticos ni tratamiento, y no reemplaza a un psicólogo.</p></article>
@@ -670,7 +680,6 @@ html{scroll-padding-top:90px}
 <section class="slide faq" id="preguntas">
   <span class="forma circulo flota" style="width:130px;height:130px;background:var(--amarillo);right:-30px;bottom:40px" aria-hidden="true"></span>
   <div class="env">
-    <span class="etq" data-a="pop">Preguntas frecuentes</span>
     <h2 class="h2" data-a="sube">Lo que más nos preguntan</h2>
     <div class="acordeon">
       <details name="faq" open><summary>¿Qué es MenteSana y qué es Lumi?</summary><p>MenteSana es una startup peruana de salud mental universitaria. Lumi es su producto: el acompañante con IA que usan los estudiantes, junto con un panel anónimo para la universidad.</p></details>
