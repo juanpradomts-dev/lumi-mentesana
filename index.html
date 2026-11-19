@@ -429,6 +429,14 @@ html{scroll-padding-top:90px}
 .busca .cuatro{margin-top:0}
 .metas2{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:760px){.metas2{grid-template-columns:minmax(0,1fr)}}
+
+/* Cómo funciona más limpio (18-nov) */
+.paso .ventana{-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.paso .ventana img{height:100%;object-fit:cover;object-position:50% 0}
+.paso .ventana-propuesta img{object-position:50% 62%}
+.camino-pasos{display:none}
+.burbujas{inset:auto -24px 12% auto}
+@media (max-width:860px){.burbujas{display:none}.paso .ventana{width:56%}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es MenteSana y qué es Lumi?", "acceptedAnswer": {"@type": "Answer", "text": "MenteSana es una startup peruana de salud mental universitaria. Lumi es su producto: el acompañante con IA que usan los estudiantes, junto con un panel anónimo para la universidad."}}, {"@type": "Question", "name": "¿Lumi es una persona?", "acceptedAnswer": {"@type": "Answer", "text": "No. Es una inteligencia artificial. Puede ayudarte a ordenar ideas y a dar el primer paso, pero puede equivocarse. Las decisiones sobre tu salud tómalas con un profesional."}}, {"@type": "Question", "name": "¿Y si me siento muy mal ahora?", "acceptedAnswer": {"@type": "Answer", "text": "No esperes a Lumi. Llama gratis a la Línea 113, opción 5, a cualquier hora. Si estás en peligro inmediato, llama al SAMU 106. Pedir ayuda funciona: mucha gente que pasó por momentos así hoy está mejor."}}, {"@type": "Question", "name": "¿Lumi reemplaza al psicólogo?", "acceptedAnswer": {"@type": "Answer", "text": "No. Lumi orienta y acompaña, pero no diagnostica ni da tratamiento. Su trabajo es que llegues al servicio de psicología de tu universidad cuando lo necesites."}}, {"@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": {"@type": "Answer", "text": "Para el estudiante será gratis: la idea es que cada universidad lo ofrezca, como ofrece la biblioteca o el correo."}}, {"@type": "Question", "name": "¿Quién puede leer lo que le cuento a Lumi?", "acceptedAnswer": {"@type": "Answer", "text": "Tu universidad no ve tus conversaciones ni sabe quién eres. Solo recibe cifras generales y anónimas, nunca de grupos de menos de 20 estudiantes."}}, {"@type": "Question", "name": "¿Ya puedo usarlo?", "acceptedAnswer": {"@type": "Answer", "text": "Todavía no. Lumi está en desarrollo: hoy es un prototipo que probamos con estudiantes y la IA aún no está conectada. Si quieres probarlo, escríbenos."}}]}</script>
 <script>document.documentElement.lang='es'</script>
@@ -539,7 +547,7 @@ html{scroll-padding-top:90px}
     <div class="pasos">
       <svg class="camino-pasos" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 C 200 -10, 300 50, 500 20 S 800 -10, 1000 20" data-a="barre"/></svg>
       <article class="paso" data-a="sube" style="--d:0"><span class="num">1</span><div class="ventana"><img src="assets/pantalla_bienvenida.webp" alt="Pantalla de bienvenida de Lumi" loading="lazy"></div><h3>Entra</h3><p>Con el correo de tu universidad.</p></article>
-      <article class="paso" data-a="sube" style="--d:2"><span class="num">2</span><div class="ventana"><img src="assets/pantalla_chat.webp" alt="Conversación con Lumi" loading="lazy"></div><h3>Conversa</h3><p>Lumi escucha y propone algo pequeño.</p></article>
+      <article class="paso" data-a="sube" style="--d:2"><span class="num">2</span><div class="ventana ventana-propuesta"><img src="assets/pantalla_chat.webp" alt="Lumi propone un paso pequeño en la conversación" loading="lazy"></div><h3>Conversa</h3><p>Lumi escucha y propone algo pequeño.</p></article>
       <article class="paso" data-a="sube" style="--d:4"><span class="num">3</span><div class="ventana"><img src="assets/pantalla_apoyo.webp" alt="Pantalla de apoyo profesional" loading="lazy"></div><h3>Llega</h3><p>Al psicólogo de tu universidad, cuando tú decidas.</p></article>
     </div>
     <div class="repite" data-a="pop"><a class="btn amarillo" href="#contacto">Quiero probar a Lumi</a></div>
